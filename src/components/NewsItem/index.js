@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './NewsItemStyleSheet.js';
 import styleConstants from '../../styleConstants.js';
+import WebBrowser from '../WebBrowser';
 
 export default class NewsItem extends Component {
   constructor(props) {
@@ -22,6 +23,12 @@ export default class NewsItem extends Component {
 
   _renderWebView(uri) {
     // Navigate to URI using WebView
+    this.props.navigator.push({
+      component: WebBrowser,
+      passProps: {
+        uri: uri
+      }
+    });
   }
 
   render() {
@@ -39,7 +46,7 @@ export default class NewsItem extends Component {
             <Text style={styles.body}>{body}</Text>
             <Text
               style={styles.link}
-              onPress={this._renderWebView(link)}>
+              onPress={() => this._renderWebView(link)}>
               Details
             </Text>
           </View>

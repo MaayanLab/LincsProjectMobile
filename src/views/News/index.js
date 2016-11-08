@@ -31,7 +31,7 @@ export default class News extends Component {
       <View style={styles.news}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <NewsItem story={rowData} />}
+          renderRow={(rowData) => <NewsItem navigator={this.props.navigator} story={rowData} />}
         />
       </View>
     );
