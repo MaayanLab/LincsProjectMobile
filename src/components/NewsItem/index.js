@@ -22,7 +22,8 @@ export default class NewsItem extends Component {
   }
 
   _renderWebView(uri) {
-    // Navigate to URI using WebView
+    // Navigate to URI using WebView.
+    // Need to resolve Apple SSL for secure sites.
     this.props.navigator.push({
       component: WebBrowser,
       passProps: {
@@ -37,7 +38,7 @@ export default class NewsItem extends Component {
     return (
       <View style={styles.item}>
         <View style={styles.leftPanel}>
-          <Icon name="star" size={15} color="#8e8e8e" />
+          <Icon name="star" size={15} color={styleConstants.gray} />
         </View>
         <View style={styles.rightPanel}>
           <View style={styles.info}>
