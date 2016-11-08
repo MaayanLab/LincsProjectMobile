@@ -9,20 +9,31 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  NavigatorIOS,
+  Navigator,
   View
 } from 'react-native';
-import Main from './src/components/Main.js';
+import News from './src/components/News.js';
 
 export default class LincsProjectMobile extends Component {
+  configureScene(route, routeStack) {
+    if (route.type === 'Modal') {
+      return Navigator.SceneConfigs.FloatFromBottom;
+    }
+    return Navigator.SceneConfigs.PushFromRight;
+  }
+
+  renderScene(route, navigator) {
+    let RouteComponent = route.component;
+    return <RouteComponent navigator={navigator} {...route.passProps} />;
+  }
+
   render() {
     return (
-      <NavigatorIOS
+      <Navigator
+        configureScene={ this.configureScene }
         style={styles.container}
-        initialRoute={{
-          title: 'LINCS Project',
-          component: Main,
-        }}
+        initialRoute={{ component: News }}
+        renderScene={ this.renderScene }
       />
     );
   }
@@ -31,8 +42,9 @@ export default class LincsProjectMobile extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#111111'
+    backgroundColor: '#323232',
   }
 });
+
 
 AppRegistry.registerComponent('LincsProjectMobile', () => LincsProjectMobile);
