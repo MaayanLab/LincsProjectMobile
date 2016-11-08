@@ -19,7 +19,7 @@ export default class NewsItem extends Component {
   }
 
   _renderWebView(uri) {
-    // Navigate to URI
+    // Navigate to URI using WebView
   }
 
   render() {
