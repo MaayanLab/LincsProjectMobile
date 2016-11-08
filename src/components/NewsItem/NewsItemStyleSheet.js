@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
 
   leftPanel: {
-    flex: 1,
+    width: 10,
   },
 
   info: {
