@@ -3,6 +3,8 @@ import { Text, View, ListView, StyleSheet } from 'react-native';
 import isEqual from 'lodash/isEqual';
 
 import NewsStyleSheet from './NewsStyleSheet.js';
+import NewsItem from '../../components/NewsItem';
+
 import { news } from '../../seed';
 
 const styles = StyleSheet.create(NewsStyleSheet);
@@ -14,7 +16,7 @@ export default class News extends Component {
       dataSource: ds.cloneWithRows(news)
     }
   }
-  
+
   _navigate(name, type='Normal') {
     this.props.navigator.push({
       component: Home,
@@ -30,7 +32,7 @@ export default class News extends Component {
       <View style={styles.mainContainer}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData.title}</Text>}
+          renderRow={(rowData) => <NewsItem story={rowData} />}
         />
       </View>
     );
