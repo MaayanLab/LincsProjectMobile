@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
 
-import NewsItemStyleSheet from './NewsItemStyleSheet.js';
+import styles from './NewsItemStyleSheet.js';
 
-const styles = StyleSheet.create(NewsItemStyleSheet);
 export default class NewsItem extends Component {
   constructor(props) {
     super(props);
@@ -19,14 +18,23 @@ export default class NewsItem extends Component {
     });
   }
 
+  _renderWebView(uri) {
+    // Navigate to URI
+  }
+
   render() {
     const { story } = this.props;
-    const { title, body, link } = story;
+    const { title, body, link, timestamp } = story;
     return (
-      <View style={styles.container}>
-        <Text>{title}</Text>
-        <Text>{body}</Text>
-        <Text>{link}</Text>
+      <View style={styles.item}>
+        <View style={styles.leftPanel}>
+
+        </View>
+        <View style={styles.info}>
+          <Text>{title}</Text>
+          <Text>{body}</Text>
+          <Text onPress={this._renderWebView(link)}>{link}</Text>
+        </View>
       </View>
     );
   }

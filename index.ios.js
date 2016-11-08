@@ -2,14 +2,14 @@
   Navigation was built following this example.
   https://medium.com/react-native-training/react-native-navigator-navigating-like-a-pro-in-react-native-3cb1b6dc1e30#.lrbsi8e42
  */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
   Navigator,
-  View
+  View,
+  StatusBar
 } from 'react-native';
 import News from './src/views/News';
 
@@ -61,18 +61,22 @@ export default class LincsProjectMobile extends Component {
 
   render() {
     return (
-      <Navigator
-        configureScene={this.configureScene}
-        style={styles.container}
-        initialRoute={{ component: News }}
-        renderScene={this.renderScene}
-        navigationBar = {
-          <Navigator.NavigationBar
-            style={styles.nav}
-            routeMapper={NavigationBarRouteMapper}
-          />
-        }
-      />
+      <View style={styles.container}>
+        <StatusBar
+         barStyle="light-content"
+        />
+        <Navigator
+          configureScene={this.configureScene}
+          initialRoute={{ component: News }}
+          renderScene={this.renderScene}
+          navigationBar = {
+            <Navigator.NavigationBar
+              style={styles.nav}
+              routeMapper={NavigationBarRouteMapper}
+            />
+          }
+        />
+      </View>
     );
   }
 }

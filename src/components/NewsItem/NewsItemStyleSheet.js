@@ -1,11 +1,21 @@
-const NewsItemStyleSheet = {
-  container: {
+import React from 'react';
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  item: {
     flex: 1,
     padding: 30,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF'
   },
-};
 
-export default NewsItemStyleSheet;
+  leftPanel: {
+    flex: 1,
+  },
+
+  info: {
+    flex: 10,
+    flexDirection: 'column',
+  }
+});

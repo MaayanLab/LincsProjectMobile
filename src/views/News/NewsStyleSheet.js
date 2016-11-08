@@ -1,12 +1,12 @@
-const NewsStyleSheet = {
-  mainContainer: {
+import React from 'react';
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  news: {
     flex: 1,
-    padding: 30,
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF'
   },
-};
-
-export default NewsStyleSheet;
+});

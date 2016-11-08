@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, StyleSheet } from 'react-native';
+import { Text, View, ListView } from 'react-native';
 import isEqual from 'lodash/isEqual';
 
-import NewsStyleSheet from './NewsStyleSheet.js';
 import NewsItem from '../../components/NewsItem';
+import styles from './NewsStyleSheet.js';
 
 import { news } from '../../seed';
 
-const styles = StyleSheet.create(NewsStyleSheet);
 export default class News extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +28,7 @@ export default class News extends Component {
 
   render() {
     return (
-      <View style={styles.mainContainer}>
+      <View style={styles.news}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <NewsItem story={rowData} />}
