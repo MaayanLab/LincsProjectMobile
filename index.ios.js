@@ -1,7 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+  Navigation was built following this example.
+  https://medium.com/react-native-training/react-native-navigator-navigating-like-a-pro-in-react-native-3cb1b6dc1e30#.lrbsi8e42
  */
 
 import React, { Component } from 'react';
@@ -12,7 +11,40 @@ import {
   Navigator,
   View
 } from 'react-native';
-import News from './src/components/News.js';
+import News from './src/views/News';
+
+const NavigationBarRouteMapper = {
+  LeftButton(route, navigator, index, navState) {
+    if(index > 0) {
+      return (
+        <TouchableHighlight
+          underlayColor="transparent"
+          onPress={() => { if (index > 0) { navigator.pop() } }}>
+          <Text style={ styles.leftNavButtonText }>Back</Text>
+        </TouchableHighlight>)
+    }
+    else { return null }
+  },
+  RightButton(route, navigator, index, navState) {
+    if (route.onPress) return (
+      <TouchableHighlight
+         onPress={ () => route.onPress() }>
+         <Text style={ styles.rightNavButtonText }>
+              { route.rightText || 'Right Button' }
+         </Text>
+       </TouchableHighlight>)
+  },
+  Title(route, navigator, index, navState) {
+    return <Text style={ styles.title }>MY APP TITLE</Text>
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#323232',
+  }
+});
 
 export default class LincsProjectMobile extends Component {
   configureScene(route, routeStack) {
@@ -30,21 +62,19 @@ export default class LincsProjectMobile extends Component {
   render() {
     return (
       <Navigator
-        configureScene={ this.configureScene }
+        configureScene={this.configureScene}
         style={styles.container}
         initialRoute={{ component: News }}
-        renderScene={ this.renderScene }
+        renderScene={this.renderScene}
+        navigationBar = {
+          <Navigator.NavigationBar
+            style={styles.nav}
+            routeMapper={NavigationBarRouteMapper}
+          />
+        }
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#323232',
-  }
-});
-
 
 AppRegistry.registerComponent('LincsProjectMobile', () => LincsProjectMobile);
