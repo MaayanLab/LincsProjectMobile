@@ -29,7 +29,7 @@ class AppContainer extends Component {
     StatusBar.setBackgroundColor(AppConfig.primaryColor, true);
   }
 
-  onSideMenuPress(title, component, extraProps = {}) {
+  onSideMenuPress = (title, component, extraProps = {}) => {
     this.props.closeSideMenu();
 
     this.refs.rootNavigator.replace({
@@ -40,13 +40,13 @@ class AppContainer extends Component {
     });
   }
 
-  onSideMenuChange(isOpen) {
+  onSideMenuChange = (isOpen) => {
     if (isOpen !== this.props.sideMenuIsOpen) {
       this.props.toggleSideMenu();
     }
   }
 
-  renderScene(route, navigator) {
+  renderScene = (route, navigator) => {
     let title = route.title || AppConfig.appName;
 
     let leftButton = {
@@ -81,7 +81,7 @@ class AppContainer extends Component {
     );
   }
 
-  configureScene(route, routeStack) {
+  configureScene = (route, routeStack) => {
     if (route.transition === 'FloatFromBottom') {
       return Navigator.SceneConfigs.FloatFromBottom;
     } else {
@@ -102,7 +102,7 @@ class AppContainer extends Component {
         <Navigator
           ref="rootNavigator"
           style={[AppStyles.container, AppStyles.appContainer]}
-          renderScene={this.renderScene.bind(this)}
+          renderScene={this.renderScene}
           configureScene={this.configureScene}
           initialRoute={{
             component: News,

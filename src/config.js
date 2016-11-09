@@ -14,7 +14,7 @@ exports.title = 'GlobalConfig';
 
 export default {
   // App Details
-  appName: 'LincsProjectMobile',
+  appName: 'LINCS Project',
 
   // Window Dimensions
   windowHeight: window.height,
@@ -35,11 +35,11 @@ export default {
   // gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
 
   // Fonts
-  baseFont: 'Avenir',
+  baseFont: 'Arial',
   baseFontSize: 14,
 
   // Colors
-  primaryColor: '#4099FF',
+  primaryColor: '#323232',
   secondaryColor: '#FFE229',
   textColor: '#555',
   borderColor: '#E7E7E7',
