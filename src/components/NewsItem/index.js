@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import styles from './NewsItemStyleSheet.js';
-import styleConstants from '../../styleConstants.js';
+import styles from './NewsItemStyleSheet';
+import styleConstants from '../../styleConstants';
 import WebBrowser from '../WebBrowser';
 
 export default class NewsItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  _navigate(name, type='Normal') {
+  _navigate(name, type = 'Normal') {
     this.props.navigator.push({
       component: Home,
       passProps: {

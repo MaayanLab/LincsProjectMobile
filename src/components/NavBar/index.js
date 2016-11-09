@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableHighlight, Text } from 'react-native';
 
-import styles from './NavBarStyleSheet.js';
+import styles from './NavBarStyleSheet';
 
 const NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
