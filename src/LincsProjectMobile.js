@@ -9,7 +9,7 @@ import { Text, Navigator, View, StatusBar } from 'react-native';
 import NavBar from './components/NavBar';
 import News from './views/News';
 
-import styles from './LincsProjectMobileStyleSheet.js';
+import styles from './LincsProjectMobileStyleSheet';
 
 export default class LincsProjectMobile extends Component {
   configureScene(route, routeStack) {
@@ -33,13 +33,13 @@ export default class LincsProjectMobile extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-         barStyle="light-content"
+          barStyle="light-content"
         />
         <Navigator
           configureScene={this.configureScene}
           initialRoute={{ component: News }}
           renderScene={this.renderScene}
-          navigationBar = {navBar}
+          navigationBar={navBar}
         />
       </View>
     );

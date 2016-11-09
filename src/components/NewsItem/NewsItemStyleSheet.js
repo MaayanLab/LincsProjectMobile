@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import styleConstants from '../../styleConstants.js';
+import styleConstants from '../../styleConstants';
 
 export default StyleSheet.create({
   item: {

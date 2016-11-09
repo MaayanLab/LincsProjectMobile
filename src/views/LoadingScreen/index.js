@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { View } from 'react-native';
 
-import styles from './LoadingScreenStyleSheet.js';
+import styles from './LoadingScreenStyleSheet';
 
 export default class LoadingScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -18,7 +18,7 @@ export default class LoadingScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-
+        { /* some stuff here */ }
       </View>
     );
   }

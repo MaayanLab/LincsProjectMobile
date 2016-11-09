@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -7,24 +7,28 @@ import styleConstants from '../../styleConstants';
 import WebBrowser from '../WebBrowser';
 
 export default class NewsItem extends Component {
+  static PropTypes = {
+    navigator: PropTypes.object,
+  }
+
   _navigate(name, type = 'Normal') {
     this.props.navigator.push({
       component: Home,
       passProps: {
-        name: name
+        name,
       },
-      type: type
+      type,
     });
   }
 
-  _renderWebView(uri) {
+  renderWebView(uri) {
     // Navigate to URI using WebView.
     // Need to resolve Apple SSL for secure sites.
     this.props.navigator.push({
       component: WebBrowser,
       passProps: {
-        uri: uri
-      }
+        uri,
+      },
     });
   }
 
@@ -43,7 +47,8 @@ export default class NewsItem extends Component {
             <Text style={styles.body}>{body}</Text>
             <Text
               style={styles.link}
-              onPress={() => this._renderWebView(link)}>
+              onPress={() => this.renderWebView(link)}
+            >
               Details
             </Text>
           </View>
@@ -51,4 +56,4 @@ export default class NewsItem extends Component {
       </View>
     );
   }
-};
+}

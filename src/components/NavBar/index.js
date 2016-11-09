@@ -5,7 +5,7 @@ import styles from './NavBarStyleSheet';
 
 const NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
-    if(index > 0) {
+    if (index > 0) {
       return (
         <TouchableHighlight
           underlayColor="transparent"
