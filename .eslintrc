@@ -1,3 +1,9 @@
+# ESLint set up guide
+# https://medium.com/the-react-native-log/getting-eslint-right-in-react-native-bd27524cc77b#.t33nxfhlt
+
+# ESLint airbnb config setup
+# https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+
 {
   "parser": "babel-eslint",
   "env": {
