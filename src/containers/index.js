@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import rootReducer from '../reducers';
+import App from './app';
 
 let middleware = [
   thunk,

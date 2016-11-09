@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import sideMenuReducer from './sidemenu';
 
 const rootReducer = combineReducers({
-  sideMenuReducer,
+  sideMenu: sideMenuReducer,
 });
 
 export default rootReducer;
