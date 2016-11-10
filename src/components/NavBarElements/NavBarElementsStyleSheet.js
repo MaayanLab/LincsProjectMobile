@@ -8,6 +8,6 @@ export default StyleSheet.create({
   navbarTitle: {
     color: '#FFFFFF',
     bottom: 6,
-    fontSize: 13,
+    fontSize: 16,
   },
 });

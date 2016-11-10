@@ -11,10 +11,8 @@ export class NavbarTitle extends Component {
   }
   render() {
     return (
-      <Text
-        style={[AppStyles.baseText, AppStyles.strong, styles.navbarTitle]}
-      >
-        {this.props.title || 'Starter Kit'}
+      <Text style={[AppStyles.baseText, styles.navbarTitle]}>
+        {this.props.title || 'LINCS Program'}
       </Text>
     );
   }
