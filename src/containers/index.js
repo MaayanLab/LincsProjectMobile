@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
@@ -20,12 +20,10 @@ if (__DEV__) {
 
 const store = compose(applyMiddleware(...middleware))(createStore)(rootReducer);
 
-export default class AppContainer extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  }
+export default function AppContainer() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 }

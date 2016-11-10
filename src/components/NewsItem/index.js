@@ -1,14 +1,16 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './NewsItemStyleSheet';
 import styleConstants from '../../styleConstants';
 import WebBrowser from '../WebBrowser';
+import Home from '../Home';
 
 export default class NewsItem extends Component {
-  static PropTypes = {
+  static propTypes = {
     navigator: PropTypes.object,
+    story: PropTypes.object,
   }
 
   _navigate(name, type = 'Normal') {

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, ListView } from 'react-native';
+import { Text, View, ListView, StyleSheet } from 'react-native';
 import isEqual from 'lodash/isEqual';
 
 import NewsItem from '../../components/NewsItem';
-import styles from './NewsStyleSheet';
+// import styles from './NewsStyleSheet';
+import AppStyles from '../../styles';
 
 import { news } from '../../seed';
 
@@ -16,22 +17,22 @@ export default class News extends Component {
     };
   }
 
-  _navigate(name, type = 'Normal') {
-    this.props.navigator.push({
-      component: Home,
-      passProps: {
-        name,
-      },
-      type,
-    });
-  }
+  // _navigate(name, type = 'Normal') {
+  //   this.props.navigator.push({
+  //     component: Home,
+  //     passProps: {
+  //       name,
+  //     },
+  //     type,
+  //   });
+  // }
 
   render() {
     return (
-      <View style={styles.news}>
+      <View style={[AppStyles.container]}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={rowData => <NewsItem navigator={this.props.navigator} story={rowData} />}
+          renderRow={rowData => <NewsItem story={rowData} />}
         />
       </View>
     );

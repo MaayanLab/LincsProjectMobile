@@ -1,14 +1,9 @@
-import {
-  StyleSheet,
-} from 'react-native';
-
-// App Globals
+import { StyleSheet } from 'react-native';
 import AppConfig from './config';
 
-/* Styles ==================================================================== */
-module.exports = StyleSheet.create({
+export default StyleSheet.create({
   appContainer: {
-    backgroundColor: '#000',
+    backgroundColor: '#111',
   },
 
   /* Default */
