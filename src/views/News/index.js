@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, StyleSheet } from 'react-native';
+import { View, ListView } from 'react-native';
 import isEqual from 'lodash/isEqual';
 
 import NewsItem from '../../components/NewsItem';

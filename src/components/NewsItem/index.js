@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './NewsItemStyleSheet';
 import styleConstants from '../../styleConstants';
 import WebBrowser from '../WebBrowser';
-import Home from '../Home';
+import Home from '../../views/Home';
 
 export default class NewsItem extends Component {
   static propTypes = {

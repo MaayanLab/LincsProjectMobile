@@ -19,7 +19,7 @@ import AppConfig from '../config';
 
 import Menu from '../components/Menu';
 import { NavbarTitle, NavbarLeftButton } from '../components/NavBarElements';
-import Home from '../components/Home';
+import Home from '../views/Home';
 
 class AppContainer extends Component {
   static propTypes = {
