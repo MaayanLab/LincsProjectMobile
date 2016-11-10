@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ScrollView,
   Image,
   View,
   Text,
@@ -29,13 +30,13 @@ export default class Menu extends Component {
         { title: 'About', icon: 'info-circle', component: News },
       ],
       centers: [
-        { title: 'DCIC', icon: 'wrench', component: News },
-        { title: 'DToxS', icon: 'users', component: News },
-        { title: 'HMS-LINCS', icon: 'bar-chart-o', component: News },
-        { title: 'NeuroLINCS', icon: 'book', component: News },
-        { title: 'MEP-LINCS', icon: 'newspaper-o', component: News },
-        { title: 'PCCSE', icon: 'info-circle', component: News },
-        { title: 'Center for Transcriptomics', icon: 'info-circle', component: News },
+        { title: 'Applicationsa', icon: 'wrench', component: News },
+        { title: 'Communitya', icon: 'users', component: News },
+        { title: 'Dataa', icon: 'bar-chart-o', component: News },
+        { title: 'Publicationsa', icon: 'book', component: News },
+        { title: 'Newsa', icon: 'newspaper-o', component: News },
+        { title: 'Abouta', icon: 'info-circle', component: News },
+        { title: 'aAbouta', icon: 'info-circle', component: News },
       ],
     };
   }
@@ -84,23 +85,25 @@ export default class Menu extends Component {
           <Image style={styles.menuHeadLogo} source={lincsLogo}/>
           <Text style={[AppStyles.baseText, styles.menuHeadText]}>LINCS Program</Text>
         </View>
-        {/* Main Menu Items*/}
-        <View style={styles.menuDivider}>
-          <Text style={[AppStyles.baseText, styles.menuDividerText]}>Main</Text>
-        </View>
-        <View style={[styles.main]}>{mainItems}</View>
+        <ScrollView>
+          {/* Main Menu Items*/}
+          <View style={styles.menuDivider}>
+            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Main</Text>
+          </View>
+          <View style={[styles.main]}>{mainItems}</View>
 
-        {/* Center Items*/}
-        <View style={styles.menuDivider}>
-          <Text style={[AppStyles.baseText, styles.menuDividerText]}>Centers</Text>
-        </View>
-        <View style={[styles.centers]}>{centerItems}</View>
+          {/* Center Items*/}
+          <View style={styles.menuDivider}>
+            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Centers</Text>
+          </View>
+          <View style={[styles.centers]}>{centerItems}</View>
 
-        {/* Settings and Preferences Items*/}
-        <View style={styles.menuDivider}>
-          <Text style={[AppStyles.baseText, styles.menuDividerText]}>Settings</Text>
-        </View>
-        <View style={[styles.settings]}>{mainItems.slice(0,1)}</View>
+          {/* Settings and Preferences Items*/}
+          <View style={styles.menuDivider}>
+            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Settings</Text>
+          </View>
+          <View style={[styles.settings]}>{mainItems.slice(0,1)}</View>
+        </ScrollView>
       </View>
     );
   }
