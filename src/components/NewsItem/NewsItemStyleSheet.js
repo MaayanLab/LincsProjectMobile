@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-import styleConstants from '../../styleConstants';
+import AppConfig from '../../config';
 
 export default StyleSheet.create({
   item: {
     flex: 1,
     flexDirection: 'row',
-    // justifyContent: 'center',
-    backgroundColor: styleConstants.white,
+    backgroundColor: AppConfig.white,
     paddingTop: 10,
     paddingLeft: 20,
   },
@@ -20,7 +19,7 @@ export default StyleSheet.create({
 
   rightPanel: {
     borderBottomWidth: 1,
-    borderColor: styleConstants.lightGray,
+    borderColor: AppConfig.lightGray,
   },
 
   info: {
@@ -32,7 +31,7 @@ export default StyleSheet.create({
 
   date: {
     fontSize: 11,
-    color: styleConstants.gray,
+    color: AppConfig.gray,
   },
 
   title: {
@@ -42,7 +41,7 @@ export default StyleSheet.create({
   },
 
   body: {
-    fontFamily: styleConstants.defaultFont,
+    fontFamily: AppConfig.baseFont,
     fontSize: 11,
     lineHeight: 17,
   },

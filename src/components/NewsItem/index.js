@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './NewsItemStyleSheet';
-import styleConstants from '../../styleConstants';
+import AppConfig from '../../config';
 import WebBrowser from '../WebBrowser';
 import Home from '../../views/Home';
 
@@ -40,7 +40,7 @@ export default class NewsItem extends Component {
     return (
       <View style={styles.item}>
         <View style={styles.leftPanel}>
-          <Icon name="star" size={15} color={styleConstants.gray} />
+          <Icon name="star" size={15} color={AppConfig.gray} />
         </View>
         <View style={styles.rightPanel}>
           <View style={styles.info}>

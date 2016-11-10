@@ -12,8 +12,6 @@ import AppStyles from '../../styles';
 import styles from './MenuStyleSheet';
 import News from '../../views/News';
 
-// const staticBase = '../../static/';
-
 import lincsLogo from '../../static/lincsLogo.png';
 import dcicLogo from '../../static/dcic.png';
 import dtoxLogo from '../../static/dtox.png';
@@ -92,7 +90,7 @@ export default class Menu extends Component {
     return (
       <View style={[styles.menuContainer]}>
         <View style={styles.menuHead}>
-          <Image style={styles.menuHeadLogo} source={lincsLogo}/>
+          <Image style={styles.menuHeadLogo} source={lincsLogo} />
           <Text style={[AppStyles.baseText, styles.menuHeadText]}>LINCS Program</Text>
         </View>
         <ScrollView>
@@ -112,7 +110,7 @@ export default class Menu extends Component {
           <View style={styles.menuDivider}>
             <Text style={[AppStyles.baseText, styles.menuDividerText]}>Settings</Text>
           </View>
-          <View style={[styles.settings]}>{mainItems.slice(0,1)}</View>
+          <View style={[styles.settings]}>{mainItems.slice(0, 1)}</View>
         </ScrollView>
       </View>
     );

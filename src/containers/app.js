@@ -36,7 +36,7 @@ class AppContainer extends Component {
     StatusBar.setBackgroundColor(AppConfig.primaryColor, true);
   }
 
-  _onSideMenuPress = (title, component, extraProps = {}) => {
+  onSideMenuPress = (title, component, extraProps = {}) => {
     this.props.closeSideMenu();
     this.refs.rootNavigator.replace({
       title,
@@ -46,13 +46,13 @@ class AppContainer extends Component {
     });
   }
 
-  _onSideMenuChange = (isOpen) => {
+  onSideMenuChange = (isOpen) => {
     if (isOpen !== this.props.sideMenuIsOpen) {
       this.props.toggleSideMenu();
     }
   }
 
-  _configureScene = (route, routeStack) => {
+  configureScene = (route, routeStack) => {
     if (route.transition === 'FloatFromBottom') {
       return Navigator.SceneConfigs.FloatFromBottom;
     }
@@ -62,7 +62,7 @@ class AppContainer extends Component {
   /**
     * Render each scene with a Navbar and Sidebar
     */
-  _renderScene = (route, navigator) => {
+  renderScene = (route, navigator) => {
     // Default Navbar Title
     const title = route.title || AppConfig.appName;
 
@@ -107,17 +107,17 @@ class AppContainer extends Component {
     return (
       <SideMenu
         ref="rootSidebarMenu"
-        menu={<Menu navigate={this._onSideMenuPress} ref="rootSidebarMenuMenu" />}
+        menu={<Menu navigate={this.onSideMenuPress} ref="rootSidebarMenuMenu" />}
         disableGestures={this.props.sideMenuGesturesDisabled}
         isOpen={this.props.sideMenuIsOpen}
-        onChange={this._onSideMenuChange}
+        onChange={this.onSideMenuChange}
       >
 
         <Navigator
           ref="rootNavigator"
           style={[AppStyles.container, AppStyles.appContainer]}
-          renderScene={this._renderScene}
-          configureScene={this._configureScene}
+          renderScene={this.renderScene}
+          configureScene={this.configureScene}
           initialRoute={{
             component: Home,
             index: 0,

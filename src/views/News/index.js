@@ -3,7 +3,6 @@ import { View, ListView } from 'react-native';
 import isEqual from 'lodash/isEqual';
 
 import NewsItem from '../../components/NewsItem';
-// import styles from './NewsStyleSheet';
 import AppStyles from '../../styles';
 
 // seed data for testing purposes.

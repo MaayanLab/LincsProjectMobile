@@ -1,18 +1,10 @@
-/**
- * Global App Config
- *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
- */
 import Dimensions from 'Dimensions';
 const window = Dimensions.get('window');
 
-/* Setup ==================================================================== */
 exports.title = 'GlobalConfig';
 
 export default {
   appName: 'LINCS',
-
   windowHeight: window.height,
   windowWidth: window.width,
 
@@ -39,4 +31,4 @@ export default {
   gray: '#8e8e8e',
   lightGray: '#323232',
   white: '#FFFFFF',
-}
+};
