@@ -6,6 +6,7 @@ import NewsItem from '../../components/NewsItem';
 // import styles from './NewsStyleSheet';
 import AppStyles from '../../styles';
 
+// seed data for testing purposes.
 import { news } from '../../seed';
 
 export default class News extends Component {

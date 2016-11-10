@@ -35,4 +35,8 @@ export default {
   secondaryColor: '#FFE229',
   textColor: '#555',
   borderColor: '#E7E7E7',
+
+  gray: '#8e8e8e',
+  lightGray: '#323232',
+  white: '#FFFFFF',
 }

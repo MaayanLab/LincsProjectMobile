@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import AppStyles from '../../styles';
 import styles from './MenuStyleSheet';
@@ -18,7 +19,12 @@ export default class Menu extends Component {
     super();
     this.state = {
       menu: [
-        { title: 'News', component: News },
+        { title: 'About', icon: 'star', component: News },
+        { title: 'Applications', icon: 'star', component: News },
+        { title: 'Community', icon: 'star', component: News },
+        { title: 'Data', icon: 'star', component: News },
+        { title: 'Publications', icon: 'star', component: News },
+        { title: 'News', icon: 'star', component: News },
       ],
     };
   }
@@ -28,14 +34,15 @@ export default class Menu extends Component {
     const { menu } = this.state;
 
     const menuItems = menu.map((item) => {
-      const { title, component, props } = item;
+      const { title, icon, component, props } = item;
       return (
         <TouchableOpacity
           key={`menu-item-${title}`}
           onPress={() => navigate(title, component, props)}
-          style={{ height: 50 }}
+          style={styles.menuItemTouch}
         >
           <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
             <Text style={[AppStyles.baseText, styles.menuItem_text]}>{title}</Text>
           </View>
         </TouchableOpacity>
