@@ -11,7 +11,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import AppStyles from '../../styles';
 import styles from './MenuStyleSheet';
 import News from '../../views/News';
+
+// const staticBase = '../../static/';
+
 import lincsLogo from '../../static/lincsLogo.png';
+import dcicLogo from '../../static/dcic.png';
+import dtoxLogo from '../../static/dtox.png';
+import hmsLincsLogo from '../../static/hms_lincs.png';
+import neurolincsLogo from '../../static/neurolincs.png';
+import mepLincsLogo from '../../static/mep_lincs.png';
+import pccseLogo from '../../static/pccse.png';
+import cmapLogo from '../../static/cmap.png';
 
 export default class Menu extends Component {
   static propTypes = {
@@ -30,13 +40,13 @@ export default class Menu extends Component {
         { title: 'About', icon: 'info-circle', component: News },
       ],
       centers: [
-        { title: 'Applicationsa', icon: 'wrench', component: News },
-        { title: 'Communitya', icon: 'users', component: News },
-        { title: 'Dataa', icon: 'bar-chart-o', component: News },
-        { title: 'Publicationsa', icon: 'book', component: News },
-        { title: 'Newsa', icon: 'newspaper-o', component: News },
-        { title: 'Abouta', icon: 'info-circle', component: News },
-        { title: 'aAbouta', icon: 'info-circle', component: News },
+        { title: 'DCIC', centerLogo: dcicLogo, component: News },
+        { title: 'DToxS', centerLogo: dtoxLogo, component: News },
+        { title: 'HMS-LINCS', centerLogo: hmsLincsLogo, component: News },
+        { title: 'NeuroLINCS', centerLogo: neurolincsLogo, component: News },
+        { title: 'MEP-LINCS', centerLogo: mepLincsLogo, component: News },
+        { title: 'PCCSE', centerLogo: pccseLogo, component: News },
+        { title: 'Center for Transcriptomics', centerLogo: cmapLogo, component: News },
       ],
     };
   }
@@ -62,7 +72,7 @@ export default class Menu extends Component {
     });
 
     const centerItems = centers.map((center) => {
-      const { title, icon, component, props } = center;
+      const { title, centerLogo, component, props } = center;
       return (
         <TouchableOpacity
           key={`menu-item-${title}`}
@@ -71,7 +81,7 @@ export default class Menu extends Component {
         >
           <View style={[styles.menuItem]}>
             <View style={styles.centerLogoWrapper}>
-              <Image source={lincsLogo} style={styles.centerLogo}/>
+              <Image source={centerLogo} style={styles.centerLogo} />
             </View>
             <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
           </View>
