@@ -30,12 +30,24 @@ export default StyleSheet.create({
     color: '#EEE',
   },
   main: {
+    // height: 240,
+    flex: 6,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
     backgroundColor: '#111111',
   },
   centers: {
+    // height: 240,
+    flex: 7,
+    left: 0,
+    right: 0,
+    height: AppConfig.windowHeight,
+    backgroundColor: '#111111',
+  },
+  settings: {
+    // height: 240,
+    flex: 1,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
@@ -49,6 +61,7 @@ export default StyleSheet.create({
   },
   menuDividerText: {
     marginLeft: 10,
+    fontSize: 12,
     color: '#EEE',
   },
   menuItemTouch: {
@@ -62,12 +75,23 @@ export default StyleSheet.create({
     borderBottomColor: AppConfig.lightGray,
     paddingLeft: 10,
   },
+  centerLogoWrapper: {
+    height: 20,
+    width: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+  },
+  centerLogo: {
+    height: 18,
+    width: 18,
+    alignSelf: 'center',
+  },
   icon: {
     width: 20,
     fontSize: 15,
     color: '#D5D5D5',
   },
-  menuItem_text: {
+  menuItemLabel: {
     flex: 1,
     fontSize: 14,
     marginLeft: 8,
