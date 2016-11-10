@@ -8,9 +8,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import AppStyles from '../../styles';
 import styles from './MenuStyleSheet';
+
+import AppStyles from '../../styles';
 import News from '../../views/News';
+import Home from '../../views/Home';
 
 import lincsLogo from '../../static/lincsLogo.png';
 import dcicLogo from '../../static/dcic.png';
@@ -46,19 +48,20 @@ export default class Menu extends Component {
         { title: 'PCCSE', centerLogo: pccseLogo, component: News },
         { title: 'Center for Transcriptomics', centerLogo: cmapLogo, component: News },
       ],
+      settings: [
+        { title: 'Settings', icon: 'cog', component: News },
+      ],
     };
   }
 
-  render = () => {
-    const { navigate } = this.props;
-    const { main, centers } = this.state;
-
-    const mainItems = main.map((item) => {
+  getMainItems = () => {
+    const { main } = this.state;
+    return main.map((item) => {
       const { title, icon, component, props } = item;
       return (
         <TouchableOpacity
           key={`menu-item-${title}`}
-          onPress={() => navigate(title, component, props)}
+          onPress={() => this.props.navigate(title, component, props)}
           style={styles.menuItemTouch}
         >
           <View style={[styles.menuItem]}>
@@ -68,13 +71,16 @@ export default class Menu extends Component {
         </TouchableOpacity>
       );
     });
+  }
 
-    const centerItems = centers.map((center) => {
+  getCenterItems = () => {
+    const { centers } = this.state;
+    return centers.map((center) => {
       const { title, centerLogo, component, props } = center;
       return (
         <TouchableOpacity
           key={`menu-item-${title}`}
-          onPress={() => navigate(title, component, props)}
+          onPress={() => this.props.navigate(title, component, props)}
           style={styles.menuItemTouch}
         >
           <View style={[styles.menuItem]}>
@@ -86,13 +92,44 @@ export default class Menu extends Component {
         </TouchableOpacity>
       );
     });
+  }
+
+  getSettingItems = () => {
+    const { settings } = this.state;
+    return settings.map((item) => {
+      const { title, icon, component, props } = item;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => this.props.navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
+            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+  }
+
+  render = () => {
+    const { navigate } = this.props;
+
+    const mainItems = this.getMainItems();
+    const centerItems = this.getCenterItems();
+    const settingsItems = this.getSettingItems();
 
     return (
       <View style={[styles.menuContainer]}>
-        <View style={styles.menuHead}>
+        <TouchableOpacity
+          onPress={() => navigate('LINCS', Home)}
+          style={styles.menuHead}
+        >
           <Image style={styles.menuHeadLogo} source={lincsLogo} />
           <Text style={[AppStyles.baseText, styles.menuHeadText]}>LINCS Program</Text>
-        </View>
+        </TouchableOpacity>
+
         <ScrollView>
           {/* Main Menu Items*/}
           <View style={styles.menuDivider}>
@@ -108,9 +145,9 @@ export default class Menu extends Component {
 
           {/* Settings and Preferences Items*/}
           <View style={styles.menuDivider}>
-            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Settings</Text>
+            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Preferences</Text>
           </View>
-          <View style={[styles.settings]}>{mainItems.slice(0, 1)}</View>
+          <View style={[styles.settings]}>{settingsItems}</View>
         </ScrollView>
       </View>
     );

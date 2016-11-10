@@ -81,6 +81,7 @@ export default StyleSheet.create({
     width: 20,
   },
   icon: {
+    alignSelf: 'center',
     width: 20,
     fontSize: 15,
     color: '#D5D5D5',
