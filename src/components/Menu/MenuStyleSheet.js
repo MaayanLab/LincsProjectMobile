@@ -7,14 +7,31 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: '#111111',
+    paddingTop: AppConfig.statusBarHeight,
   },
-  menu: {
+  main: {
     flex: 1,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
     backgroundColor: '#111111',
-    paddingTop: AppConfig.statusBarHeight,
+  },
+  centers: {
+    flex: 1,
+    left: 0,
+    right: 0,
+    height: AppConfig.windowHeight,
+    backgroundColor: '#111111',
+  },
+  menuDivider: {
+    height: 25,
+    backgroundColor: AppConfig.lightGray,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  menuDiverText: {
+    marginLeft: 10,
+    color: '#EEE',
   },
   menuItemTouch: {
     height: 30,
@@ -30,13 +47,12 @@ export default StyleSheet.create({
   icon: {
     width: 20,
     fontSize: 15,
-    color: "#D5D5D5",
+    color: '#D5D5D5',
   },
   menuItem_text: {
     flex: 1,
     fontSize: 14,
     marginLeft: 8,
-    // lineHeight: parseInt(18 + (18 * 0.5), 10),
     fontWeight: '300',
     color: '#EEE',
   },

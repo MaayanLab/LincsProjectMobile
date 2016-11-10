@@ -33,7 +33,23 @@ export default class Menu extends Component {
     const { navigate } = this.props;
     const { menu } = this.state;
 
-    const menuItems = menu.map((item) => {
+    const mainItems = menu.map((item) => {
+      const { title, icon, component, props } = item;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
+            <Text style={[AppStyles.baseText, styles.menuItem_text]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+
+    const centerItems = menu.map((item) => {
       const { title, icon, component, props } = item;
       return (
         <TouchableOpacity
@@ -51,7 +67,18 @@ export default class Menu extends Component {
 
     return (
       <View style={[styles.menuContainer]}>
-        <View style={[styles.menu]}>{menuItems}</View>
+        {/* main and centers are separted because of flex*/}
+        <View style={styles.menuDivider}>
+          <Text style={styles.menuDiverText}>Main</Text>
+        </View>
+        <View style={[styles.main]}>{mainItems}</View>
+
+        <View style={styles.menuDivider}>
+          <Text style={styles.menuDiverText}>Centers</Text>
+        </View>
+        <View style={[styles.centers]}>{centerItems}</View>
+
+
       </View>
     );
   }
