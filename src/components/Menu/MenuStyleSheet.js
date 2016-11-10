@@ -8,16 +8,34 @@ export default StyleSheet.create({
     right: 0,
     backgroundColor: '#111111',
     paddingTop: AppConfig.statusBarHeight,
+    borderRightWidth: 0.5,
+    borderRightColor: '#111111',
+  },
+  menuHead: {
+    height: 40,
+    backgroundColor: AppConfig.lightGray,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#111111',
+    paddingLeft: 20,
+  },
+  menuHeadLogo: {
+    height: 25,
+    width: 30,
+  },
+  menuHeadText: {
+    marginLeft: 10,
+    fontSize: 15,
+    color: '#EEE',
   },
   main: {
-    flex: 1,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
     backgroundColor: '#111111',
   },
   centers: {
-    flex: 1,
     left: 0,
     right: 0,
     height: AppConfig.windowHeight,
@@ -29,12 +47,12 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  menuDiverText: {
+  menuDividerText: {
     marginLeft: 10,
     color: '#EEE',
   },
   menuItemTouch: {
-    height: 30,
+    height: 40,
   },
   menuItem: {
     flex: 1,
