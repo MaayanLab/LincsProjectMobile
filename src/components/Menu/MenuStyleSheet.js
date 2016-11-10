@@ -30,7 +30,7 @@ export default StyleSheet.create({
   icon: {
     width: 20,
     fontSize: 15,
-    color: AppConfig.gray,
+    color: "#D5D5D5",
   },
   menuItem_text: {
     flex: 1,

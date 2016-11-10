@@ -19,12 +19,12 @@ export default class Menu extends Component {
     super();
     this.state = {
       menu: [
-        { title: 'About', icon: 'star', component: News },
-        { title: 'Applications', icon: 'star', component: News },
-        { title: 'Community', icon: 'star', component: News },
-        { title: 'Data', icon: 'star', component: News },
-        { title: 'Publications', icon: 'star', component: News },
-        { title: 'News', icon: 'star', component: News },
+        { title: 'Applications', icon: 'wrench', component: News },
+        { title: 'Community', icon: 'users', component: News },
+        { title: 'Data', icon: 'bar-chart-o', component: News },
+        { title: 'Publications', icon: 'book', component: News },
+        { title: 'News', icon: 'newspaper-o', component: News },
+        { title: 'About', icon: 'info-circle', component: News },
       ],
     };
   }
