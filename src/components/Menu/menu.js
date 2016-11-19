@@ -1,5 +1,6 @@
-import News from '../../views/News';
+import About from '../../views/About';
 import Center from '../../views/Center';
+import News from '../../views/News';
 
 import dcicLogo from '../../static/dcic.png';
 import dtoxLogo from '../../static/dtox.png';
@@ -16,7 +17,7 @@ export default {
     { title: 'Data', icon: 'bar-chart-o', component: News },
     { title: 'Publications', icon: 'book', component: News },
     { title: 'News', icon: 'newspaper-o', component: News },
-    { title: 'About', icon: 'info-circle', component: News },
+    { title: 'About', icon: 'info-circle', component: About },
   ],
   centers: [
     { title: 'DCIC',

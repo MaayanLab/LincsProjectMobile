@@ -6,7 +6,7 @@ import {
 
 import AppStyles from '../../styles';
 
-export default class Home extends Component {
+export default class Center extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
     center: PropTypes.string,
