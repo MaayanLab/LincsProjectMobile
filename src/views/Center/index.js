@@ -4,6 +4,7 @@ import {
   Text,
 } from 'react-native';
 
+import centersInfo from './centersInfo';
 import AppStyles from '../../styles';
 
 export default class Center extends Component {
@@ -25,11 +26,14 @@ export default class Center extends Component {
   }
 
   render = () => {
-    const { center } = this.props;
+    const centerName = this.props.center;
+    const { description } = centersInfo[centerName];
+
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         <Text style={[AppStyles.baseText, AppStyles.p]}>
-          {center}
+          {centerName}
+          {description}
         </Text>
         <View style={[AppStyles.spacer_10]} />
       </View>
