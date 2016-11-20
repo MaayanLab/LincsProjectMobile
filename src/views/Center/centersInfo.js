@@ -5,4 +5,7 @@ export default {
   'DToxS': {
     description: 'DToxS Description',
   },
+  'HMS-LINCS': {
+    description: 'HMS LINCS SAYS HI'
+  }
 };

@@ -27,8 +27,20 @@ export default class Center extends Component {
 
   render = () => {
     const centerName = this.props.center;
-    const { description } = centersInfo[centerName];
+    // If centerName does not exist in centersInfo
+    if (typeof centersInfo[centerName] === 'undefined') {
+      return (
+        <View style={[AppStyles.container, AppStyles.containerCentered]}>
+          <Text style={[AppStyles.baseText, AppStyles.p]}>
+            Page is currently unavailable.
+          </Text>
+          <View style={[AppStyles.spacer_10]} />
+        </View>
+      );
+    };
 
+    // If centerName exists in centersInfo
+    const { description } = centersInfo[centerName];
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         <Text style={[AppStyles.baseText, AppStyles.p]}>
