@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   Text,
   Image,
+  TouchableOpacity,
 } from 'react-native';
+
+import WebBrowser from '../../../components/WebBrowser';
 
 import AppStyles from '../../../styles';
 import styles from '../CenterStyleSheet';
 import logo from '../../../static/centers_full_logo/mep_lincs.png';
 
-export default function Mep() {
-  return (
-    <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
-      <Image style={[styles.centerLogo]} source={logo} />
-      <Text style={[AppStyles.baseText]}>
-        The MEP LINCS Center studies how both malignant and non-malignant
-        cells are controlled by the microenvironments in which they live.
-        The researchers will provide measurements of the impacts of thousands
-        of different microenvironments on cellular phenotypes, protein make-up
-        and gene expression readouts in cell lines.
-      </Text>
-      <View style={[AppStyles.spacer_10]} />
-    </View>
-  );
+export default class Mep extends Component {
+  static propTypes = {
+    navigator: PropTypes.object.isRequired,
+  }
+
+  navigate(navbarTitle) {
+    this.props.navigator.push({
+      title: navbarTitle,
+      component: WebBrowser,
+      passProps: { uri: 'https://www.yahoo.com' },
+      index: 2,
+    });
+  }
+
+  render() {
+    return (
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
+        <Image style={[styles.centerLogo]} source={logo} />
+        <Text style={[AppStyles.baseText]}>
+          The MEP LINCS Center studies how both malignant and non-malignant
+          cells are controlled by the microenvironments in which they live.
+          The researchers will provide measurements of the impacts of thousands
+          of different microenvironments on cellular phenotypes, protein make-up
+          and gene expression readouts in cell lines.
+        </Text>
+        <TouchableOpacity onPress={() => this.navigate('Testing')}>
+          <Text> Hello Test </Text>
+        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+      </View>
+    );
+  }
 }

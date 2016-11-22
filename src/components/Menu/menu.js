@@ -1,4 +1,5 @@
 import Unavailable from '../../views/Unavailable';
+import WebBrowser from '../WebBrowser';
 import About from '../../views/About';
 import News from '../../views/News';
 
@@ -34,6 +35,11 @@ export default {
     { title: 'About', icon: 'info-circle', component: About },
   ],
   centers: [
+    // { title: 'Test',
+    //   centerLogo: dcicMenuLogo,
+    //   component: WebBrowser,
+    //   props: { passProps: { uri: 'https://www.yahoo.com' } },
+    // },
     { title: 'DCIC',
       centerLogo: dcicMenuLogo,
       component: Dcic,
