@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import centersInfo from './centersInfo';
+import Unavailable from '../Unavailable';
 import AppStyles from '../../styles';
 
 export default class Center extends Component {
@@ -29,14 +30,7 @@ export default class Center extends Component {
     const centerName = this.props.center;
     // If centerName does not exist in centersInfo
     if (typeof centersInfo[centerName] === 'undefined') {
-      return (
-        <View style={[AppStyles.container, AppStyles.containerCentered]}>
-          <Text style={[AppStyles.baseText, AppStyles.p]}>
-            Page is currently unavailable.
-          </Text>
-          <View style={[AppStyles.spacer_10]} />
-        </View>
-      );
+      return <Unavailable />;
     };
 
     // If centerName exists in centersInfo
