@@ -11,7 +11,7 @@ import logo from '../../../static/centers_full_logo/dcic.png';
 
 export default function DCIC() {
   return (
-    <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+    <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
       <Image style={[styles.centerLogo]} source={logo} />
       <Text style={[AppStyles.baseText]}>
         The Center brings together a team of computational experts with
