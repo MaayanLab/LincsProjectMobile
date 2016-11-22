@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   Text,
+  Image,
 } from 'react-native';
 
 import Home from '../Home';
 import Unavailable from '../Unavailable';
-import centersInfo from './centersInfo';
 
 import AppStyles from '../../styles';
 
@@ -14,6 +14,7 @@ export default class Center extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
     center: PropTypes.string,
+    description: PropTypes.string,
   }
 
   constructor(props) {
@@ -29,16 +30,13 @@ export default class Center extends Component {
   }
 
   render = () => {
-    const centerName = this.props.center;
-    // If centerName does not exist in centersInfo
-    if (typeof centersInfo[centerName] === 'undefined') return <Unavailable />;
+    const { center, logo, description } = this.props;
+    if (center.length === 0 || description.length === 0) return <Unavailable />;
 
-    // If centerName exists in centersInfo
-    const { description } = centersInfo[centerName];
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]}>
-        <Text style={[AppStyles.baseText, AppStyles.p]}>
-          {centerName}
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+        <Image source={logo} />
+        <Text style={[AppStyles.baseText]}>
           {description}
         </Text>
         <View style={[AppStyles.spacer_10]} />
