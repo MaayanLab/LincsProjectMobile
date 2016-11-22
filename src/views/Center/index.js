@@ -9,12 +9,14 @@ import Home from '../Home';
 import Unavailable from '../Unavailable';
 
 import AppStyles from '../../styles';
+import styles from './CenterStyleSheet';
 
 export default class Center extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
     center: PropTypes.string,
     description: PropTypes.string,
+    // logo: PropTypes.object,
   }
 
   constructor(props) {
@@ -35,7 +37,7 @@ export default class Center extends Component {
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
-        <Image source={logo} />
+        <Image style={[styles.centerLogo]} source={logo} />
         <Text style={[AppStyles.baseText]}>
           {description}
         </Text>
