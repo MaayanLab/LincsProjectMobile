@@ -19,7 +19,7 @@ export default class About extends Component {
       <Text style={[AppStyles.baseText, AppStyles.h2]}>
         LINCS Program
       </Text>
-      <Image source={lincsLogo} style={styles.logo}/>
+      <Image source={lincsLogo} style={styles.logo} />
       <Text style={[AppStyles.baseText, AppStyles.h2]}>
         Overview
       </Text>
@@ -40,7 +40,6 @@ export default class About extends Component {
         changes that occur when a variety of different cell lines are
         exposed to perturbations.
       </Text>
-
     </View>
   )
 }
