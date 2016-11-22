@@ -1,3 +1,4 @@
+import Unavailable from '../../views/Unavailable';
 import About from '../../views/About';
 import News from '../../views/News';
 
@@ -25,10 +26,10 @@ import Broad from '../../views/Center/Broad';
 
 export default {
   main: [
-    { title: 'Applications', icon: 'wrench', component: News },
-    { title: 'Community', icon: 'users', component: News },
-    { title: 'Data', icon: 'bar-chart-o', component: News },
-    { title: 'Publications', icon: 'book', component: News },
+    { title: 'Applications', icon: 'wrench', component: Unavailable },
+    { title: 'Community', icon: 'users', component: Unavailable },
+    { title: 'Data', icon: 'bar-chart-o', component: Unavailable },
+    { title: 'Publications', icon: 'book', component: Unavailable },
     { title: 'News', icon: 'newspaper-o', component: News },
     { title: 'About', icon: 'info-circle', component: About },
   ],
@@ -63,6 +64,6 @@ export default {
     },
   ],
   settings: [
-    { title: 'Settings', icon: 'cog', component: News },
+    { title: 'Settings', icon: 'cog', component: Unavailable },
   ],
 };

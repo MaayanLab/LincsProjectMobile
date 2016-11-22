@@ -21,28 +21,6 @@ export default class Menu extends Component {
     navigate: React.PropTypes.func.isRequired,
   };
 
-  // getMenuItems = (innerState) => {
-  //   if (innerState.length === 0) return innerState;
-  //   const keys = Object.keys(innerState[0]);
-  //
-  //   return innerState.map((item) => {
-  //     // keys here
-  //     // const { title, icon, component, props } = item;
-  //     return (
-  //       <TouchableOpacity
-  //         key={`menu-item-${title}`}
-  //         onPress={() => this.props.navigate(title, component, props)}
-  //         style={styles.menuItemTouch}
-  //       >
-  //         <View style={[styles.menuItem]}>
-  //           <Icon style={styles.icon} name={icon} />
-  //           <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
-  //         </View>
-  //       </TouchableOpacity>
-  //     );
-  //   });
-  // }
-
   getMainItems = () => {
     const { main } = menu;
     return main.map((item) => {
