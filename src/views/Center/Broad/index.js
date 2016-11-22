@@ -5,12 +5,12 @@ import {
   Image,
 } from 'react-native';
 
-import Unavailable from '../Unavailable';
+import Unavailable from '../../Unavailable';
 
-import AppStyles from '../../styles';
-import styles from './CenterStyleSheet';
+import AppStyles from '../../../styles';
+import styles from './BroadStyleSheet';
 
-export default function Center(props) {
+export default function Broad(props) {
   const { center, logo, description } = props;
   if (center.length === 0 || description.length === 0) return <Unavailable />;
 
@@ -25,7 +25,7 @@ export default function Center(props) {
   );
 }
 
-Center.propTypes = {
+Broad.propTypes = {
   center: PropTypes.string,
   description: PropTypes.string,
   // logo: PropTypes.object,

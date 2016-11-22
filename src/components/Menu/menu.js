@@ -1,5 +1,4 @@
 import About from '../../views/About';
-import Center from '../../views/Center';
 import News from '../../views/News';
 
 import dcicMenuLogo from '../../static/centers_menu_logo/dcic.png';
@@ -8,21 +7,27 @@ import Dcic from '../../views/Center/DCIC';
 
 import dtoxMenuLogo from '../../static/centers_menu_logo/dtox.png';
 import dtoxLogo from '../../static/centers_full_logo/dtox.png';
+import Dtoxs from '../../views/Center/DToxS';
 
 import hmsLincsMenuLogo from '../../static/centers_menu_logo/hms_lincs.png';
 import hmsLincsLogo from '../../static/centers_full_logo/hms_lincs.png';
+import Hms from '../../views/Center/HMS';
 
 import neurolincsMenuLogo from '../../static/centers_menu_logo/neurolincs.png';
 import neurolincsLogo from '../../static/centers_full_logo/neurolincs.png';
+import NeuroLINCS from '../../views/Center/NeuroLINCS';
 
 import mepLincsMenuLogo from '../../static/centers_menu_logo/mep_lincs.png';
 import mepLincsLogo from '../../static/centers_full_logo/mep_lincs.png';
+import Mep from '../../views/Center/MEP';
 
 import pccseMenuLogo from '../../static/centers_menu_logo/pccse.png';
 import pccseLogo from '../../static/centers_full_logo/pccse.png';
+import Pccse from '../../views/Center/PCCSE';
 
 import cmapMenuLogo from '../../static/centers_menu_logo/cmap.png';
 import cmapLogo from '../../static/centers_full_logo/cmap.png';
+import Broad from '../../views/Center/Broad';
 
 
 export default {
@@ -46,7 +51,7 @@ export default {
     },
     { title: 'DToxS',
       centerLogo: dtoxMenuLogo,
-      component: Center,
+      component: Dtoxs,
       props: { passProps: {
         center: 'DToxS',
         logo: dtoxLogo,
@@ -55,7 +60,7 @@ export default {
     },
     { title: 'HMS-LINCS',
       centerLogo: hmsLincsMenuLogo,
-      component: Center,
+      component: Hms,
       props: { passProps: {
         center: 'HMS-LINCS',
         logo: hmsLincsLogo,
@@ -64,7 +69,7 @@ export default {
     },
     { title: 'NeuroLINCS',
       centerLogo: neurolincsMenuLogo,
-      component: Center,
+      component: NeuroLINCS,
       props: { passProps: {
         center: 'NeuroLINCS',
         logo: neurolincsLogo,
@@ -73,7 +78,7 @@ export default {
     },
     { title: 'MEP-LINCS',
       centerLogo: mepLincsMenuLogo,
-      component: Center,
+      component: Mep,
       props: { passProps: {
         center: 'MEP-LINCS',
         logo: mepLincsLogo,
@@ -82,7 +87,7 @@ export default {
     },
     { title: 'PCCSE',
       centerLogo: pccseMenuLogo,
-      component: Center,
+      component: Pccse,
       props: { passProps: {
         center: 'PCCSE',
         logo: pccseLogo,
@@ -91,7 +96,7 @@ export default {
     },
     { title: 'Center for Transcriptomics',
       centerLogo: cmapMenuLogo,
-      component: Center,
+      component: Broad,
       props: { passProps: {
         center: 'CMAP',
         logo: cmapLogo,
