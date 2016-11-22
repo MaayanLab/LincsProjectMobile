@@ -1,32 +1,22 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   View,
   Text,
   Image,
 } from 'react-native';
 
-import Unavailable from '../../Unavailable';
-
 import AppStyles from '../../../styles';
-import styles from './MEPStyleSheet';
+import styles from '../CenterStyleSheet';
+import logo from '../../../static/centers_full_logo/mep_lincs.png';
 
-export default function DCIC(props) {
-  const { center, logo, description } = props;
-  if (center.length === 0 || description.length === 0) return <Unavailable />;
-
+export default function Mep() {
   return (
     <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
       <Image style={[styles.centerLogo]} source={logo} />
       <Text style={[AppStyles.baseText]}>
-        {description}
+        The MEP LINCS Center studies how both malignant and non-malignant cells are controlled by the microenvironments in which they live. The researchers will provide measurements of the impacts of thousands of different microenvironments on cellular phenotypes, protein make-up and gene expression readouts in cell lines.
       </Text>
       <View style={[AppStyles.spacer_10]} />
     </View>
   );
 }
-
-DCIC.propTypes = {
-  center: PropTypes.string,
-  description: PropTypes.string,
-  // logo: PropTypes.object,
-};

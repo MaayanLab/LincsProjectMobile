@@ -1,32 +1,22 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   View,
   Text,
   Image,
 } from 'react-native';
 
-import Unavailable from '../../Unavailable';
-
 import AppStyles from '../../../styles';
-import styles from './HMSStyleSheet';
+import styles from '../CenterStyleSheet';
+import logo from '../../../static/centers_full_logo/hms_lincs.png';
 
-export default function Hms(props) {
-  const { center, logo, description } = props;
-  if (center.length === 0 || description.length === 0) return <Unavailable />;
-
+export default function Hms() {
   return (
     <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
       <Image style={[styles.centerLogo]} source={logo} />
       <Text style={[AppStyles.baseText]}>
-        {description}
+        The HMS LINCS Center develops new measurement methods and computer algorithms to detect and analyze perturbations induced by therapeutic drugs in healthy and diseased human cells.
       </Text>
       <View style={[AppStyles.spacer_10]} />
     </View>
   );
 }
-
-Hms.propTypes = {
-  center: PropTypes.string,
-  description: PropTypes.string,
-  // logo: PropTypes.object,
-};

@@ -1,32 +1,22 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   View,
   Text,
   Image,
 } from 'react-native';
 
-import Unavailable from '../../Unavailable';
-
 import AppStyles from '../../../styles';
-import styles from './DToxSStyleSheet';
+import styles from '../CenterStyleSheet';
+import logo from '../../../static/centers_full_logo/dtox.png';
 
-export default function DToxS(props) {
-  const { center, logo, description } = props;
-  if (center.length === 0 || description.length === 0) return <Unavailable />;
-
+export default function DToxS() {
   return (
     <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
       <Image style={[styles.centerLogo]} source={logo} />
       <Text style={[AppStyles.baseText]}>
-        {description}
+        The Drug Toxicity Signature Generation Center aims to develop cell signatures that will predict adverse events that might be caused by drugs and will identify other drugs that might lessen these side effects. The center will leverage the U.S. Food and Drug Administration’s (FDA) Adverse Event Reporting System database to identify drugs that produce adverse events in heart, liver and neuronal function, and to search for drugs that may mitigate these events
       </Text>
       <View style={[AppStyles.spacer_10]} />
     </View>
   );
 }
-
-DToxS.propTypes = {
-  center: PropTypes.string,
-  description: PropTypes.string,
-  // logo: PropTypes.object,
-};
