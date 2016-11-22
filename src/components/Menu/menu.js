@@ -2,22 +2,26 @@ import About from '../../views/About';
 import Center from '../../views/Center';
 import News from '../../views/News';
 
-// Logos for menu icons.
 import dcicMenuLogo from '../../static/centers_menu_logo/dcic.png';
-import dtoxMenuLogo from '../../static/centers_menu_logo/dtox.png';
-import hmsLincsMenuLogo from '../../static/centers_menu_logo/hms_lincs.png';
-import neurolincsMenuLogo from '../../static/centers_menu_logo/neurolincs.png';
-import mepLincsMenuLogo from '../../static/centers_menu_logo/mep_lincs.png';
-import pccseMenuLogo from '../../static/centers_menu_logo/pccse.png';
-import cmapMenuLogo from '../../static/centers_menu_logo/cmap.png';
-
-// Full-size Logos for individual views.
 import dcicLogo from '../../static/centers_full_logo/dcic.png';
+import Dcic from '../../views/Center/DCIC';
+
+import dtoxMenuLogo from '../../static/centers_menu_logo/dtox.png';
 import dtoxLogo from '../../static/centers_full_logo/dtox.png';
+
+import hmsLincsMenuLogo from '../../static/centers_menu_logo/hms_lincs.png';
 import hmsLincsLogo from '../../static/centers_full_logo/hms_lincs.png';
+
+import neurolincsMenuLogo from '../../static/centers_menu_logo/neurolincs.png';
 import neurolincsLogo from '../../static/centers_full_logo/neurolincs.png';
+
+import mepLincsMenuLogo from '../../static/centers_menu_logo/mep_lincs.png';
 import mepLincsLogo from '../../static/centers_full_logo/mep_lincs.png';
+
+import pccseMenuLogo from '../../static/centers_menu_logo/pccse.png';
 import pccseLogo from '../../static/centers_full_logo/pccse.png';
+
+import cmapMenuLogo from '../../static/centers_menu_logo/cmap.png';
 import cmapLogo from '../../static/centers_full_logo/cmap.png';
 
 
@@ -33,7 +37,7 @@ export default {
   centers: [
     { title: 'DCIC',
       centerLogo: dcicMenuLogo,
-      component: Center,
+      component: Dcic,
       props: { passProps: {
         center: 'DCIC',
         logo: dcicLogo,
