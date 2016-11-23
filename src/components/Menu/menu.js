@@ -1,5 +1,5 @@
 import Unavailable from '../../views/Unavailable';
-import WebBrowser from '../WebBrowser';
+// import WebBrowser from '../WebBrowser';
 import About from '../../views/About';
 import News from '../../views/News';
 

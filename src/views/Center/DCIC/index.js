@@ -21,7 +21,7 @@ export default class DCIC extends Component {
     this.props.navigator.push({
       title: navbarTitle,
       component: WebBrowser,
-      passProps: { uri: 'https://www.yahoo.com' },
+      passProps: { uri: 'http://www.lincsproject.org' },
       index: 2,
     });
   }
