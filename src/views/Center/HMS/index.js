@@ -21,7 +21,7 @@ export default class HMS extends Component {
     this.props.navigator.push({
       title: navbarTitle,
       component: WebBrowser,
-      passProps: { uri: 'https://www.yahoo.com' },
+      passProps: { uri: 'http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs' },
       index: 2,
     });
   }
