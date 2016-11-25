@@ -21,7 +21,7 @@ export default class DCIC extends Component {
     this.props.navigator.push({
       title: navbarTitle,
       component: WebBrowser,
-      passProps: { uri: 'http://www.lincsproject.org' },
+      passProps: { uri: 'http://lincsproject.org/LINCS/centers/dcic' },
       index: 2,
     });
   }
