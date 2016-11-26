@@ -8,4 +8,11 @@ export default StyleSheet.create({
   containerCentered: {
     alignItems: 'center',
   },
+  button: {
+    backgroundColor: '#3ca2e0',
+    borderColor: 'transparent',
+  },
+  white: {
+    color: 'white',
+  },
 });

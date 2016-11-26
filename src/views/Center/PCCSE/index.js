@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -37,9 +38,11 @@ export default class Mep extends Component {
           internally; and epigenetics, or how cells perpetuate non-genetic
           information as they grow.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('PCCSE')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+
+        <Button style={styles.button} onPress={() => this.navigate('PCCSE')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
         <View style={[AppStyles.spacer_10]} />
       </View>
     );

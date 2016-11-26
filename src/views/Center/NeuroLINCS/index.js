@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -42,9 +43,11 @@ export default class Mep extends Component {
           also known as Lou Gehrig’s disease), spinal muscular atrophy
           and Huntington’s disease.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('NeuroLINCS')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+
+        <Button style={styles.button} onPress={() => this.navigate('NeuroLINCS')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
         <View style={[AppStyles.spacer_10]} />
       </View>
     );

@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -35,9 +36,11 @@ export default class HMS extends Component {
           algorithms to detect and analyze perturbations induced by therapeutic
           drugs in healthy and diseased human cells.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('HMS-LINCS')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+
+        <Button style={styles.button} onPress={() => this.navigate('HMS-LINCS')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
         <View style={[AppStyles.spacer_10]} />
       </View>
     );

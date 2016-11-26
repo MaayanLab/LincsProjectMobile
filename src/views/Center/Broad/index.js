@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -38,9 +39,11 @@ export default class Broad extends Component {
           end, the center expects to have generated more than 1 million
           profiles of how genes are expressed in different cells.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('Center for Transcriptomics')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+
+        <Button style={styles.button} onPress={() => this.navigate('Center for Transcriptomics')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
         <View style={[AppStyles.spacer_10]} />
       </View>
     );

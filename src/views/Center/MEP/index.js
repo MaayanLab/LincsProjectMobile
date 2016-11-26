@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -37,9 +38,11 @@ export default class Mep extends Component {
           of different microenvironments on cellular phenotypes, protein make-up
           and gene expression readouts in cell lines.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('MEP-LINCS')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <View style={[AppStyles.spacer_10]} />
+
+        <Button style={styles.button} onPress={() => this.navigate('MEP-LINCS')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
         <View style={[AppStyles.spacer_10]} />
       </View>
     );

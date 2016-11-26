@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -43,10 +44,11 @@ export default class DCIC extends Component {
           LINCS data and resources in accelerating the discovery of novel
           therapeutics and improving diagnostics of human health.
         </Text>
+        <View style={[AppStyles.spacer_10]} />
 
-        <TouchableOpacity onPress={() => this.navigate('DCIC')}>
-          <Text style={[AppStyles.baseText]}> Hello Test </Text>
-        </TouchableOpacity>
+        <Button style={styles.button} onPress={() => this.navigate('DCIC')}>
+          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+        </Button>
 
         <View style={[AppStyles.spacer_10]} />
       </View>
