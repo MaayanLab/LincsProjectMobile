@@ -42,8 +42,8 @@ export default class DToxS extends Component {
           events
         </Text>
 
-        <TouchableOpacity onPress={() => this.navigate('Testing')}>
-          <Text> Hello Test </Text>
+        <TouchableOpacity onPress={() => this.navigate('DToxS')}>
+          <Text style={[AppStyles.baseText]}> Hello Test </Text>
         </TouchableOpacity>
         <View style={[AppStyles.spacer_10]} />
       </View>

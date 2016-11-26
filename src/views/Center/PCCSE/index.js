@@ -37,8 +37,8 @@ export default class Mep extends Component {
           internally; and epigenetics, or how cells perpetuate non-genetic
           information as they grow.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('Testing')}>
-          <Text> Hello Test </Text>
+        <TouchableOpacity onPress={() => this.navigate('PCCSE')}>
+          <Text style={[AppStyles.baseText]}> Hello Test </Text>
         </TouchableOpacity>
         <View style={[AppStyles.spacer_10]} />
       </View>

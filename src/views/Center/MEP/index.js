@@ -37,8 +37,8 @@ export default class Mep extends Component {
           of different microenvironments on cellular phenotypes, protein make-up
           and gene expression readouts in cell lines.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('Testing')}>
-          <Text> Hello Test </Text>
+        <TouchableOpacity onPress={() => this.navigate('MEP-LINCS')}>
+          <Text style={[AppStyles.baseText]}> Hello Test </Text>
         </TouchableOpacity>
         <View style={[AppStyles.spacer_10]} />
       </View>

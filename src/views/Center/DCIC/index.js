@@ -44,8 +44,8 @@ export default class DCIC extends Component {
           therapeutics and improving diagnostics of human health.
         </Text>
 
-        <TouchableOpacity onPress={() => this.navigate('Testing')}>
-          <Text> Hello Test </Text>
+        <TouchableOpacity onPress={() => this.navigate('DCIC')}>
+          <Text style={[AppStyles.baseText]}> Hello Test </Text>
         </TouchableOpacity>
 
         <View style={[AppStyles.spacer_10]} />

@@ -35,8 +35,8 @@ export default class HMS extends Component {
           algorithms to detect and analyze perturbations induced by therapeutic
           drugs in healthy and diseased human cells.
         </Text>
-        <TouchableOpacity onPress={() => this.navigate('Testing')}>
-          <Text> Hello Test </Text>
+        <TouchableOpacity onPress={() => this.navigate('HMS-LINCS')}>
+          <Text style={[AppStyles.baseText]}> Hello Test </Text>
         </TouchableOpacity>
         <View style={[AppStyles.spacer_10]} />
       </View>
