@@ -13,4 +13,11 @@ export default StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
   },
+  button: {
+    backgroundColor: '#3ca2e0',
+    borderColor: 'transparent',
+  },
+  white: {
+    color: 'white',
+  },
 });
