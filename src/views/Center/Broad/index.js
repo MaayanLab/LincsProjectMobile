@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
+  ScrollView,
   View,
   Text,
   Image,
@@ -31,14 +32,16 @@ export default class Broad extends Component {
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
         <Image style={[styles.centerLogo]} source={logo} />
-        <Text style={[AppStyles.baseText]}>
-          The LINCS Center for Transcriptomics is studying up to 50 cell types
-          perturbed by a large number of chemical compounds and genetic
-          reagents that activate or deactivate genes. Each perturbation
-          will produce about 1,000 gene-expression readouts. By the project’s
-          end, the center expects to have generated more than 1 million
-          profiles of how genes are expressed in different cells.
-        </Text>
+        <ScrollView>
+          <Text style={[AppStyles.baseText]}>
+            The LINCS Center for Transcriptomics is studying up to 50 cell types
+            perturbed by a large number of chemical compounds and genetic
+            reagents that activate or deactivate genes. Each perturbation
+            will produce about 1,000 gene-expression readouts. By the project’s
+            end, the center expects to have generated more than 1 million
+            profiles of how genes are expressed in different cells.
+          </Text>
+        </ScrollView>
         <View style={[AppStyles.spacer_10]} />
 
         <Button style={styles.button} onPress={() => this.navigate('Center for Transcriptomics')}>

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {
+  ScrollView,
   View,
   Text,
   Image,
@@ -31,11 +32,13 @@ export default class HMS extends Component {
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
         <Image style={[styles.centerLogo]} source={logo} />
-        <Text style={[AppStyles.baseText]}>
-          The HMS LINCS Center develops new measurement methods and computer
-          algorithms to detect and analyze perturbations induced by therapeutic
-          drugs in healthy and diseased human cells.
-        </Text>
+        <ScrollView>
+          <Text style={[AppStyles.baseText]}>
+            The HMS LINCS Center develops new measurement methods and computer
+            algorithms to detect and analyze perturbations induced by therapeutic
+            drugs in healthy and diseased human cells.
+          </Text>
+        </ScrollView>
         <View style={[AppStyles.spacer_10]} />
 
         <Button style={styles.button} onPress={() => this.navigate('HMS-LINCS')}>
