@@ -13,24 +13,12 @@ export default class NewsItem extends Component {
     story: PropTypes.object,
   }
 
-  _navigate(name, type = 'Normal') {
+  navigate(uri) {
     this.props.navigator.push({
-      component: Home,
-      passProps: {
-        name,
-      },
-      type,
-    });
-  }
-
-  renderWebView(uri) {
-    // Navigate to URI using WebView.
-    // Need to resolve Apple SSL for secure sites.
-    this.props.navigator.push({
+      title: 'News',
       component: WebBrowser,
-      passProps: {
-        uri,
-      },
+      passProps: { uri },
+      index: 2,
     });
   }
 
@@ -49,7 +37,7 @@ export default class NewsItem extends Component {
             <Text style={styles.body}>{body}</Text>
             <Text
               style={styles.link}
-              onPress={() => this.renderWebView(link)}
+              onPress={() => this.navigate(link)}
             >
               Details
             </Text>
