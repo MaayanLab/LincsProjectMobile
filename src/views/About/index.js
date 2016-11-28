@@ -27,8 +27,8 @@ export default class About extends Component {
   }
 
   render = () => (
-    <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
-      <ScrollView>
+    <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
+      <ScrollView contentContainerStyle={AppStyles.containerCentered}>
         <Text style={[AppStyles.baseText, AppStyles.h2]}>
           LINCS Program
         </Text>
@@ -53,10 +53,10 @@ export default class About extends Component {
           changes that occur when a variety of different cell lines are
           exposed to perturbations.
         </Text>
-        <View style={[AppStyles.spacer_10]} />
       </ScrollView>
-
-      <Button style={styles.button} onPress={() => this.navigate('LINCS Project')}>
+      
+      <View style={[AppStyles.spacer_10]} />
+      <Button style={[styles.button]} onPress={() => this.navigate('LINCS Project')}>
         <Text style={[AppStyles.baseText, styles.white]}> Visit lincsproject.org </Text>
       </Button>
       <View style={[AppStyles.spacer_10]} />
