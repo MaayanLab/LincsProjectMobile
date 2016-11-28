@@ -1,7 +1,7 @@
 import * as PublicationActionTypes from '../actions/publications';
 
 const initialState = {
-  publications: [],
+  pubs: [],
   isFetching: false,
   error: null,
 };
@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        publications: action.payload,
+        pubs: action.payload,
         error: null,
       };
     case PublicationActionTypes.PUBLICATIONS_FAILURE:

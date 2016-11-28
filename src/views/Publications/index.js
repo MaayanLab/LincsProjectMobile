@@ -3,18 +3,15 @@ import { View, ListView } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
-import NewsItem from '../../components/NewsItem';
+import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
 import { loadPublications } from '../../actions/publications';
 
-// seed data for testing purposes.
-import { news } from '../../seed';
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   publications: state.publications,
 });
 
-export class News extends Component {
+export class Publications extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
     loadPublications: PropTypes.func,
@@ -23,11 +20,11 @@ export class News extends Component {
     super(props);
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     this.state = {
-      dataSource: ds.cloneWithRows(news),
+      dataSource: ds.cloneWithRows(props.publications.pubs),
     };
   }
 
-  componentDidMount(){
+  componentWillMount() {
     this.props.loadPublications();
   }
 
@@ -36,7 +33,7 @@ export class News extends Component {
       <View style={[AppStyles.container]}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={rowData => <NewsItem story={rowData} navigator={this.props.navigator} />}
+          renderRow={rowData => <PublicationItem pub={rowData} navigator={this.props.navigator} />}
         />
       </View>
     );
@@ -45,4 +42,4 @@ export class News extends Component {
 
 export default connect(mapStateToProps, {
   loadPublications,
-})(News);
+})(Publications);
