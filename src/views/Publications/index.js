@@ -91,13 +91,13 @@ export class Publications extends Component {
         {/* Menu for filtering/sorting publication */}
         <View>
           {/* switch for community/lincs-funded publication */}
-          <View >
+          <View>
             <Text>LINCS-Funded</Text>
             <Switch
               onValueChange={() => this.setState({ centerPub: !pubSource })}
-              onTintColor="#00ff00"
-              thumbTintColor="#0000ff"
-              tintColor="#ff0000"
+              onTintColor="#0275D8"
+              tintColor="#E74C3C"
+              thumbTintColor="ghostwhite"
               value={pubSource}
             />
             <Text>Community</Text>
