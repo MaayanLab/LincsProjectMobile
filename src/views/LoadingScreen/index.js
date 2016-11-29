@@ -1,29 +1,18 @@
-import React, { Component } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
 
+import AppStyles from '../../styles';
 import styles from './LoadingScreenStyleSheet';
 
-export default class LoadingScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-    };
-  }
-
-  componentDidMount() {
-    // begin fetch
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <ActivityIndicator
-          animating
-          size="large"
-          {...this.props}
-        />
-      </View>
-    );
-  }
+export default function LoadingScreen() {
+  return (
+    <View style={[AppStyles.container, AppStyles.containerCentered]}>
+      <ActivityIndicator
+        animating
+        size="large"
+        {...this.props}
+      />
+      <Text>Loading</Text>
+    </View>
+  );
 }
