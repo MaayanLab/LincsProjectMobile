@@ -10,19 +10,34 @@ export default StyleSheet.create({
   pubAuthors: {
     fontSize: 11,
   },
+  IdxAndJournal: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  pubJournal: {
+    fontFamily: 'Lato-Regular',
+    marginLeft: 5,
+    fontSize: 11,
+  },
   pubIdx: {
     fontFamily: 'Lato-Regular',
     fontSize: 11,
   },
   encircle: {
-    height: 24,
-    width: 24,
-    borderRadius: 12,
+    height: 20,
+    width: 20,
+    borderRadius: 10,
     // backgroundColor: 'gray',
     borderWidth: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
   },
+  margin_10: {
+    borderBottomWidth: 0.75,
+    marginTop: 10,
+    marginBottom: 15,
+  }
 });

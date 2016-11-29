@@ -51,15 +51,19 @@ export default class PublicationItem extends Component {
         style={[AppStyles.container, AppStyles.paddingHorizontal]}
         onPress={() => this.navigate(pub.pmId)}
       >
-        <View style={[styles.encircle, { borderColor: color }]}>
-          <Text style={[styles.lato, styles.pubIdx, { color }]}>{idx}</Text>
+        <View style={styles.IdxAndJournal}>
+          <View style={[styles.encircle, { borderColor: color }]}>
+            <Text style={[styles.lato, styles.pubIdx, { color }]}>{idx}</Text>
+          </View>
+          <Text style={[styles.pubJournal, { color }]}>{pub.journalName}</Text>
         </View>
         <View style={AppStyles.paddingHorizontal}>
           <Text style={[styles.lato, styles.pubTitle]}>{pub.articleName}</Text>
           <View style={AppStyles.spacer_5} />
           <Text style={[styles.lato, styles.pubAuthors]}>{authorsName}</Text>
         </View>
-        <View style={AppStyles.hr} />
+
+        <View style={[AppStyles.hr, styles.margin_10]} />
       </TouchableOpacity>
     );
   }
