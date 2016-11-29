@@ -41,7 +41,7 @@ export default class PublicationItem extends Component {
 
   render() {
     const { pub } = this.props;
-    const authorsName = pub.authors.map(author => author.name).join(' ');
+    const authorsName = pub.authors.map(author => author.name).join(', ');
     const idx = parseInt(this.props.idx, 10) + 1;
 
     const color = this.state.color;
