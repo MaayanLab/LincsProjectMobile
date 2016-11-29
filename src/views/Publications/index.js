@@ -85,6 +85,7 @@ export class Publications extends Component {
     const dataSource = ds.cloneWithRows(pubs);
 
     const pubSource = this.state.centerPub;
+    const cats = Object.keys(this.state.categories);
 
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
@@ -108,7 +109,7 @@ export class Publications extends Component {
           dataSource={dataSource}
           renderRow={
             (rowData, sectionId, rowId) => {
-              return <PublicationItem idx={rowId} pub={rowData} navigator={this.props.navigator} />
+              return <PublicationItem idx={rowId} cats={cats} pub={rowData} navigator={this.props.navigator} />
             }
           }
         />

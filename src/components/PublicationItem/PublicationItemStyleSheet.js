@@ -24,6 +24,25 @@ export default StyleSheet.create({
     fontFamily: 'Lato-Regular',
     fontSize: 11,
   },
+  pubCategory: {
+    fontSize: 11,
+    paddingVertical: 2.5,
+    paddingHorizontal: 7.5,
+  },
+  pubCategoriesList: {
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
+  },
+  categoryItem: {
+    borderRadius: 8,
+    borderWidth: 1,
+    marginVertical: 1.5,
+    marginHorizontal: 1.5,
+    overflow: 'hidden',
+  },
   encircle: {
     height: 20,
     width: 20,
@@ -39,5 +58,5 @@ export default StyleSheet.create({
     borderBottomWidth: 0.75,
     marginTop: 10,
     marginBottom: 15,
-  }
+  },
 });
