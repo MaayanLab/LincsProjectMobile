@@ -5,10 +5,29 @@ import styles from './PublicationItemStyleSheet';
 import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 
+const colors = {
+  purple: '#c45fff',
+  turquoise: '#6498a5',
+  brightOrange: '#ff664c',
+  orange: '#ff9028',
+  pink: '#fc629e',
+  blue: '#ff5d9f',
+  lightBlue: '#68c3d5',
+  red: '#be5f67',
+};
+
 export default class PublicationItem extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     pub: PropTypes.object,
+    idx: PropTypes.string,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: Object.values(colors)[Math.floor(Math.random() * 8)],
+    }
   }
 
   navigate(pmId) {
@@ -22,13 +41,26 @@ export default class PublicationItem extends Component {
 
   render() {
     const { pub } = this.props;
+    const authorsName = pub.authors.map(author => author.name).join(' ');
+    const idx = parseInt(this.props.idx, 10) + 1;
+
+    const color = this.state.color;
+
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>        
-        <TouchableOpacity onPress={() => this.navigate(pub.pmId)}>
-          <Text>{pub.articleName}</Text>
-          <View style={AppStyles.hr} />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={[AppStyles.container, AppStyles.paddingHorizontal]}
+        onPress={() => this.navigate(pub.pmId)}
+      >
+        <View style={[styles.encircle, { borderColor: color }]}>
+          <Text style={[styles.lato, styles.pubIdx, { color }]}>{idx}</Text>
+        </View>
+        <View style={AppStyles.paddingHorizontal}>
+          <Text style={[styles.lato, styles.pubTitle]}>{pub.articleName}</Text>
+          <View style={AppStyles.spacer_5} />
+          <Text style={[styles.lato, styles.pubAuthors]}>{authorsName}</Text>
+        </View>
+        <View style={AppStyles.hr} />
+      </TouchableOpacity>
     );
   }
 }

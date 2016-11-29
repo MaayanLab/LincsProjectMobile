@@ -23,6 +23,8 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		CE95EA8B1DEE17D800CC9524 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE95EA791DEE17B400CC9524 /* Lato-Light.ttf */; };
+		CE95EA8D1DEE18AC00CC9524 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE95EA8C1DEE188E00CC9524 /* Lato-Regular.ttf */; };
 		CEF7BC241DD2801A006A4C1B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1B1DD2801A006A4C1B /* Entypo.ttf */; };
 		CEF7BC251DD2801A006A4C1B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1C1DD2801A006A4C1B /* EvilIcons.ttf */; };
 		CEF7BC261DD2801A006A4C1B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1D1DD2801A006A4C1B /* FontAwesome.ttf */; };
@@ -185,6 +187,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		CE95EA791DEE17B400CC9524 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../Downloads/Lato2OFL/Lato-Light.ttf"; sourceTree = "<group>"; };
+		CE95EA8C1DEE188E00CC9524 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../Downloads/Lato2OFL/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		CEF7BC1B1DD2801A006A4C1B /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		CEF7BC1C1DD2801A006A4C1B /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		CEF7BC1D1DD2801A006A4C1B /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -388,7 +392,9 @@
 				CEF7BC1B1DD2801A006A4C1B /* Entypo.ttf */,
 				CEF7BC1C1DD2801A006A4C1B /* EvilIcons.ttf */,
 				CEF7BC1D1DD2801A006A4C1B /* FontAwesome.ttf */,
+				CE95EA8C1DEE188E00CC9524 /* Lato-Regular.ttf */,
 				CEF7BC1E1DD2801A006A4C1B /* Foundation.ttf */,
+				CE95EA791DEE17B400CC9524 /* Lato-Light.ttf */,
 				CEF7BC1F1DD2801A006A4C1B /* Ionicons.ttf */,
 				CEF7BC201DD2801A006A4C1B /* MaterialIcons.ttf */,
 				CEF7BC211DD2801A006A4C1B /* Octicons.ttf */,
@@ -651,12 +657,14 @@
 				CEF7BC291DD2801A006A4C1B /* MaterialIcons.ttf in Resources */,
 				CEF7BC2A1DD2801A006A4C1B /* Octicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CE95EA8B1DEE17D800CC9524 /* Lato-Light.ttf in Resources */,
 				CEF7BC261DD2801A006A4C1B /* FontAwesome.ttf in Resources */,
 				CEF7BC251DD2801A006A4C1B /* EvilIcons.ttf in Resources */,
 				CEF7BC281DD2801A006A4C1B /* Ionicons.ttf in Resources */,
 				CEF7BC2C1DD2801A006A4C1B /* Zocial.ttf in Resources */,
 				CEF7BC271DD2801A006A4C1B /* Foundation.ttf in Resources */,
 				CEF7BC2B1DD2801A006A4C1B /* SimpleLineIcons.ttf in Resources */,
+				CE95EA8D1DEE18AC00CC9524 /* Lato-Regular.ttf in Resources */,
 				CEF7BC241DD2801A006A4C1B /* Entypo.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

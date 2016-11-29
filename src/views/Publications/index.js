@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { View, Text, ListView, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
-import CheckBox from 'react-native-check-box'
 
 import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
@@ -42,7 +41,7 @@ export class Publications extends Component {
   filterCategories = (p) => {
     const { categories } = this.state;
     const keys = Object.keys(categories);
-    for (let i = 0; i < keys.length; i++) {
+    for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
       if (p[key] && categories[key]) {
         return true;
@@ -81,7 +80,6 @@ export class Publications extends Component {
     pubs = pubs.sort(this.sortPublications)
                .filter(this.filterCategories)
                .filter(this.filterSources);
-    const cat = this.state.categories;
 
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
@@ -95,24 +93,24 @@ export class Publications extends Component {
           {/* switch for community/lincs-funded publication */}
           <View >
             <Text>LINCS-Funded</Text>
-              <Switch
-                onValueChange={() => this.setState({ centerPub: !pubSource })}
-                onTintColor="#00ff00"
-                thumbTintColor="#0000ff"
-                tintColor="#ff0000"
-                value={pubSource}
-              />
+            <Switch
+              onValueChange={() => this.setState({ centerPub: !pubSource })}
+              onTintColor="#00ff00"
+              thumbTintColor="#0000ff"
+              tintColor="#ff0000"
+              value={pubSource}
+            />
             <Text>Community</Text>
-          </View>
-          {/* categories to filter by */}
-          <View>
-
           </View>
         </View>
         {/*  Should probably paginate or shorten the number of publications in the fetch */}
         <ListView
           dataSource={dataSource}
-          renderRow={rowData => <PublicationItem pub={rowData} navigator={this.props.navigator} />}
+          renderRow={
+            (rowData, sectionId, rowId) => {
+              return <PublicationItem idx={rowId} pub={rowData} navigator={this.props.navigator} />
+            }
+          }
         />
       </View>
     );

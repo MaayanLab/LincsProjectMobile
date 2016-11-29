@@ -20,7 +20,7 @@ export default {
   // Google Analytics - uses a 'dev' account while we're testing
   // gaTrackingId: (__DEV__) ? 'UA-84284256-2' : 'UA-84284256-1',
 
-  baseFont: 'Avenir',
+  baseFont: 'Lato-Light',
   baseFontSize: 14,
 
   primaryColor: '#323232',
