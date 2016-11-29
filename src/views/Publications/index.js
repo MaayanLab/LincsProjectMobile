@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { View, ListView } from 'react-native';
+import { View, Text, ListView, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
+import CheckBox from 'react-native-check-box'
 
 import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
+import styles from './PublicationsStyleSheet';
 
 const mapStateToProps = state => ({
   publications: state.publications,
@@ -33,7 +35,7 @@ export class Publications extends Component {
     this.state = {
       categories: initialCategories,
       sortOrder: 'descending',
-      pubSource: 'centerPub',
+      centerPub: true,
     };
   }
 
@@ -50,11 +52,11 @@ export class Publications extends Component {
   };
 
   filterSources = (p) => {
-    const currStateSource = this.state.pubSource;
+    const currStateSource = this.state.centerPub;
     const currPubSource = p.centerPub;
     if (
-        currStateSource === 'centerPub' && !!currPubSource ||
-        currStateSource === 'community' && !currPubSource) {
+        (currStateSource && !!currPubSource) ||
+        (!currStateSource && !currPubSource)) {
       return true;
     }
     return false;
@@ -79,12 +81,34 @@ export class Publications extends Component {
     pubs = pubs.sort(this.sortPublications)
                .filter(this.filterCategories)
                .filter(this.filterSources);
+    const cat = this.state.categories;
 
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
 
+    const pubSource = this.state.centerPub;
+
     return (
-      <View style={[AppStyles.container]}>
+      <View style={[AppStyles.container, AppStyles.containerCentered]}>
+        {/* Menu for filtering/sorting publication */}
+        <View>
+          {/* switch for community/lincs-funded publication */}
+          <View >
+            <Text>LINCS-Funded</Text>
+              <Switch
+                onValueChange={() => this.setState({ centerPub: !pubSource })}
+                onTintColor="#00ff00"
+                thumbTintColor="#0000ff"
+                tintColor="#ff0000"
+                value={pubSource}
+              />
+            <Text>Community</Text>
+          </View>
+          {/* categories to filter by */}
+          <View>
+
+          </View>
+        </View>
         {/*  Should probably paginate or shorten the number of publications in the fetch */}
         <ListView
           dataSource={dataSource}

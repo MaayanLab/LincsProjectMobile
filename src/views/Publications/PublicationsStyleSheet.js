@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  news: {
+  label: {
     flex: 1,
-    marginTop: 65,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
   },
+  switch: {
+    flex: 2,
+  }
 });
