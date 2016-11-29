@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
 import styles from './LoadingScreenStyleSheet';
 
@@ -18,7 +18,11 @@ export default class LoadingScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        { /* some stuff here */ }
+        <ActivityIndicator
+          animating
+          size="large"
+          {...this.props}
+        />
       </View>
     );
   }

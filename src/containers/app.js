@@ -3,6 +3,7 @@ import {
   Navigator,
   View,
   StatusBar,
+  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
@@ -19,6 +20,7 @@ import AppConfig from '../config';
 
 import Menu from '../components/Menu';
 import { NavbarTitle, NavbarLeftButton } from '../components/NavBarElements';
+import LoadingScreen from '../views/LoadingScreen';
 import Home from '../views/Home';
 
 class AppContainer extends Component {
@@ -28,10 +30,23 @@ class AppContainer extends Component {
     sideMenuGesturesDisabled: PropTypes.func,
     sideMenuIsOpen: PropTypes.bool,
   }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+  }
+
   /**
     * On first load
     */
   componentDidMount = () => {
+    // Pseudo timeout to mimic fetch
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 5000);
+
     StatusBar.setHidden(false, 'slide');
     StatusBar.setBackgroundColor(AppConfig.primaryColor, true);
   }
@@ -104,6 +119,12 @@ class AppContainer extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <LoadingScreen />
+      );
+    }
+
     return (
       <SideMenu
         ref="rootSidebarMenu"
