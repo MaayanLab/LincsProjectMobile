@@ -40,14 +40,18 @@ export default class PublicationItem extends Component {
     });
   }
 
+  generateRandomColor = () => {
+    return Object.values(colors)[Math.floor(Math.random() * 8)];
+  }
+
   generateCategoryButtons = () => {
     const { pub } = this.props;
     const categories = [];
     this.props.cats.forEach((cat, idx) => {
       if (pub[cat]) {
         categories.push(
-          <View style={styles.categoryItem} key={idx}>
-            <Text style={[styles.lato, styles.pubCategory]}>{this.categoryKeyToName(cat)}</Text>
+          <View style={[styles.categoryItem, { backgroundColor: this.generateRandomColor() }]} key={idx}>
+            <Text style={[styles.lato, styles.pubCategory, { color: 'white' }]}>{this.categoryKeyToName(cat)}</Text>
           </View>
         );
       }

@@ -25,7 +25,7 @@ export default StyleSheet.create({
     fontSize: 11,
   },
   pubCategory: {
-    fontSize: 11,
+    fontSize: 12,
     paddingVertical: 2.5,
     paddingHorizontal: 7.5,
   },
@@ -34,11 +34,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     flexWrap: 'wrap',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   categoryItem: {
     borderRadius: 8,
-    borderWidth: 1,
+    // borderWidth: 1,
     marginVertical: 1.5,
     marginHorizontal: 1.5,
     overflow: 'hidden',
