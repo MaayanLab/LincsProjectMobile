@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './PublicationItemStyleSheet';
-import AppConfig from '../../config';
+import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 
 export default class PublicationItem extends Component {
@@ -25,10 +24,9 @@ export default class PublicationItem extends Component {
     const { pub } = this.props;
     console.log(pub);
     return (
-      <View style={styles.item}>
-        <View style={styles.leftPanel}>
-          <Icon name="star" size={15} color={AppConfig.gray} />
-        </View>
+      <View style={styles.container}>
+        <Text>{pub.articleName}</Text>
+        <View style={AppStyles.spacer_20} />
       </View>
     );
   }

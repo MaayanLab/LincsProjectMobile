@@ -25,6 +25,7 @@ export class Publications extends Component {
   render() {
     return (
       <View style={[AppStyles.container]}>
+        {/*  Should probably paginate or shorten the number of publications in the fetch */}
         <ListView
           dataSource={this.state.dataSource}
           renderRow={rowData => <PublicationItem pub={rowData} navigator={this.props.navigator} />}
