@@ -22,6 +22,7 @@ import Menu from '../components/Menu';
 import { NavbarTitle, NavbarLeftButton } from '../components/NavBarElements';
 import LoadingScreen from '../views/LoadingScreen';
 import Home from '../views/Home';
+import { loadPublications } from '../actions/publications';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -29,6 +30,8 @@ class AppContainer extends Component {
     toggleSideMenu: PropTypes.func,
     sideMenuGesturesDisabled: PropTypes.func,
     sideMenuIsOpen: PropTypes.bool,
+    loadingPublications: PropTypes.bool,
+    loadPublications: PropTypes.func,
   }
 
   constructor(props) {
@@ -41,6 +44,10 @@ class AppContainer extends Component {
   /**
     * On first load
     */
+  componentWillMount = () => {
+    this.props.loadPublications();
+  }
+
   componentDidMount = () => {
     // Pseudo timeout to mimic fetch
     setTimeout(() => {
@@ -119,12 +126,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return (
-        <LoadingScreen />
-      );
-    }
-
+    if (this.props.loadingPublications) return <LoadingScreen />;
     return (
       <SideMenu
         ref="rootSidebarMenu"
@@ -155,10 +157,12 @@ class AppContainer extends Component {
 }
 
 const mapStateToProps = state => ({
+  loadingPublications: state.publications.isFetching,
   sideMenuIsOpen: state.sideMenu.isOpen,
 });
 
 const mapDispatchToProps = {
+  loadPublications,
   toggleSideMenu: SideMenuActions.toggle,
   closeSideMenu: SideMenuActions.close,
 };
