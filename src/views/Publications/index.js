@@ -5,7 +5,6 @@ import isEqual from 'lodash/isEqual';
 
 import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
-import { loadPublications } from '../../actions/publications';
 
 const mapStateToProps = state => ({
   publications: state.publications,
@@ -14,7 +13,6 @@ const mapStateToProps = state => ({
 export class Publications extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
-    loadPublications: PropTypes.func,
   }
   constructor(props) {
     super(props);
@@ -22,10 +20,6 @@ export class Publications extends Component {
     this.state = {
       dataSource: ds.cloneWithRows(props.publications.pubs),
     };
-  }
-
-  componentWillMount() {
-    this.props.loadPublications();
   }
 
   render() {
@@ -40,6 +34,4 @@ export class Publications extends Component {
   }
 }
 
-export default connect(mapStateToProps, {
-  loadPublications,
-})(Publications);
+export default connect(mapStateToProps, null)(Publications);

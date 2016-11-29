@@ -23,6 +23,7 @@ export default class PublicationItem extends Component {
 
   render() {
     const { pub } = this.props;
+    console.log(pub);
     return (
       <View style={styles.item}>
         <View style={styles.leftPanel}>
