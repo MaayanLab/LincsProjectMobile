@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 
 import styles from './PublicationItemStyleSheet';
 import AppStyles from '../../styles';
@@ -11,22 +11,23 @@ export default class PublicationItem extends Component {
     pub: PropTypes.object,
   }
 
-  navigate(uri) {
+  navigate(pmId) {
     this.props.navigator.push({
       title: 'Publication',
       component: WebBrowser,
-      passProps: { uri },
+      passProps: { uri: `http://www.ncbi.nlm.nih.gov/pubmed/${pmId}` },
       index: 2,
     });
   }
 
   render() {
     const { pub } = this.props;
-    console.log(pub);
     return (
-      <View style={styles.container}>
-        <Text>{pub.articleName}</Text>
-        <View style={AppStyles.spacer_20} />
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>        
+        <TouchableOpacity onPress={() => this.navigate(pub.pmId)}>
+          <Text>{pub.articleName}</Text>
+          <View style={AppStyles.hr} />
+        </TouchableOpacity>
       </View>
     );
   }
