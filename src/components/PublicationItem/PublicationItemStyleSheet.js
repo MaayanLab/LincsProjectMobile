@@ -13,8 +13,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   pubJournal: {
-    marginLeft: 5,
-    fontSize: 11,
+    marginLeft: 3,
+    fontSize: 12,
   },
   pubIdx: {
     fontSize: 11,
@@ -39,9 +39,9 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   encircle: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
+    height: 18,
+    width: 18,
+    borderRadius: 9,
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',
