@@ -5,7 +5,7 @@ import styles from './PublicationItemStyleSheet';
 import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 
-const colors = {
+const idxColors = {
   purple: '#c45fff',
   turquoise: '#6498a5',
   brightOrange: '#ff664c',
@@ -14,6 +14,18 @@ const colors = {
   blue: '#ff5d9f',
   lightBlue: '#68c3d5',
   red: '#be5f67',
+};
+
+const catColors = {
+  assayDevelopment: '#942e02',
+  dataGeneration: '#7e8132',
+  dataAnalysis: '#086968',
+  dataIntegration: '#f39134',
+  signatureGeneration: '#6a9ccd',
+  analyticalMethodDevelopment: '#c9a627',
+  softwareDevelopment: '#f16b6c',
+  dataStandards: '#acac56',
+  review: '#555',
 };
 
 export default class PublicationItem extends Component {
@@ -27,7 +39,7 @@ export default class PublicationItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: Object.values(colors)[Math.floor(Math.random() * 8)],
+      color: Object.values(idxColors)[Math.floor(Math.random() * 8)],
     }
   }
 
@@ -50,8 +62,8 @@ export default class PublicationItem extends Component {
     this.props.cats.forEach((cat, idx) => {
       if (pub[cat]) {
         categories.push(
-          <View style={[styles.categoryItem, { backgroundColor: this.generateRandomColor() }]} key={idx}>
-            <Text style={[styles.lato, styles.pubCategory, { color: 'white' }]}>{this.categoryKeyToName(cat)}</Text>
+          <View style={[styles.categoryItem, { backgroundColor: catColors[cat] }]} key={idx}>
+            <Text style={[styles.pubCategory]}>{this.categoryKeyToName(cat)}</Text>
           </View>
         );
       }

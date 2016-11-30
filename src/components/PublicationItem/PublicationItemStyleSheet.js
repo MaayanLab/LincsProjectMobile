@@ -25,7 +25,9 @@ export default StyleSheet.create({
     fontSize: 11,
   },
   pubCategory: {
-    fontSize: 12,
+    color: 'white',
+    fontFamily: 'Lato-Semibold',
+    fontSize: 11,
     paddingVertical: 2.5,
     paddingHorizontal: 7.5,
   },
