@@ -13,24 +13,23 @@ export default class Options extends Component {
     categoryOptions: PropTypes.object,
     changeCategoryOp: PropTypes.func,
   }
-
+// ------------ Helper methods ------------
   categoryKeyToName = key => key
   .replace(/([A-Z])/g, ' $1')
   .replace(/^./, str => str.toUpperCase());
 
+// ------------ Render methods ------------
   renderCategoryOptions = () => {
     const catOptions = this.props.categoryOptions;
-    return Object.keys(catOptions).map((option) => {
-      return (
-        <CheckBox
-          key={option}
-          style={{ flex: 1, padding: 10 }}
-          onClick={() => this.props.changeCategoryOp(option)}
-          isChecked={catOptions[option]}
-          rightText={this.categoryKeyToName(option)}
-        />
-      );
-    });
+    return Object.keys(catOptions).map(option => (
+      <CheckBox
+        key={option}
+        style={{ flex: 1, padding: 10 }}
+        onClick={() => this.props.changeCategoryOp(option)}
+        isChecked={catOptions[option]}
+        rightText={this.categoryKeyToName(option)}
+      />)
+    );
   }
 
   render() {
@@ -50,5 +49,4 @@ export default class Options extends Component {
       </View>
     );
   }
-
 }

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ListView, Switch, TouchableOpacity } from 'react-native';
+import { View, Text, ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
@@ -8,10 +8,6 @@ import Options from './Options';
 import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
 import styles from './PublicationsStyleSheet';
-
-const mapStateToProps = state => ({
-  publications: state.publications,
-});
 
 const initialCategories = {
   assayDevelopment: true,
@@ -24,6 +20,10 @@ const initialCategories = {
   dataStandards: true,
   review: true,
 };
+
+const mapStateToProps = state => ({
+  publications: state.publications,
+});
 
 export class Publications extends Component {
   static propTypes = {
@@ -41,19 +41,7 @@ export class Publications extends Component {
     };
   }
 
-  handleCatClicked = (key) => {
-    const { categories } = this.state;
-    const newCategories = {};
-    Object.keys(categories).forEach((k) => {
-      if (k === key) {
-        newCategories[k] = true;
-      } else {
-        newCategories[k] = false;
-      }
-    });
-    this.setState({ categories: newCategories });
-  }
-
+// ------------ Helper methods ------------
   filterCategories = (p) => {
     const { categories } = this.state;
     const keys = Object.keys(categories);
@@ -91,6 +79,7 @@ export class Publications extends Component {
     return result ? 1 : -1;
   }
 
+// ------------ Event handlers ------------
   changeTab = (tab) => {
     this.setState({ tab });
   }
@@ -99,12 +88,26 @@ export class Publications extends Component {
     this.setState({ centerPub: !this.state.centerPub });
   }
 
+  handleCatClicked = (key) => {
+    const { categories } = this.state;
+    const newCategories = {};
+    Object.keys(categories).forEach((k) => {
+      if (k === key) {
+        newCategories[k] = true;
+      } else {
+        newCategories[k] = false;
+      }
+    });
+    this.setState({ categories: newCategories });
+  }
+
   handleCatChange = (cat) => {
     const categories = Object.assign({}, this.state.categories);
     categories[cat] = !categories[cat];
     this.setState({ categories });
   }
 
+// ------------  Rendering methods ------------
   renderPubs = () => {
     let pubs = this.props.publications.pubs;
     pubs = pubs.sort(this.sortPublications)
@@ -113,7 +116,8 @@ export class Publications extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
     const cats = Object.keys(this.state.categories);
-    {/*  Should probably paginate or shorten the number of publications in the fetch */}
+
+    // Should probably paginate or shorten the number of publications in the fetch
     return (
       <ListView
         dataSource={dataSource}

@@ -7,11 +7,8 @@ export default StyleSheet.create({
   },
   intro: {
     flex: 1,
-    // marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
-    // paddingLeft: 30,
-    // paddingRight: 30,
   },
   button: {
     backgroundColor: '#3ca2e0',
