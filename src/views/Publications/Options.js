@@ -18,6 +18,11 @@ const catColors = {
   review: '#555',
 };
 
+const pubSourceMap = {
+  'LINCS-Funded': true,
+  Community: false,
+}
+
 export default class Options extends Component {
   static propTypes = {
     centerPub: PropTypes.bool,
@@ -32,6 +37,27 @@ export default class Options extends Component {
   .replace(/^./, str => str.toUpperCase());
 
 // ------------ Render methods ------------
+  renderPubSourceOptions = () => {
+    return Object.keys(pubSourceMap).map((source) => {
+      let centerSource = false;
+      if ((source === 'LINCS-Funded' && this.props.centerPub) || (source === 'Community' && !this.props.centerPub)) {
+        centerSource = true;
+      }
+      return (
+        <CheckBox
+          key={source}
+          onPress={() => this.props.changeCenterPub(pubSourceMap[source])}
+          labelStyle={{ fontFamily: 'Lato-Regular' }}
+          checked={centerSource}
+          size={20}
+          label={source}
+          uncheckedIconName="radio-button-unchecked"
+          checkedIconName="radio-button-checked"
+        />
+      );
+    });
+  }
+
   renderCategoryOptions = () => {
     const catOptions = this.props.categoryOptions;
     return Object.keys(catOptions).map(option => (
@@ -51,17 +77,9 @@ export default class Options extends Component {
     const centerPub = this.props.centerPub;
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
-        <Text>LINCS-Funded</Text>
-        <Switch
-          onValueChange={() => this.props.changeCenterPub()}
-          onTintColor="#0275D8"
-          tintColor="#E74C3C"
-          thumbTintColor="ghostwhite"
-          value={centerPub}
-        />
-        <Text>Community</Text>
-
         <View style={styles.optionsContainer}>
+          { this.renderPubSourceOptions() }
+          <View style={AppStyles.spacer_10} />
           { this.renderCategoryOptions() }
         </View>
 

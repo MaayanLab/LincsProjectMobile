@@ -84,8 +84,8 @@ export class Publications extends Component {
     this.setState({ tab });
   }
 
-  handleCenterPubChange = () => {
-    this.setState({ centerPub: !this.state.centerPub });
+  handleCenterPubChange = (source) => {
+    this.setState({ centerPub: source });
   }
 
   handleCatClicked = (key) => {
