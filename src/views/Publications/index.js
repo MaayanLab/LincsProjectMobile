@@ -95,6 +95,10 @@ export class Publications extends Component {
     this.setState({ tab });
   }
 
+  handleCenterPubChange = () => {
+    this.setState({ centerPub: !this.state.centerPub });
+  }
+
   renderPubs = () => {
     let pubs = this.props.publications.pubs;
     pubs = pubs.sort(this.sortPublications)
@@ -122,15 +126,9 @@ export class Publications extends Component {
     );
   }
 
-  handleCenterPubChange = () => {
-    this.setState({ centerPub: !this.state.centerPub });
-  }
-
-  renderOptions = () => {
-    return (
-      <Options centerPub={this.state.centerPub} changeCenterPub={this.handleCenterPubChange} />
-    );
-  }
+  renderOptions = () => (
+    <Options centerPub={this.state.centerPub} changeCenterPub={this.handleCenterPubChange} />
+  );
 
   render() {
     const tabs = ['List', 'Options'].map((tab) => {
