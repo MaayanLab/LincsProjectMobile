@@ -40,7 +40,7 @@ export default class PublicationItem extends Component {
     super(props);
     this.state = {
       color: Object.values(idxColors)[Math.floor(Math.random() * 8)],
-    }
+    };
   }
 
   navigate(pmId) {
@@ -52,10 +52,6 @@ export default class PublicationItem extends Component {
     });
   }
 
-  generateRandomColor = () => {
-    return Object.values(colors)[Math.floor(Math.random() * 8)];
-  }
-
   generateCategoryButtons = () => {
     const { pub } = this.props;
     const categories = [];
@@ -63,7 +59,9 @@ export default class PublicationItem extends Component {
       if (pub[cat]) {
         categories.push(
           <View style={[styles.categoryItem, { backgroundColor: catColors[cat] }]} key={idx}>
-            <Text style={[styles.pubCategory]}>{this.categoryKeyToName(cat)}</Text>
+            <Text style={[styles.pubCategory, AppStyles.latoSemiBold]}>
+              {this.categoryKeyToName(cat)}
+            </Text>
           </View>
         );
       }
@@ -90,14 +88,16 @@ export default class PublicationItem extends Component {
         >
           <View style={styles.IdxAndJournal}>
             <View style={[styles.encircle, { borderColor: color }]}>
-              <Text style={[styles.lato, styles.pubIdx, { color }]}>{idx}</Text>
+              <Text style={[AppStyles.latoLight, AppStyles.latoRegular, { color }]}>{idx}</Text>
             </View>
-            <Text style={[styles.pubJournal, { color }]}>{pub.journalName}</Text>
+            <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
+              {pub.journalName}
+            </Text>
           </View>
           <View style={AppStyles.paddingHorizontal}>
-            <Text style={[styles.lato, styles.pubTitle]}>{pub.articleName}</Text>
+            <Text style={[AppStyles.latoLight, styles.pubTitle]}>{pub.articleName}</Text>
             <View style={AppStyles.spacer_5} />
-            <Text style={[styles.lato, styles.pubAuthors]}>{authorsName}</Text>
+            <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{authorsName}</Text>
             <View style={AppStyles.spacer_10} />
           </View>
         </TouchableOpacity>

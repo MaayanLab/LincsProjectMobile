@@ -234,4 +234,15 @@ export default StyleSheet.create({
     marginBottom: 10,
     backgroundColor: '#fff',
   },
+
+  /* Fonts */
+  latoLight: {
+    fontFamily: 'Lato-Light',
+  },
+  latoRegular: {
+    fontFamily: 'Lato-Regular',
+  },
+  latoSemiBold: {
+    fontFamily: 'Lato-Semibold',
+  },
 });

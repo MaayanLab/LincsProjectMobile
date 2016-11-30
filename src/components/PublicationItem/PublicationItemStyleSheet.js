@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  lato: {
-    fontFamily: 'Lato-Light',
-  },
   pubTitle: {
     fontSize: 15,
   },
@@ -16,17 +13,14 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   pubJournal: {
-    fontFamily: 'Lato-Regular',
     marginLeft: 5,
     fontSize: 11,
   },
   pubIdx: {
-    fontFamily: 'Lato-Regular',
     fontSize: 11,
   },
   pubCategory: {
     color: 'white',
-    fontFamily: 'Lato-Semibold',
     fontSize: 11,
     paddingVertical: 2.5,
     paddingHorizontal: 7.5,
@@ -40,7 +34,6 @@ export default StyleSheet.create({
   },
   categoryItem: {
     borderRadius: 8,
-    // borderWidth: 1,
     marginVertical: 1.5,
     marginHorizontal: 1.5,
     overflow: 'hidden',
@@ -49,7 +42,6 @@ export default StyleSheet.create({
     height: 20,
     width: 20,
     borderRadius: 10,
-    // backgroundColor: 'gray',
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',
