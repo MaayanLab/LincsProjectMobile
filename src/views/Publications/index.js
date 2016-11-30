@@ -99,6 +99,12 @@ export class Publications extends Component {
     this.setState({ centerPub: !this.state.centerPub });
   }
 
+  handleCatChange = (cat) => {
+    const categories = Object.assign({}, this.state.categories);
+    categories[cat] = !categories[cat];
+    this.setState({ categories });
+  }
+
   renderPubs = () => {
     let pubs = this.props.publications.pubs;
     pubs = pubs.sort(this.sortPublications)
@@ -131,6 +137,7 @@ export class Publications extends Component {
       centerPub={this.state.centerPub}
       categoryOptions={this.state.categories}
       changeCenterPub={this.handleCenterPubChange}
+      changeCategoryOp={this.handleCatChange}
     />
   );
 

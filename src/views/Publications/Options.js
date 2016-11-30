@@ -11,6 +11,7 @@ export default class Options extends Component {
     centerPub: PropTypes.bool,
     changeCenterPub: PropTypes.func,
     categoryOptions: PropTypes.object,
+    changeCategoryOp: PropTypes.func,
   }
 
   categoryKeyToName = key => key
@@ -19,12 +20,12 @@ export default class Options extends Component {
 
   renderCategoryOptions = () => {
     const catOptions = this.props.categoryOptions;
-    return Object.keys(catOptions).map(option => {
+    return Object.keys(catOptions).map((option) => {
       return (
         <CheckBox
           key={option}
           style={{ flex: 1, padding: 10 }}
-          onClick={() => console.log('Hello')}
+          onClick={() => this.props.changeCategoryOp(option)}
           isChecked={catOptions[option]}
           rightText={this.categoryKeyToName(option)}
         />
@@ -35,7 +36,6 @@ export default class Options extends Component {
   render() {
     const centerPub = this.props.centerPub;
     return (
-      // switch for community/lincs-funded publication
       <View style={[AppStyles.containerCentered]}>
         <Text>LINCS-Funded</Text>
         <Switch
