@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, Switch } from 'react-native';
+import CheckBox from 'react-native-check-box';
 
 import AppStyles from '../../styles';
 import styles from './PublicationsStyleSheet';
@@ -9,6 +10,26 @@ export default class Options extends Component {
   static propTypes = {
     centerPub: PropTypes.bool,
     changeCenterPub: PropTypes.func,
+    categoryOptions: PropTypes.object,
+  }
+
+  categoryKeyToName = key => key
+  .replace(/([A-Z])/g, ' $1')
+  .replace(/^./, str => str.toUpperCase());
+
+  renderCategoryOptions = () => {
+    const catOptions = this.props.categoryOptions;
+    return Object.keys(catOptions).map(option => {
+      return (
+        <CheckBox
+          key={option}
+          style={{ flex: 1, padding: 10 }}
+          onClick={() => console.log('Hello')}
+          isChecked={catOptions[option]}
+          rightText={this.categoryKeyToName(option)}
+        />
+      );
+    });
   }
 
   render() {
@@ -25,6 +46,7 @@ export default class Options extends Component {
           value={centerPub}
         />
         <Text>Community</Text>
+        { this.renderCategoryOptions() }
       </View>
     );
   }

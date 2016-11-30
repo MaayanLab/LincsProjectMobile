@@ -127,7 +127,11 @@ export class Publications extends Component {
   }
 
   renderOptions = () => (
-    <Options centerPub={this.state.centerPub} changeCenterPub={this.handleCenterPubChange} />
+    <Options
+      centerPub={this.state.centerPub}
+      categoryOptions={this.state.categories}
+      changeCenterPub={this.handleCenterPubChange}
+    />
   );
 
   render() {
