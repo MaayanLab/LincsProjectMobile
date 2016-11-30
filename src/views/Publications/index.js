@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ListView, Switch } from 'react-native';
+import { View, Text, ListView, Switch, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
@@ -32,6 +32,7 @@ export class Publications extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      tab: 'List',
       categories: initialCategories,
       sortOrder: 'descending',
       centerPub: true,
@@ -88,53 +89,73 @@ export class Publications extends Component {
     return result ? 1 : -1;
   }
 
-  render() {
+  changeTab = (tab) => {
+    this.setState({ tab });
+  }
+
+  renderPubs = () => {
     let pubs = this.props.publications.pubs;
     pubs = pubs.sort(this.sortPublications)
                .filter(this.filterCategories)
                .filter(this.filterSources);
-
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
-
-    const pubSource = this.state.centerPub;
     const cats = Object.keys(this.state.categories);
+    {/*  Should probably paginate or shorten the number of publications in the fetch */}
+    return (
+      <ListView
+        dataSource={dataSource}
+        renderRow={
+          (rowData, sectionId, rowId) => (
+            <PublicationItem
+              idx={rowId}
+              cats={cats}
+              pub={rowData}
+              navigator={this.props.navigator}
+              onCatClicked={this.handleCatClicked}
+            />
+          )
+        }
+      />
+    );
+  }
+
+  renderOptions = () => {
+    const pubSource = this.state.centerPub;
+    // switch for community/lincs-funded publication
+    return (
+      <View style={[AppStyles.containerCentered]}>
+        <Text>LINCS-Funded</Text>
+        <Switch
+          onValueChange={() => this.setState({ centerPub: !pubSource })}
+          onTintColor="#0275D8"
+          tintColor="#E74C3C"
+          thumbTintColor="ghostwhite"
+          value={pubSource}
+        />
+        <Text>Community</Text>
+      </View>
+    );
+  }
+
+  render() {
+    const tabs = ['List', 'Options'].map((tab) => {
+      const style = [AppStyles.baseText, styles.tabTitle];
+      if (this.state.tab === tab) { style.push(styles.tabActive); }
+      return (
+        <TouchableOpacity key={tab} style={styles.pubTabs} onPress={() => this.changeTab(tab)}>
+          <Text style={style}>{tab}</Text>
+        </TouchableOpacity>
+      );
+    });
 
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]}>
+      <View style={AppStyles.container}>
         {/* Menu for filtering/sorting publication */}
-        {/* switch for community/lincs-funded publication */}
-        {/*
+        <View style={styles.pubTabsContainer}>{tabs}</View>
         <View>
-          <View>
-            <Text>LINCS-Funded</Text>
-            <Switch
-              onValueChange={() => this.setState({ centerPub: !pubSource })}
-              onTintColor="#0275D8"
-              tintColor="#E74C3C"
-              thumbTintColor="ghostwhite"
-              value={pubSource}
-            />
-            <Text>Community</Text>
-          </View>
+          { this.state.tab === 'Options' ? this.renderOptions() : this.renderPubs() }
         </View>
-        */}
-        {/*  Should probably paginate or shorten the number of publications in the fetch */}
-        <ListView
-          style={styles.topMargin}
-          dataSource={dataSource}
-          renderRow={
-            (rowData, sectionId, rowId) => (
-              <PublicationItem
-                idx={rowId}
-                cats={cats}
-                pub={rowData}
-                navigator={this.props.navigator}
-                onCatClicked={this.handleCatClicked}
-              />
-            )
-          }
-        />
       </View>
     );
   }

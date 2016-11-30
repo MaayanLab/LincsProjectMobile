@@ -39,9 +39,9 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   encircle: {
-    height: 18,
-    width: 18,
-    borderRadius: 9,
+    height: 20,
+    width: 20,
+    borderRadius: 10,
     borderWidth: 1,
     flexDirection: 'column',
     justifyContent: 'center',

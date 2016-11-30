@@ -29,8 +29,8 @@ import Broad from '../../views/Center/Broad';
 export default {
   main: [
     // { title: 'Applications', icon: 'wrench', component: Unavailable },
-    { title: 'Community', icon: 'users', component: Unavailable },
-    { title: 'Data', icon: 'bar-chart-o', component: Unavailable },
+    // { title: 'Community', icon: 'users', component: Unavailable },
+    // { title: 'Data', icon: 'bar-chart-o', component: Unavailable },
     { title: 'Publications', icon: 'book', component: Publications },
     { title: 'News', icon: 'newspaper-o', component: News },
     { title: 'About', icon: 'info-circle', component: About },
