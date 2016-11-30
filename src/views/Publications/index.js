@@ -3,6 +3,8 @@ import { View, Text, ListView, Switch, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
+import Options from './Options';
+
 import PublicationItem from '../../components/PublicationItem';
 import AppStyles from '../../styles';
 import styles from './PublicationsStyleSheet';
@@ -120,21 +122,13 @@ export class Publications extends Component {
     );
   }
 
+  handleCenterPubChange = () => {
+    this.setState({ centerPub: !this.state.centerPub });
+  }
+
   renderOptions = () => {
-    const pubSource = this.state.centerPub;
-    // switch for community/lincs-funded publication
     return (
-      <View style={[AppStyles.containerCentered]}>
-        <Text>LINCS-Funded</Text>
-        <Switch
-          onValueChange={() => this.setState({ centerPub: !pubSource })}
-          onTintColor="#0275D8"
-          tintColor="#E74C3C"
-          thumbTintColor="ghostwhite"
-          value={pubSource}
-        />
-        <Text>Community</Text>
-      </View>
+      <Options centerPub={this.state.centerPub} changeCenterPub={this.handleCenterPubChange} />
     );
   }
 
@@ -148,14 +142,12 @@ export class Publications extends Component {
         </TouchableOpacity>
       );
     });
+    const tabView = this.state.tab === 'Options' ? this.renderOptions() : this.renderPubs();
 
     return (
       <View style={AppStyles.container}>
-        {/* Menu for filtering/sorting publication */}
         <View style={styles.pubTabsContainer}>{tabs}</View>
-        <View>
-          { this.state.tab === 'Options' ? this.renderOptions() : this.renderPubs() }
-        </View>
+        {tabView}
       </View>
     );
   }
