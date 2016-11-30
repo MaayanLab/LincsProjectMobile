@@ -3,8 +3,6 @@ import { View, Text, Switch } from 'react-native';
 import CheckBox from 'react-native-check-box';
 
 import AppStyles from '../../styles';
-import styles from './PublicationsStyleSheet';
-
 
 export default class Options extends Component {
   static propTypes = {
@@ -24,7 +22,7 @@ export default class Options extends Component {
     return Object.keys(catOptions).map(option => (
       <CheckBox
         key={option}
-        style={{ flex: 1, padding: 10 }}
+        style={{ alignSelf: 'stretch' }}
         onClick={() => this.props.changeCategoryOp(option)}
         isChecked={catOptions[option]}
         rightText={this.categoryKeyToName(option)}

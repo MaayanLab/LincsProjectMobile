@@ -113,6 +113,14 @@ export class Publications extends Component {
     pubs = pubs.sort(this.sortPublications)
                .filter(this.filterCategories)
                .filter(this.filterSources);
+    if (pubs.length === 0) {
+      return (
+        <View style={[AppStyles.container, AppStyles.containerCentered]}>
+          <Text> No Publications Found </Text>
+        </View>
+      );
+    }
+
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
     const cats = Object.keys(this.state.categories);
@@ -120,6 +128,7 @@ export class Publications extends Component {
     // Should probably paginate or shorten the number of publications in the fetch
     return (
       <ListView
+        enableEmptySections
         dataSource={dataSource}
         renderRow={
           (rowData, sectionId, rowId) => (
