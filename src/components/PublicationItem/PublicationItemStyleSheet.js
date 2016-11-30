@@ -48,9 +48,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
   },
-  margin_10: {
-    borderBottomWidth: 0.75,
-    marginTop: 10,
-    marginBottom: 15,
-  },
 });

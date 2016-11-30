@@ -103,8 +103,9 @@ export class Publications extends Component {
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         {/* Menu for filtering/sorting publication */}
+        {/* switch for community/lincs-funded publication */}
+        {/*
         <View>
-          {/* switch for community/lincs-funded publication */}
           <View>
             <Text>LINCS-Funded</Text>
             <Switch
@@ -117,8 +118,10 @@ export class Publications extends Component {
             <Text>Community</Text>
           </View>
         </View>
+        */}
         {/*  Should probably paginate or shorten the number of publications in the fetch */}
         <ListView
+          style={styles.topMargin}
           dataSource={dataSource}
           renderRow={
             (rowData, sectionId, rowId) => (

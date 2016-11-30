@@ -91,6 +91,7 @@ export default class PublicationItem extends Component {
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
+        <View style={AppStyles.spacer_15} />
         <TouchableOpacity
           onPress={() => this.navigate(pub.pmId)}
         >
@@ -110,7 +111,7 @@ export default class PublicationItem extends Component {
           </View>
         </TouchableOpacity>
         <View style={[styles.pubCategoriesList]}>{categories}</View>
-        <View style={[AppStyles.hr, styles.margin_10]} />
+        <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
     );
   }
