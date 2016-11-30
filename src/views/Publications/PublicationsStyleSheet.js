@@ -22,4 +22,16 @@ export default StyleSheet.create({
   tabActive: {
     color: 'white',
   },
+  optionsContainer: {
+    alignItems: 'flex-start',
+  },
+  button: {
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    backgroundColor: '#324667',
+    borderColor: 'transparent',
+  },
+  white: {
+    color: 'white',
+  },
 });

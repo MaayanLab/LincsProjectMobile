@@ -107,6 +107,10 @@ export class Publications extends Component {
     this.setState({ categories });
   }
 
+  resetOptions = () => {
+    this.setState({ categories: initialCategories });
+  }
+
 // ------------  Rendering methods ------------
   renderPubs = () => {
     let pubs = this.props.publications.pubs;
@@ -151,6 +155,7 @@ export class Publications extends Component {
       categoryOptions={this.state.categories}
       changeCenterPub={this.handleCenterPubChange}
       changeCategoryOp={this.handleCatChange}
+      resetOptions={this.resetOptions}
     />
   );
 
