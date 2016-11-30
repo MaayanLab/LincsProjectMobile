@@ -38,6 +38,19 @@ export class Publications extends Component {
     };
   }
 
+  handleCatClicked = (key) => {
+    const { categories } = this.state;
+    const newCategories = {};
+    Object.keys(categories).forEach((k) => {
+      if (k === key) {
+        newCategories[k] = true;
+      } else {
+        newCategories[k] = false;
+      }
+    });
+    this.setState({ categories: newCategories });
+  }
+
   filterCategories = (p) => {
     const { categories } = this.state;
     const keys = Object.keys(categories);
@@ -108,9 +121,15 @@ export class Publications extends Component {
         <ListView
           dataSource={dataSource}
           renderRow={
-            (rowData, sectionId, rowId) => {
-              return <PublicationItem idx={rowId} cats={cats} pub={rowData} navigator={this.props.navigator} />
-            }
+            (rowData, sectionId, rowId) => (
+              <PublicationItem
+                idx={rowId}
+                cats={cats}
+                pub={rowData}
+                navigator={this.props.navigator}
+                onCatClicked={this.handleCatClicked}
+              />
+            )
           }
         />
       </View>

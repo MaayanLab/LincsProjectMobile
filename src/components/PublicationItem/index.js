@@ -16,6 +16,9 @@ const idxColors = {
   red: '#be5f67',
 };
 
+// const idxColors = ['#c45fff', '#6498a5', '#ff664c', '#ff9028', '#fc629e',
+// '#ff5d9f', '#68c3d5', '#be5f67'];
+
 const catColors = {
   assayDevelopment: '#942e02',
   dataGeneration: '#7e8132',
@@ -34,6 +37,7 @@ export default class PublicationItem extends Component {
     pub: PropTypes.object,
     idx: PropTypes.string,
     cats: PropTypes.array,
+    onCatClicked: PropTypes.func,
   }
 
   constructor(props) {
@@ -58,11 +62,15 @@ export default class PublicationItem extends Component {
     this.props.cats.forEach((cat, idx) => {
       if (pub[cat]) {
         categories.push(
-          <View style={[styles.categoryItem, { backgroundColor: catColors[cat] }]} key={idx}>
+          <TouchableOpacity
+            style={[styles.categoryItem, { backgroundColor: catColors[cat] }]}
+            onPress={() => this.props.onCatClicked(cat)}
+            key={idx}
+          >
             <Text style={[styles.pubCategory, AppStyles.latoSemiBold]}>
               {this.categoryKeyToName(cat)}
             </Text>
-          </View>
+          </TouchableOpacity>
         );
       }
     });
