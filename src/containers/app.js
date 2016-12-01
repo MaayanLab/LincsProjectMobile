@@ -31,15 +31,13 @@ class AppContainer extends Component {
     sideMenuGesturesDisabled: PropTypes.func,
     sideMenuIsOpen: PropTypes.bool,
     loadingPublications: PropTypes.bool,
+    loadingNews: PropTypes.bool,
     loadPublications: PropTypes.func,
     loadNews: PropTypes.func,
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true,
-    };
   }
 
   /**
@@ -51,11 +49,6 @@ class AppContainer extends Component {
   }
 
   componentDidMount = () => {
-    // Pseudo timeout to mimic fetch. should actually be fetching is successful
-    setTimeout(() => {
-      this.setState({ loading: false });
-    }, 5000);
-
     StatusBar.setHidden(false, 'slide');
     StatusBar.setBackgroundColor(AppConfig.primaryColor, true);
   }
@@ -128,7 +121,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    if (this.props.loadingPublications) return <LoadingScreen />;
+    if (this.props.loadingPublications || this.props.loadingNews ) return <LoadingScreen />;
     return (
       <SideMenu
         ref="rootSidebarMenu"

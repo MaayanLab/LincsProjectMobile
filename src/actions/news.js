@@ -16,14 +16,7 @@ export function newsFailure(error) {
 
 export function loadNews() {
   return (dispatch, getState) => {
-    // Get the current newsEvents from the redux state.
-    const newsEvents = getState().newsEvents;
-    // If the following is true, the news have already been loaded.
-    if (newsEvents && newsEvents.news && newsEvents.news.length) {
-      return null;
-    }
-
-    // Dispatch a redux action to let the app know that we are requesting tools.
+    // Dispatch a redux action to let the app know that we are requesting news.
     dispatch(newsRequest());
     return fetch('http://lincsproject.org/LINCS/api/v1/news')
       // .then(response => handleResponse(response))

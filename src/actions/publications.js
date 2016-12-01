@@ -16,13 +16,6 @@ export function publicationsFailure(error) {
 
 export function loadPublications() {
   return (dispatch, getState) => {
-    // Get the current pubsNews from the redux state.
-    const pubsNews = getState().pubsNews;
-    // If the following is true, the publications have already been loaded.
-    if (pubsNews && pubsNews.publications && pubsNews.publications.length) {
-      return null;
-    }
-
     // Dispatch a redux action to let the app know that we are requesting tools.
     dispatch(publicationsRequest());
     return fetch('http://lincsproject.org/LINCS/api/v1/publications')
