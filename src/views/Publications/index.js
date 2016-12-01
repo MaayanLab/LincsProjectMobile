@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import isEqual from 'lodash/isEqual';
 
 import Options from './Options';
@@ -85,8 +87,9 @@ export class Publications extends Component {
     this.setState({ tab });
   }
 
-  handleCenterPubChange = (source) => {
-    this.setState({ centerPub: source });
+  handleCenterPubChange = () => {
+    const centerPub = this.state.centerPub;
+    setTimeout(() => this.setState({ centerPub: !centerPub }), 150);
   }
 
   handleCatClicked = (key) => {
@@ -159,21 +162,31 @@ export class Publications extends Component {
   );
 
   render() {
-    const tabs = ['List', 'Options'].map((tab) => {
-      const style = [AppStyles.baseText, styles.tabTitle];
-      if (this.state.tab === tab) { style.push(styles.tabActive); }
-      return (
-        <TouchableOpacity key={tab} style={styles.pubTabs} onPress={() => this.changeTab(tab)}>
-          <Text style={style}>{tab}</Text>
-        </TouchableOpacity>
-      );
-    });
+    // const tabs = ['List', 'Options'].map((tab) => {
+    //   const style = [AppStyles.baseText, styles.tabTitle];
+    //   if (this.state.tab === tab) { style.push(styles.tabActive); }
+    //   return (
+    //     <TouchableOpacity key={tab} style={styles.pubTabs} onPress={() => this.changeTab(tab)}>
+    //       <Text style={style}>{tab}</Text>
+    //     </TouchableOpacity>
+    //   );
+    // });
     const tabView = this.state.tab === 'Options' ? this.renderOptions() : this.renderPubs();
+    const centerPubToggleText = this.state.centerPub ? 'Show Community Publications' : 'Show LINCS-Funded Publications';
+    const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
 
     return (
       <View style={AppStyles.container}>
-        <View style={styles.pubTabsContainer}>{tabs}</View>
+        {/*<View style={styles.pubTabsContainer}>{tabs}</View>*/}
         {tabView}
+        <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#1abc9c' title={centerPubToggleText} onPress={() => this.handleCenterPubChange()}>
+            <Icon name="rotate-right" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' title="Reset Filters" onPress={() => this.resetOptions()}>
+            <Icon name="check" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
       </View>
     );
   }

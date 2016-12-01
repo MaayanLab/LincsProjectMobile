@@ -40,4 +40,9 @@ export default StyleSheet.create({
   optionCheckbox: {
     paddingVertical: 5,
   },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
 });
