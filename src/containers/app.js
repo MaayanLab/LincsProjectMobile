@@ -36,10 +36,6 @@ class AppContainer extends Component {
     loadNews: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   /**
     * On first load
     */
@@ -67,6 +63,10 @@ class AppContainer extends Component {
     if (isOpen !== this.props.sideMenuIsOpen) {
       this.props.toggleSideMenu();
     }
+  }
+
+  calculateProgress = () => {
+    return 100;
   }
 
   configureScene = (route, routeStack) => {
@@ -121,7 +121,10 @@ class AppContainer extends Component {
   }
 
   render() {
-    if (this.props.loadingPublications || this.props.loadingNews ) return <LoadingScreen />;
+    const loadingProgress = this.calculateProgress();
+    if (this.props.loadingPublications || this.props.loadingNews) {
+      return <LoadingScreen progress={loadingProgress} />;
+    }
     return (
       <SideMenu
         ref="rootSidebarMenu"

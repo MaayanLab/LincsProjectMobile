@@ -29,7 +29,7 @@ export default class Home extends Component {
   }
 
   render = () => {
-    const text = this.props.placeholder || 'Coming soon...';
+    const text = this.props.placeholder || 'Welcome to the LINCS Project App';
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         <Text style={[AppStyles.baseText, AppStyles.p]}>

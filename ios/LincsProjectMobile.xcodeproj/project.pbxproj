@@ -26,6 +26,7 @@
 		CE95EA8B1DEE17D800CC9524 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE95EA791DEE17B400CC9524 /* Lato-Light.ttf */; };
 		CE95EA8D1DEE18AC00CC9524 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE95EA8C1DEE188E00CC9524 /* Lato-Regular.ttf */; };
 		CE9CBA781DEF2AE600DBB996 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE9CBA661DEF2AE300DBB996 /* Lato-Semibold.ttf */; };
+		CE9CBABB1DF095E700DBB996 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9CBABA1DF095E700DBB996 /* libART.a */; };
 		CEF7BC241DD2801A006A4C1B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1B1DD2801A006A4C1B /* Entypo.ttf */; };
 		CEF7BC251DD2801A006A4C1B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1C1DD2801A006A4C1B /* EvilIcons.ttf */; };
 		CEF7BC261DD2801A006A4C1B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEF7BC1D1DD2801A006A4C1B /* FontAwesome.ttf */; };
@@ -191,6 +192,7 @@
 		CE95EA791DEE17B400CC9524 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../Downloads/Lato2OFL/Lato-Light.ttf"; sourceTree = "<group>"; };
 		CE95EA8C1DEE188E00CC9524 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../Downloads/Lato2OFL/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		CE9CBA661DEF2AE300DBB996 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Semibold.ttf"; path = "../../../../../Downloads/Lato2OFL/Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		CE9CBABA1DF095E700DBB996 /* libART.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libART.a; path = "../node_modules/react-native/Libraries/ART/build/Debug-iphoneos/libART.a"; sourceTree = "<group>"; };
 		CEF7BC1B1DD2801A006A4C1B /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		CEF7BC1C1DD2801A006A4C1B /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		CEF7BC1D1DD2801A006A4C1B /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				CE9CBABB1DF095E700DBB996 /* libART.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
@@ -369,6 +372,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CE9CBABA1DF095E700DBB996 /* libART.a */,
 				CEF7BC1A1DD2801A006A4C1B /* Fonts */,
 				13B07FAE1A68108700A75B9A /* LincsProjectMobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
