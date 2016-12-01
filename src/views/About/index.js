@@ -54,7 +54,7 @@ export default class About extends Component {
           exposed to perturbations.
         </Text>
       </ScrollView>
-      
+
       <View style={[AppStyles.spacer_10]} />
       <Button style={[styles.button]} onPress={() => this.navigate('LINCS Project')}>
         <Text style={[AppStyles.baseText, styles.white]}> Visit lincsproject.org </Text>
