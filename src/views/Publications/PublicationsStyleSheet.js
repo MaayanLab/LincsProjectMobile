@@ -34,4 +34,10 @@ export default StyleSheet.create({
   white: {
     color: 'white',
   },
+  optionRadio: {
+    paddingVertical: 5,
+  },
+  optionCheckbox: {
+    paddingVertical: 5,
+  },
 });

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text } from 'react-native';
 import CheckBox from 'react-native-icon-checkbox';
 import Button from 'apsl-react-native-button';
 
@@ -21,7 +21,7 @@ const catColors = {
 const pubSourceMap = {
   'LINCS-Funded': true,
   Community: false,
-}
+};
 
 export default class Options extends Component {
   static propTypes = {
@@ -37,8 +37,8 @@ export default class Options extends Component {
   .replace(/^./, str => str.toUpperCase());
 
 // ------------ Render methods ------------
-  renderPubSourceOptions = () => {
-    return Object.keys(pubSourceMap).map((source) => {
+  renderPubSourceOptions = () => (
+    Object.keys(pubSourceMap).map((source) => {
       let centerSource = false;
       if ((source === 'LINCS-Funded' && this.props.centerPub) || (source === 'Community' && !this.props.centerPub)) {
         centerSource = true;
@@ -46,6 +46,7 @@ export default class Options extends Component {
       return (
         <CheckBox
           key={source}
+          style={styles.optionRadio}
           onPress={() => this.props.changeCenterPub(pubSourceMap[source])}
           labelStyle={{ fontFamily: 'Lato-Regular' }}
           checked={centerSource}
@@ -55,14 +56,15 @@ export default class Options extends Component {
           checkedIconName="radio-button-checked"
         />
       );
-    });
-  }
+    })
+  )
 
   renderCategoryOptions = () => {
     const catOptions = this.props.categoryOptions;
     return Object.keys(catOptions).map(option => (
       <CheckBox
         key={option}
+        style={styles.optionCheckbox}
         onPress={() => this.props.changeCategoryOp(option)}
         labelStyle={{ fontFamily: 'Lato-Light' }}
         checked={catOptions[option]}
@@ -74,9 +76,8 @@ export default class Options extends Component {
   }
 
   render() {
-    const centerPub = this.props.centerPub;
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]}>
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.paddingVertical]}>
         <View style={styles.optionsContainer}>
           { this.renderPubSourceOptions() }
           <View style={AppStyles.spacer_10} />
