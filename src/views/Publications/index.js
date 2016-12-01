@@ -112,7 +112,7 @@ export class Publications extends Component {
   }
 
   resetOptions = () => {
-    this.setState({ categories: initialCategories });
+    this.setState({ centerPub: true, categories: initialCategories });
   }
 
 // ------------  Rendering methods ------------
