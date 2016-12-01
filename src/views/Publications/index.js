@@ -24,6 +24,7 @@ const initialCategories = {
 const mapStateToProps = state => ({
   publications: state.publications,
 });
+const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
 
 export class Publications extends Component {
   static propTypes = {
@@ -124,8 +125,6 @@ export class Publications extends Component {
         </View>
       );
     }
-
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     const dataSource = ds.cloneWithRows(pubs);
     const cats = Object.keys(this.state.categories);
 
