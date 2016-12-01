@@ -3,7 +3,6 @@ import {
   Navigator,
   View,
   StatusBar,
-  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
@@ -23,6 +22,7 @@ import { NavbarTitle, NavbarLeftButton } from '../components/NavBarElements';
 import LoadingScreen from '../views/LoadingScreen';
 import Home from '../views/Home';
 import { loadPublications } from '../actions/publications';
+import { loadNews } from '../actions/news';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -32,6 +32,7 @@ class AppContainer extends Component {
     sideMenuIsOpen: PropTypes.bool,
     loadingPublications: PropTypes.bool,
     loadPublications: PropTypes.func,
+    loadNews: PropTypes.func,
   }
 
   constructor(props) {
@@ -46,10 +47,11 @@ class AppContainer extends Component {
     */
   componentWillMount = () => {
     this.props.loadPublications();
+    this.props.loadNews();
   }
 
   componentDidMount = () => {
-    // Pseudo timeout to mimic fetch
+    // Pseudo timeout to mimic fetch. should actually be fetching is successful
     setTimeout(() => {
       this.setState({ loading: false });
     }, 5000);
@@ -158,11 +160,13 @@ class AppContainer extends Component {
 
 const mapStateToProps = state => ({
   loadingPublications: state.publications.isFetching,
+  loadingNews: state.news.isFetching,
   sideMenuIsOpen: state.sideMenu.isOpen,
 });
 
 const mapDispatchToProps = {
   loadPublications,
+  loadNews,
   toggleSideMenu: SideMenuActions.toggle,
   closeSideMenu: SideMenuActions.close,
 };
