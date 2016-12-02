@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { View, ListView } from 'react-native';
 import { connect } from 'react-redux';
+
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import isEqual from 'lodash/isEqual';
 
 import NewsItem from '../../components/NewsItem';
 import AppStyles from '../../styles';
+import styles from './NewsStyleSheet';
 
 // seed data for testing purposes.
 // import { news } from '../../seed';
@@ -23,14 +27,22 @@ class News extends Component {
   render() {
     // Uncomment this when news pipeline is ready. Need to take care of error handling
     const news = this.props.news.news;
-    debugger;
     const dataSource = ds.cloneWithRows(news)
+    const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
     return (
       <View style={[AppStyles.container]}>
         <ListView
           dataSource={dataSource}
           renderRow={rowData => <NewsItem story={rowData} navigator={this.props.navigator} />}
         />
+        <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#1abc9c' title="Most Recent" onPress={() => this.handleCenterPubChange()}>
+            <Icon name="rotate-right" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' title="Reset Filters" onPress={() => this.resetOptions()}>
+            <Icon name="check" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
       </View>
     );
   }
