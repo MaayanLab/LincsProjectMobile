@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import isEqual from 'lodash/isEqual';
 
 import Options from './Options';
-
 import PublicationItem from '../../components/PublicationItem';
+
 import AppStyles from '../../styles';
 import styles from './PublicationsStyleSheet';
 

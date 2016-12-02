@@ -20,7 +20,7 @@ const catColors = {
 
 const pubSourceMap = {
   'LINCS-Funded': true,
-  Community: false,
+  'Community': false,
 };
 
 export default class Options extends Component {

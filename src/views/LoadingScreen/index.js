@@ -18,8 +18,7 @@ const LoadingScreen = (props) => {
         fill={progress}
         tintColor="#00e0ff"
         backgroundColor="#3d5875"
-      >
-      </AnimatedCircularProgress>
+      />
       <Image style={styles.logo} source={lincsLogo} />
     </View>
   );
