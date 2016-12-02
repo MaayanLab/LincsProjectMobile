@@ -29,7 +29,7 @@ export default StyleSheet.create({
     paddingRight: 50,
   },
 
-  date: {
+  category: {
     fontSize: 11,
     color: AppConfig.gray,
   },
@@ -40,7 +40,7 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
 
-  body: {
+  presenterInfo: {
     fontFamily: AppConfig.baseFont,
     fontSize: 11,
     lineHeight: 17,
