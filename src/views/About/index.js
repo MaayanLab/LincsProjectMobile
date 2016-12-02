@@ -8,9 +8,9 @@ import {
 import Button from 'apsl-react-native-button';
 import WebBrowser from '../../components/WebBrowser';
 
-import lincsLogo from '../../static/lincsLogo.png';
 import AppStyles from '../../styles';
 import styles from './AboutStyleSheet';
+import lincsLogo from '../../static/lincsLogo.png';
 
 export default class About extends Component {
   static propTypes = {
