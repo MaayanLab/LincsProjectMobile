@@ -10,9 +10,6 @@ import NewsItem from '../../components/NewsItem';
 import AppStyles from '../../styles';
 import styles from './NewsStyleSheet';
 
-// seed data for testing purposes.
-// import { news } from '../../seed';
-
 const mapStateToProps = state => ({
   news: state.news,
 });
@@ -25,7 +22,7 @@ class News extends Component {
   }
 
   render() {
-    // Uncomment this when news pipeline is ready. Need to take care of error handling
+    // Need to take care of error handling
     const news = this.props.news.news;
     const dataSource = ds.cloneWithRows(news)
     const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
