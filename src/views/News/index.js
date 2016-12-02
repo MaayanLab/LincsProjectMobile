@@ -7,7 +7,7 @@ import NewsItem from '../../components/NewsItem';
 import AppStyles from '../../styles';
 
 // seed data for testing purposes.
-import { news } from '../../seed';
+// import { news } from '../../seed';
 
 const mapStateToProps = state => ({
   news: state.news,
@@ -22,7 +22,8 @@ class News extends Component {
 
   render() {
     // Uncomment this when news pipeline is ready. Need to take care of error handling
-    // const news = this.props.news;
+    const news = this.props.news.news;
+    debugger;
     const dataSource = ds.cloneWithRows(news)
     return (
       <View style={[AppStyles.container]}>

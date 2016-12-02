@@ -24,7 +24,8 @@ export default class NewsItem extends Component {
 
   render() {
     const { story } = this.props;
-    const { title, body, link, timestamp } = story;
+    // const { title, body, link, timestamp } = story;
+    const { title, presenterName, presenterAffiliation, presenterUrl, url, date } = story;
     return (
       <View style={styles.item}>
         <View style={styles.leftPanel}>
@@ -34,10 +35,9 @@ export default class NewsItem extends Component {
           <View style={styles.info}>
             <Text style={styles.date}> 3 days ago </Text>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.body}>{body}</Text>
             <Text
               style={styles.link}
-              onPress={() => this.navigate(link)}
+              onPress={() => this.navigate(url)}
             >
               Details
             </Text>
