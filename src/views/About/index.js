@@ -37,21 +37,7 @@ export default class About extends Component {
           Overview
         </Text>
         <Text style={[AppStyles.baseText, AppStyles.p, styles.intro]}>
-          The LINCS Consortium is an NIH Common Fund program that supports six
-          Data and Signature Generation Centers (DSGCs) and the BD2K-LINCS Data
-          Integration and Coordination Center. The LINCS program is currently in
-          phase II after the completion of pilot phase I in fiscal year 2013.
-        </Text>
-
-        <Text style={[AppStyles.baseText, AppStyles.h2]}>
-          LINCS Production Phase II
-        </Text>
-        <Text style={[AppStyles.baseText, AppStyles.p, styles.intro]}>
-          LINCS Data and Signature Generation Centers
-          The LINCS Data and Signature Generation Centers are six research
-          centers focused on high-throughput experiments that examine the
-          changes that occur when a variety of different cell lines are
-          exposed to perturbations.
+          By generating and making public data that indicates how cells respond to various genetic and environmental stressors, the LINCS project will help us gain a more detailed understanding of cell pathways and aid efforts to develop therapies that might restore perturbed pathways and networks to their normal states. The LINCS website is a source of information for the research community and general public about the LINCS project. This website along with the LINCS Data Portal contains details about the assays, cell types, and perturbagens that are currently part of the library, as well as links to participating sites, data releases from the sites, and software that can be used for analyzing the data.
         </Text>
       </ScrollView>
 
