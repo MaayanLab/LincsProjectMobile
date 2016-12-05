@@ -2,22 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 
 import styles from './PublicationItemStyleSheet';
-import AppStyles from '../../styles';
+import AppStyles, { colors } from '../../styles';
 import WebBrowser from '../WebBrowser';
-
-const idxColors = {
-  purple: '#c45fff',
-  turquoise: '#6498a5',
-  brightOrange: '#ff664c',
-  orange: '#ff9028',
-  pink: '#fc629e',
-  blue: '#ff5d9f',
-  lightBlue: '#68c3d5',
-  red: '#be5f67',
-};
-
-// const idxColors = ['#c45fff', '#6498a5', '#ff664c', '#ff9028', '#fc629e',
-// '#ff5d9f', '#68c3d5', '#be5f67'];
 
 const catColors = {
   assayDevelopment: '#942e02',
@@ -42,7 +28,7 @@ export default class PublicationItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: Object.values(idxColors)[Math.floor(Math.random() * 8)],
+      color: Object.values(colors)[Math.floor(Math.random() * 8)],
     };
   }
 
@@ -88,7 +74,7 @@ export default class PublicationItem extends Component {
     const color = this.state.color;
 
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
+      <View>
         <View style={AppStyles.spacer_15} />
         <TouchableOpacity onPress={() => this.navigate(pub.pmId)}>
           <View style={AppStyles.paddingHorizontal}>

@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './NewsItemStyleSheet';
-import AppConfig from '../../config';
+import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 import Home from '../../views/Home';
 
@@ -29,7 +29,7 @@ export default class NewsItem extends Component {
     return (
       <View style={styles.item}>
         <View style={styles.leftPanel}>
-          <Icon name="star" size={15} color={AppConfig.gray} />
+          <Icon name="star" size={15} style={AppStyles.lightGray} />
         </View>
         <View style={styles.rightPanel}>
           <Text style={styles.category}>{category}</Text>
