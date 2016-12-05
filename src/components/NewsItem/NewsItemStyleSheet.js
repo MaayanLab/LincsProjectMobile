@@ -10,6 +10,9 @@ export default StyleSheet.create({
   largeFont: {
     fontSize: 15,
   },
+  title: {
+    color: '#143a5e',
+  },
   accordion: {
     flex: 1,
     alignItems: 'center',

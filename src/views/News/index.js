@@ -33,6 +33,9 @@ class News extends Component {
           renderRow={rowData => <NewsItem story={rowData} navigator={this.props.navigator} />}
         />
         <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#1abc9c' title="Twitter Feed" onPress={() => this.handleCenterPubChange()}>
+            <Icon name="rotate-right" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
           <ActionButton.Item buttonColor='#1abc9c' title="Most Recent" onPress={() => this.handleCenterPubChange()}>
             <Icon name="rotate-right" style={styles.actionButtonIcon} />
           </ActionButton.Item>

@@ -11,13 +11,14 @@ import WebBrowser from '../WebBrowser';
 
 const colorMap = {
   default: '#be5f67', // red
-  'LINCS Webinar': '#c45fff', // purple
+  'LINCS Webinar': '#c25b56',
   'Category 1': '#6498a5', // turquoise
-  'Category 2': '#ff664c', // brightOrange
-  'Category 3': '#ff9028', // orange
-  'Category 4': '#fc629e', // pink
-  'Category 5': '#ff5d9f', // blue
+  'Category 2': '#ff9028', // purple
+  'Category 3': '#c45fff', // orange
+  'Category 4': '#152d44', // dark blue
+  'Category 5': '#ff5d9f', // pink
   'Category 6': '#68c3d5', // lightBlue
+  // 'Category 7': '#ff664c', //bright Orange
 };
 
 export default class NewsItem extends Component {
@@ -35,11 +36,6 @@ export default class NewsItem extends Component {
       index: 2,
     });
   }
-
-  // calculateDate = (sqlDate) => {
-  //   const t = sqlDate.split(/[- :]/);
-  //   return new Date(Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5])).toString();
-  // }
 
 // ------------ Render methods ------------
   render = () => {
@@ -74,7 +70,7 @@ export default class NewsItem extends Component {
         <Text style={[styles.mediumFont, AppStyles.latoRegular, { color }]}>
           {category}
         </Text>
-        <Text style={[AppStyles.latoRegular, styles.largeFont]}>{title}</Text>
+        <Text style={[AppStyles.latoRegular, styles.largeFont, styles.title]}>{title}</Text>
         <View style={AppStyles.spacer_5} />
         <Text style={[AppStyles.latoLight, styles.smallFont]}>
           {presenterName}
