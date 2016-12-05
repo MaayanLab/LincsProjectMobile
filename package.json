@@ -11,6 +11,7 @@
     "lodash": "^4.16.6",
     "react": "15.3.2",
     "react-native": "0.37.0",
+    "react-native-accordion": "https://github.com/NedYork/react-native-accordion/tarball/master",
     "react-native-action-button": "^2.0.16",
     "react-native-circular-progress": "0.0.7",
     "react-native-icon-checkbox": "^1.2.0",

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
+import Accordion from 'react-native-accordion';
 
 import styles from './NewsItemStyleSheet';
 import AppStyles from '../../styles';
@@ -43,10 +44,9 @@ export default class NewsItem extends Component {
     const { category, title, presenterName, presenterAffiliation, presenterUrl, url, date } = story;
     const color = this.calculateColor(category);
 
-    return (
-      <View>
+    const newsItem = (
+      <View style={AppStyles.container}>
         <View style={AppStyles.spacer_15} />
-        <TouchableOpacity onPress={() => this.navigate(url)}>
           <View style={AppStyles.paddingHorizontal}>
             <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
               {category}
@@ -56,11 +56,25 @@ export default class NewsItem extends Component {
             <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{presenterName}</Text>
             <View style={AppStyles.spacer_10} />
           </View>
-        </TouchableOpacity>
 
         <Text style={[styles.pubCategoriesList]}>{presenterAffiliation}</Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
+    );
+
+    const dropDown = (
+      <View>
+        <Text>Click to Expand</Text>
+      </View>
+    );
+
+    return (
+      <Accordion
+        header={newsItem}
+        content={dropDown}
+        duration={300}
+        easing="easeOutCubic"
+      />
     );
   }
 }
