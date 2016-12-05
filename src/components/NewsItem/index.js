@@ -39,12 +39,25 @@ export default class NewsItem extends Component {
     return colorMap.default;
   }
 
-  render() {
+  render = () => {
+    const newsItem = this._renderNewsItem();
+    const dropDown = this._renderDropDown();
+    return (
+      <Accordion
+        header={newsItem}
+        content={dropDown}
+        duration={300}
+        easing="easeOutCubic"
+      />
+    );
+  }
+
+  _renderNewsItem = () => {
     const { story } = this.props;
     const { category, title, presenterName, presenterAffiliation, presenterUrl, url, date } = story;
     const color = this.calculateColor(category);
 
-    const newsItem = (
+    return (
       <View style={AppStyles.container}>
         <View style={AppStyles.spacer_15} />
           <View style={AppStyles.paddingHorizontal}>
@@ -61,20 +74,13 @@ export default class NewsItem extends Component {
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
     );
+  }
 
-    const dropDown = (
+  _renderDropDown = () => {
+    return (
       <View>
         <Text>Click to Expand</Text>
       </View>
-    );
-
-    return (
-      <Accordion
-        header={newsItem}
-        content={dropDown}
-        duration={300}
-        easing="easeOutCubic"
-      />
     );
   }
 }
