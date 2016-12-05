@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View } from 'react-native';
 import Accordion from 'react-native-accordion';
 
+import formatDate from '../../utils/formatDate';
+
 import styles from './NewsItemStyleSheet';
 import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
@@ -33,6 +35,11 @@ export default class NewsItem extends Component {
     });
   }
 
+  // calculateDate = (sqlDate) => {
+  //   const t = sqlDate.split(/[- :]/);
+  //   return new Date(Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5])).toString();
+  // }
+
 // ------------ Render methods ------------
   render = () => {
     const newsItem = this._renderNewsItem();
@@ -58,6 +65,7 @@ export default class NewsItem extends Component {
       date,
     } = this.props.story;
     const color = colorMap[category] || colorMap.default;
+    const formattedDate = formatDate(date);
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
@@ -73,7 +81,9 @@ export default class NewsItem extends Component {
         <Text style={[AppStyles.latoLight, styles.pubAuthors]}>
           ({presenterAffiliation})
         </Text>
-        <View style={AppStyles.spacer_5} />
+        <Text style={[AppStyles.latoSemiBold, styles.pubAuthors]}>
+          {formattedDate}
+        </Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
     );
