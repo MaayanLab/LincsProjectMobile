@@ -35,7 +35,6 @@ export default class PublicationItem extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     pub: PropTypes.object,
-    idx: PropTypes.string,
     cats: PropTypes.array,
     onCatClicked: PropTypes.func,
   }
@@ -84,7 +83,6 @@ export default class PublicationItem extends Component {
   render() {
     const { pub } = this.props;
     const authorsName = pub.authors.map(author => author.name).join(', ');
-    const idx = parseInt(this.props.idx, 10) + 1;
     const categories = this.generateCategoryButtons();
 
     const color = this.state.color;
@@ -93,16 +91,10 @@ export default class PublicationItem extends Component {
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <View style={AppStyles.spacer_15} />
         <TouchableOpacity onPress={() => this.navigate(pub.pmId)}>
-          <View style={styles.IdxAndJournal}>
-            <View style={[styles.encircle, { borderColor: color }]}>
-              <Text style={[AppStyles.latoLight, AppStyles.latoRegular, { color }]}>{idx}</Text>
-            </View>
+          <View style={AppStyles.paddingHorizontal}>
             <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
               {pub.journalName}
             </Text>
-          </View>
-
-          <View style={AppStyles.paddingHorizontal}>
             <Text style={[AppStyles.latoLight, styles.pubTitle]}>{pub.articleName}</Text>
             <View style={AppStyles.spacer_5} />
             <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{authorsName}</Text>

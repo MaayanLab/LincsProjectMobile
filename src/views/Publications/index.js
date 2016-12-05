@@ -138,9 +138,8 @@ export class Publications extends Component {
         enableEmptySections
         dataSource={dataSource}
         renderRow={
-          (rowData, sectionId, rowId) => (
+          rowData => (
             <PublicationItem
-              idx={rowId}
               cats={cats}
               pub={rowData}
               navigator={this.props.navigator}

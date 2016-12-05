@@ -13,7 +13,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   pubJournal: {
-    marginLeft: 3,
     fontSize: 12,
   },
   pubIdx: {
