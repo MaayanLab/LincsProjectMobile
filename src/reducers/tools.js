@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        pubs: action.payload,
+        tools: action.payload,
         error: null,
       };
     case ToolActionTypes.TOOLS_FAILURE:

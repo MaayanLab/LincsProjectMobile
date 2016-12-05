@@ -23,6 +23,7 @@ import LoadingScreen from '../views/LoadingScreen';
 import Home from '../views/Home';
 import { loadPublications } from '../actions/publications';
 import { loadNews } from '../actions/news';
+import { loadTools } from '../actions/tools';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -32,8 +33,10 @@ class AppContainer extends Component {
     sideMenuIsOpen: PropTypes.bool,
     loadingPublications: PropTypes.bool,
     loadingNews: PropTypes.bool,
+    loadingTools: PropTypes.bool,
     loadPublications: PropTypes.func,
     loadNews: PropTypes.func,
+    loadTools: PropTypes.func,
   }
 
   /**
@@ -42,6 +45,7 @@ class AppContainer extends Component {
   componentWillMount = () => {
     this.props.loadPublications();
     this.props.loadNews();
+    this.props.loadTools();
   }
 
   componentDidMount = () => {
@@ -122,7 +126,7 @@ class AppContainer extends Component {
 
   render() {
     const loadingProgress = this.calculateProgress();
-    if (this.props.loadingPublications || this.props.loadingNews) {
+    if (this.props.loadingPublications || this.props.loadingNews || this.props.loadingTools) {
       return <LoadingScreen progress={loadingProgress} />;
     }
     return (
@@ -157,12 +161,14 @@ class AppContainer extends Component {
 const mapStateToProps = state => ({
   loadingPublications: state.publications.isFetching,
   loadingNews: state.news.isFetching,
+  loadingTools: state.tools.isFetching,
   sideMenuIsOpen: state.sideMenu.isOpen,
 });
 
 const mapDispatchToProps = {
   loadPublications,
   loadNews,
+  loadTools,
   toggleSideMenu: SideMenuActions.toggle,
   closeSideMenu: SideMenuActions.close,
 };
