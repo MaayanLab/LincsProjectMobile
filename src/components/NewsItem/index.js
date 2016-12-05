@@ -65,12 +65,15 @@ export default class NewsItem extends Component {
         <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
           {category}
         </Text>
-        <Text style={[AppStyles.latoLight, styles.pubTitle]}>{title}</Text>
+        <Text style={[AppStyles.latoRegular, styles.pubTitle]}>{title}</Text>
         <View style={AppStyles.spacer_5} />
-        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{presenterName}</Text>
-        <View style={AppStyles.spacer_10} />
-
-        <Text style={[styles.pubCategoriesList]}>{presenterAffiliation}</Text>
+        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>
+          {presenterName}
+        </Text>
+        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>
+          ({presenterAffiliation})
+        </Text>
+        <View style={AppStyles.spacer_5} />
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
     );
@@ -78,8 +81,10 @@ export default class NewsItem extends Component {
 
   _renderDropDown = () => {
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
-        <Text>Click to Expand</Text>
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+        <Text>More details</Text>
+        <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
+        <View style={AppStyles.spacer_5} />
       </View>
     );
   }
