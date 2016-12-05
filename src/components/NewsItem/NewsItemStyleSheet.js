@@ -1,40 +1,36 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  pubTitle: {
-    fontSize: 15,
-  },
-  pubAuthors: {
+  smallFont: {
     fontSize: 11,
   },
-  IdxAndJournal: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  pubJournal: {
+  mediumFont: {
     fontSize: 12,
   },
-  pubIdx: {
-    fontSize: 11,
+  largeFont: {
+    fontSize: 15,
   },
-  pubCategory: {
-    color: 'white',
-    fontSize: 11,
-    paddingVertical: 2.5,
-    paddingHorizontal: 7.5,
-  },
-  pubCategoriesList: {
+  accordion: {
     flex: 1,
-    flexDirection: 'row',
-    alignSelf: 'center',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f2f2f2',
   },
-  categoryItem: {
-    borderRadius: 8,
-    marginVertical: 1.5,
-    marginHorizontal: 1.5,
-    overflow: 'hidden',
+  accordionButtonsContainer: {
+    flexDirection: 'row',
+  },
+  accordionButton: {
+    flex: 1,
+  },
+  accordionButtonIcon: {
+    fontSize: 20,
+    flex: 1,
+    textAlign: 'center',
+  },
+  button1: {
+    color: '#6498a5',
+  },
+  button2: {
+    color: '#ff664c',
   },
 });

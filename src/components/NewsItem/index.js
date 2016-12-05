@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Accordion from 'react-native-accordion';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import formatDate from '../../utils/formatDate';
 
@@ -70,18 +71,18 @@ export default class NewsItem extends Component {
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <View style={AppStyles.spacer_15} />
-        <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
+        <Text style={[styles.mediumFont, AppStyles.latoRegular, { color }]}>
           {category}
         </Text>
-        <Text style={[AppStyles.latoRegular, styles.pubTitle]}>{title}</Text>
+        <Text style={[AppStyles.latoRegular, styles.largeFont]}>{title}</Text>
         <View style={AppStyles.spacer_5} />
-        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>
+        <Text style={[AppStyles.latoLight, styles.smallFont]}>
           {presenterName}
         </Text>
-        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>
+        <Text style={[AppStyles.latoLight, styles.smallFont]}>
           ({presenterAffiliation})
         </Text>
-        <Text style={[AppStyles.latoSemiBold, styles.pubAuthors]}>
+        <Text style={[AppStyles.latoSemiBold, styles.smallFont]}>
           {formattedDate}
         </Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
@@ -90,11 +91,27 @@ export default class NewsItem extends Component {
   }
 
   _renderDropDown = () => {
+    // const { presenterUrl, url } = this.props.story;
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
-        <Text>More details</Text>
-        <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
-        <View style={AppStyles.spacer_5} />
+      <View
+        style={[
+          AppStyles.container,
+          AppStyles.paddingHorizontalSml,
+          AppStyles.paddingVerticalSml,
+          styles.accordion,
+        ]}
+      >
+        <Text style={[AppStyles.latoLight, styles.smallFont]}>
+          Some description here
+        </Text>
+        <View style={styles.accordionButtonsContainer}>
+          <TouchableOpacity style={styles.accordionButton}>
+            <Icon name="rotate-left" style={[styles.accordionButtonIcon, styles.button1]} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.accordionButton}>
+            <Icon name="rotate-left" style={[styles.accordionButtonIcon, styles.button2]} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
