@@ -21,71 +21,13 @@ export default class Menu extends Component {
     navigate: React.PropTypes.func.isRequired,
   };
 
-  getMainItems = () => {
-    const { main } = menu;
-    return main.map((item) => {
-      const { title, icon, component, props } = item;
-      return (
-        <TouchableOpacity
-          key={`menu-item-${title}`}
-          onPress={() => this.props.navigate(title, component, props)}
-          style={styles.menuItemTouch}
-        >
-          <View style={[styles.menuItem]}>
-            <Icon style={styles.icon} name={icon} />
-            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
-          </View>
-        </TouchableOpacity>
-      );
-    });
-  }
-
-  getCenterItems = () => {
-    const { centers } = menu;
-    return centers.map((center) => {
-      const { title, centerLogo, component, props } = center;
-      return (
-        <TouchableOpacity
-          key={`menu-item-${title}`}
-          onPress={() => this.props.navigate(title, component, props)}
-          style={styles.menuItemTouch}
-        >
-          <View style={[styles.menuItem]}>
-            <View style={styles.centerLogoWrapper}>
-              <Image source={centerLogo} style={styles.centerLogo} />
-            </View>
-            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
-          </View>
-        </TouchableOpacity>
-      );
-    });
-  }
-
-  getSettingItems = () => {
-    const { settings } = menu;
-    return settings.map((item) => {
-      const { title, icon, component, props } = item;
-      return (
-        <TouchableOpacity
-          key={`menu-item-${title}`}
-          onPress={() => this.props.navigate(title, component, props)}
-          style={styles.menuItemTouch}
-        >
-          <View style={[styles.menuItem]}>
-            <Icon style={styles.icon} name={icon} />
-            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
-          </View>
-        </TouchableOpacity>
-      );
-    });
-  }
-
+  // ------------ Render methods ------------
   render = () => {
     const { navigate } = this.props;
 
-    const mainItems = this.getMainItems();
-    const centerItems = this.getCenterItems();
-    const settingsItems = this.getSettingItems();
+    const mainItems = this._renderMainItems();
+    const centerItems = this._renderCenterItems();
+    const settingsItems = this._renderSettingItems();
 
     return (
       <View style={[styles.menuContainer]}>
@@ -118,5 +60,64 @@ export default class Menu extends Component {
         </ScrollView>
       </View>
     );
+  }
+
+  _renderMainItems = () => {
+    const { main } = menu;
+    return main.map((item) => {
+      const { title, icon, component, props } = item;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => this.props.navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
+            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+  }
+
+  _renderCenterItems = () => {
+    const { centers } = menu;
+    return centers.map((center) => {
+      const { title, centerLogo, component, props } = center;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => this.props.navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <View style={styles.centerLogoWrapper}>
+              <Image source={centerLogo} style={styles.centerLogo} />
+            </View>
+            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+  }
+
+  _renderSettingItems = () => {
+    const { settings } = menu;
+    return settings.map((item) => {
+      const { title, icon, component, props } = item;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => this.props.navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
+            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
   }
 }

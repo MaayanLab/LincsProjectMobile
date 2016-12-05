@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
 import Accordion from 'react-native-accordion';
 
 import styles from './NewsItemStyleSheet';
@@ -7,6 +7,7 @@ import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 
 const colorMap = {
+  default: '#be5f67', // red
   'LINCS Webinar': '#c45fff', // purple
   'Category 1': '#6498a5', // turquoise
   'Category 2': '#ff664c', // brightOrange
@@ -14,7 +15,6 @@ const colorMap = {
   'Category 4': '#fc629e', // pink
   'Category 5': '#ff5d9f', // blue
   'Category 6': '#68c3d5', // lightBlue
-  'Category 7': '#be5f67', // red
 };
 
 export default class NewsItem extends Component {
@@ -23,6 +23,7 @@ export default class NewsItem extends Component {
     story: PropTypes.object,
   }
 
+// ------------ Helper methods ------------
   navigate(uri) {
     this.props.navigator.push({
       title: 'News',
@@ -32,13 +33,7 @@ export default class NewsItem extends Component {
     });
   }
 
-  calculateColor = (categoryName) => {
-    if (colorMap[categoryName]) {
-      return colorMap[categoryName];
-    }
-    return colorMap.default;
-  }
-
+// ------------ Render methods ------------
   render = () => {
     const newsItem = this._renderNewsItem();
     const dropDown = this._renderDropDown();
@@ -53,9 +48,16 @@ export default class NewsItem extends Component {
   }
 
   _renderNewsItem = () => {
-    const { story } = this.props;
-    const { category, title, presenterName, presenterAffiliation, presenterUrl, url, date } = story;
-    const color = this.calculateColor(category);
+    const {
+      category,
+      title,
+      presenterName,
+      presenterAffiliation,
+      presenterUrl,
+      url,
+      date,
+    } = this.props.story;
+    const color = colorMap[category] || colorMap.default;
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
@@ -76,7 +78,7 @@ export default class NewsItem extends Component {
 
   _renderDropDown = () => {
     return (
-      <View>
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <Text>Click to Expand</Text>
       </View>
     );

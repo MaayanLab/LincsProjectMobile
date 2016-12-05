@@ -21,11 +21,11 @@ class News extends Component {
     navigator: PropTypes.object.isRequired,
   }
 
-  render() {
+  render = () => {
     // Need to take care of error handling
     const news = this.props.news.news;
     const dataSource = ds.cloneWithRows(news)
-    const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
+    const settingsIcon = this._renderSettingsIcon();
     return (
       <View style={[AppStyles.container]}>
         <ListView
@@ -43,6 +43,10 @@ class News extends Component {
       </View>
     );
   }
+
+  _renderSettingsIcon = () => (
+    <Icon name="settings" style={styles.actionButtonIcon} />
+  );
 }
 
 export default connect(mapStateToProps, null)(News);

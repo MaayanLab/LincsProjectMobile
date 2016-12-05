@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Text, WebView } from 'react-native';
+import { WebView } from 'react-native';
 
 export default function WebBrowser(props) {
   const { uri } = props;

@@ -25,13 +25,7 @@ export default class PublicationItem extends Component {
     onCatClicked: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: Object.values(colors)[Math.floor(Math.random() * 8)],
-    };
-  }
-
+  // ------------ Helper methods ------------
   navigate(pmId) {
     this.props.navigator.push({
       title: 'Publication',
@@ -41,37 +35,17 @@ export default class PublicationItem extends Component {
     });
   }
 
-  generateCategoryButtons = () => {
-    const { pub } = this.props;
-    const categories = [];
-    this.props.cats.forEach((cat, idx) => {
-      if (pub[cat]) {
-        categories.push(
-          <TouchableOpacity
-            style={[styles.categoryItem, { backgroundColor: catColors[cat] }]}
-            onPress={() => this.props.onCatClicked(cat)}
-            key={idx}
-          >
-            <Text style={[styles.pubCategory, AppStyles.latoSemiBold]}>
-              {this.categoryKeyToName(cat)}
-            </Text>
-          </TouchableOpacity>
-        );
-      }
-    });
-    return categories;
-  }
-
   categoryKeyToName = key => key
   .replace(/([A-Z])/g, ' $1')
   .replace(/^./, str => str.toUpperCase());
 
+// ------------ Render methods ------------
   render() {
     const { pub } = this.props;
     const authorsName = pub.authors.map(author => author.name).join(', ');
-    const categories = this.generateCategoryButtons();
+    const categories = this._renderCategoryButtons();
 
-    const color = this.state.color;
+    const color = Object.values(colors)[Math.floor(Math.random() * 8)];
 
     return (
       <View>
@@ -90,5 +64,26 @@ export default class PublicationItem extends Component {
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
     );
+  }
+
+  _renderCategoryButtons = () => {
+    const { pub } = this.props;
+    const categories = [];
+    this.props.cats.forEach((cat, idx) => {
+      if (pub[cat]) {
+        categories.push(
+          <TouchableOpacity
+            style={[styles.categoryItem, { backgroundColor: catColors[cat] }]}
+            onPress={() => this.props.onCatClicked(cat)}
+            key={idx}
+          >
+            <Text style={[styles.pubCategory, AppStyles.latoSemiBold]}>
+              {this.categoryKeyToName(cat)}
+            </Text>
+          </TouchableOpacity>
+        );
+      }
+    });
+    return categories;
   }
 }
