@@ -58,17 +58,15 @@ export default class NewsItem extends Component {
     const color = this.calculateColor(category);
 
     return (
-      <View style={AppStyles.container}>
+      <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <View style={AppStyles.spacer_15} />
-          <View style={AppStyles.paddingHorizontal}>
-            <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
-              {category}
-            </Text>
-            <Text style={[AppStyles.latoLight, styles.pubTitle]}>{title}</Text>
-            <View style={AppStyles.spacer_5} />
-            <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{presenterName}</Text>
-            <View style={AppStyles.spacer_10} />
-          </View>
+        <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
+          {category}
+        </Text>
+        <Text style={[AppStyles.latoLight, styles.pubTitle]}>{title}</Text>
+        <View style={AppStyles.spacer_5} />
+        <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{presenterName}</Text>
+        <View style={AppStyles.spacer_10} />
 
         <Text style={[styles.pubCategoriesList]}>{presenterAffiliation}</Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />

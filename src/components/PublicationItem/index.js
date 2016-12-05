@@ -77,15 +77,13 @@ export default class PublicationItem extends Component {
       <View>
         <View style={AppStyles.spacer_15} />
         <TouchableOpacity onPress={() => this.navigate(pub.pmId)}>
-          <View style={AppStyles.paddingHorizontal}>
-            <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
-              {pub.journalName}
-            </Text>
-            <Text style={[AppStyles.latoLight, styles.pubTitle]}>{pub.articleName}</Text>
-            <View style={AppStyles.spacer_5} />
-            <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{authorsName}</Text>
-            <View style={AppStyles.spacer_10} />
-          </View>
+          <Text style={[styles.pubJournal, AppStyles.latoRegular, { color }]}>
+            {pub.journalName}
+          </Text>
+          <Text style={[AppStyles.latoLight, styles.pubTitle]}>{pub.articleName}</Text>
+          <View style={AppStyles.spacer_5} />
+          <Text style={[AppStyles.latoLight, styles.pubAuthors]}>{authorsName}</Text>
+          <View style={AppStyles.spacer_10} />
         </TouchableOpacity>
 
         <View style={[styles.pubCategoriesList]}>{categories}</View>

@@ -29,7 +29,6 @@ class News extends Component {
     return (
       <View style={[AppStyles.container]}>
         <ListView
-          style={AppStyles.paddingHorizontal}
           dataSource={dataSource}
           renderRow={rowData => <NewsItem story={rowData} navigator={this.props.navigator} />}
         />
