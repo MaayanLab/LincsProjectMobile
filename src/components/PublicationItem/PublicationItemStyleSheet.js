@@ -37,14 +37,4 @@ export default StyleSheet.create({
     marginHorizontal: 1.5,
     overflow: 'hidden',
   },
-  encircle: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    borderWidth: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
-  },
 });
