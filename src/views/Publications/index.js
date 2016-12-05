@@ -117,7 +117,27 @@ export class Publications extends Component {
   }
 
 // ------------  Rendering methods ------------
-  renderPubs = () => {
+  render = () => {
+    const tabView = this.state.tab === 'Options' ? this._renderOptions() : this._renderPubs();
+    const centerPubToggleText = this.state.centerPub ? 'Show Community Publications' : 'Show LINCS-Funded Publications';
+    const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
+
+    return (
+      <View style={AppStyles.container}>
+        {tabView}
+        <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor="#1abc9c" title={centerPubToggleText} onPress={() => this.handleCenterPubChange()}>
+            <Icon name="rotate-right" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => this.resetOptions()}>
+            <Icon name="check" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
+      </View>
+    );
+  }
+
+  _renderPubs = () => {
     let pubs = this.props.publications.pubs;
     pubs = pubs.sort(this.sortPublications)
                .filter(this.filterCategories)
@@ -152,7 +172,7 @@ export class Publications extends Component {
     );
   }
 
-  renderOptions = () => (
+  _renderOptions = () => (
     <Options
       centerPub={this.state.centerPub}
       categoryOptions={this.state.categories}
@@ -161,26 +181,6 @@ export class Publications extends Component {
       resetOptions={this.resetOptions}
     />
   );
-
-  render() {
-    const tabView = this.state.tab === 'Options' ? this.renderOptions() : this.renderPubs();
-    const centerPubToggleText = this.state.centerPub ? 'Show Community Publications' : 'Show LINCS-Funded Publications';
-    const settingsIcon = (<Icon name="settings" style={styles.actionButtonIcon} />);
-
-    return (
-      <View style={AppStyles.container}>
-        {tabView}
-        <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor="#1abc9c" title={centerPubToggleText} onPress={() => this.handleCenterPubChange()}>
-            <Icon name="rotate-right" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => this.resetOptions()}>
-            <Icon name="check" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-        </ActionButton>
-      </View>
-    );
-  }
 }
 
 export default connect(mapStateToProps, null)(Publications);
