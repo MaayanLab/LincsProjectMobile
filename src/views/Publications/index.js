@@ -135,6 +135,7 @@ export class Publications extends Component {
     // Should probably paginate or shorten the number of publications in the fetch
     return (
       <ListView
+        style={[AppStyles.container, AppStyles.paddingHorizontal]}
         enableEmptySections
         dataSource={dataSource}
         renderRow={
