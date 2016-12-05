@@ -1,6 +1,17 @@
 import { StyleSheet } from 'react-native';
 import AppConfig from './config';
 
+export const colors = {
+  purple: '#c45fff',
+  turquoise: '#6498a5',
+  brightOrange: '#ff664c',
+  orange: '#ff9028',
+  pink: '#fc629e',
+  blue: '#ff5d9f',
+  lightBlue: '#68c3d5',
+  red: '#be5f67',
+};
+
 export default StyleSheet.create({
   appContainer: {
     backgroundColor: '#111',
