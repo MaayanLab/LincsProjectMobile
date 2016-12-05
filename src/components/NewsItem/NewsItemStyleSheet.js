@@ -1,49 +1,40 @@
 import { StyleSheet } from 'react-native';
 
-import AppConfig from '../../config';
-
 export default StyleSheet.create({
-  item: {
+  pubTitle: {
+    fontSize: 15,
+  },
+  pubAuthors: {
+    fontSize: 11,
+  },
+  IdxAndJournal: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: AppConfig.white,
-    paddingTop: 10,
-    paddingLeft: 20,
+    alignItems: 'center',
   },
-  leftPanel: {
-    width: 20,
+  pubJournal: {
+    fontSize: 12,
+  },
+  pubIdx: {
+    fontSize: 11,
+  },
+  pubCategory: {
+    color: 'white',
+    fontSize: 11,
+    paddingVertical: 2.5,
+    paddingHorizontal: 7.5,
+  },
+  pubCategoriesList: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
   },
-  rightPanel: {
-    borderBottomWidth: 1,
-    borderColor: AppConfig.lightGray,
+  categoryItem: {
+    borderRadius: 8,
+    marginVertical: 1.5,
+    marginHorizontal: 1.5,
+    overflow: 'hidden',
   },
-  info: {
-    flex: 10,
-    flexDirection: 'column',
-    paddingBottom: 20,
-    paddingRight: 50,
-  },
-  category: {
-    fontSize: 11,
-    color: AppConfig.gray,
-  },
-  title: {
-    fontSize: 15,
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  presenterInfo: {
-    fontFamily: AppConfig.baseFont,
-    fontSize: 11,
-    lineHeight: 17,
-  },
-  link: {
-    marginTop: 5,
-    fontSize: 11,
-  },
-  gray: {
-    color: AppConfig.gray,
-  }
 });
