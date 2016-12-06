@@ -11,7 +11,7 @@ import AppStyles from '../../styles';
 import styles from './ToolsStyleSheet';
 
 const mapStateToProps = state => ({
-  tools: state.news,
+  tools: state.tools,
 });
 const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
 
@@ -27,16 +27,16 @@ class Tools extends Component {
     const dataSource = ds.cloneWithRows(tools)
     const settingsIcon = this._renderSettingsIcon();
     return (
-      <View style={[AppStyles.container]}>
+      <View style={AppStyles.container}>
         <ListView
           dataSource={dataSource}
-          renderRow={rowData => <ToolItem story={rowData} navigator={this.props.navigator} />}
+          renderRow={rowData => <ToolItem tool={rowData} navigator={this.props.navigator} />}
         />
         <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor='#1abc9c' title="Most Recent" onPress={() => console.log("Hello")}>
+          <ActionButton.Item buttonColor="#1abc9c" title="Most Recent" onPress={() => console.log("Hello")}>
             <Icon name="rotate-right" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#3498db' title="Reset Filters" onPress={() => console.log("Hello")}>
+          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => console.log("Hello")}>
             <Icon name="check" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>

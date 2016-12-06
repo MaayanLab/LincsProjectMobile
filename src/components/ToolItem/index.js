@@ -3,8 +3,6 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Accordion from 'react-native-accordion';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import formatDate from '../../utils/formatDate';
-
 import styles from './ToolItemStyleSheet';
 import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
@@ -24,7 +22,7 @@ const colorMap = {
 export default class ToolItem extends Component {
   static propTypes = {
     navigator: PropTypes.object,
-    story: PropTypes.object,
+    tool: PropTypes.object,
   }
 
 // ------------ Helper methods ------------
@@ -51,26 +49,23 @@ export default class ToolItem extends Component {
     );
   }
 
-  _renderNewsItem = () => {
-    // const { } = this.props.story;
-    const color = colorMap[category] || colorMap.default;
+  _renderToolItem = () => {
+    const { name, description, centers } = this.props.tool;
+    const centersNames = centers.map(center => center.name).join(', ');
+    const color = colorMap.default;
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <View style={AppStyles.spacer_15} />
-        <Text style={[styles.mediumFont, AppStyles.latoRegular, { color }]}>
-          "{category}"
+        <Text style={[AppStyles.latoRegular, styles.largeFont, styles.title]}>
+          {name}
         </Text>
-        <Text style={[AppStyles.latoRegular, styles.largeFont, styles.title]}>{title}</Text>
+        <Text style={[styles.mediumFont, AppStyles.latoLight, { color }]}>
+          {centersNames}
+        </Text>
         <View style={AppStyles.spacer_5} />
         <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          "{presenterName}"
-        </Text>
-        <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          "({presenterAffiliation})"
-        </Text>
-        <Text style={[AppStyles.latoSemiBold, styles.smallFont]}>
-          "{formattedDate}"
+          {description}
         </Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
@@ -78,7 +73,7 @@ export default class ToolItem extends Component {
   }
 
   _renderDropDown = () => {
-    // const { presenterUrl, url } = this.props.story;
+    // const { presenterUrl, url } = this.props.tool;
     return (
       <View
         style={[
