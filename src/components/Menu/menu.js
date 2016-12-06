@@ -1,7 +1,7 @@
-import Publications from '../../views/Publications';
 import Unavailable from '../../views/Unavailable';
-// import WebBrowser from '../WebBrowser';
 import About from '../../views/About';
+import Tools from '../../views/Tools';
+import Publications from '../../views/Publications';
 import News from '../../views/News';
 
 import dcicMenuLogo from '../../static/centers_menu_logo/dcic.png';
@@ -29,7 +29,7 @@ import Broad from '../../views/Center/Broad';
 export default {
   main: [
     { title: 'About', icon: 'info-circle', component: About },
-    { title: 'Tools', icon: 'wrench', component: Unavailable },
+    { title: 'Tools', icon: 'wrench', component: Tools },
     { title: 'Publications', icon: 'book', component: Publications },
     { title: 'News', icon: 'newspaper-o', component: News },
     // { title: 'Community', icon: 'users', component: Unavailable },
