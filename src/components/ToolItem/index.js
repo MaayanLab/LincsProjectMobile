@@ -3,10 +3,9 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import Accordion from 'react-native-accordion';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import logo from '../../static/tools_logo/ImageRail_image_crop.jpg';
-
 import styles from './ToolItemStyleSheet';
 import AppStyles from '../../styles';
+import toolLogoMap from './toolLogoMap';
 import WebBrowser from '../WebBrowser';
 
 const colorMap = {
@@ -55,7 +54,7 @@ export default class ToolItem extends Component {
     const { name, description, centers } = this.props.tool;
     const centersNames = centers.map(center => center.name).join(', ');
     const color = colorMap.default;
-
+    const logo = toolLogoMap[name];
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.toolItem]}>
         <View style={AppStyles.spacer_15} />
