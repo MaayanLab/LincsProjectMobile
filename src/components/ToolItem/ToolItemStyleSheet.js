@@ -46,8 +46,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   logo: {
-    flex: 1,
-    width: 50,
+    resizeMode: 'contain',
+    width: 80,
     height: 80,
   },
   toolItem: {
