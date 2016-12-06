@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import formatDate from '../../utils/formatDate';
 
-import styles from './NewsItemStyleSheet';
+import styles from './ToolItemStyleSheet';
 import AppStyles from '../../styles';
 import WebBrowser from '../WebBrowser';
 
@@ -21,7 +21,7 @@ const colorMap = {
   // 'Category 7': '#ff664c', //bright Orange
 };
 
-export default class NewsItem extends Component {
+export default class ToolItem extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     story: PropTypes.object,
@@ -30,7 +30,7 @@ export default class NewsItem extends Component {
 // ------------ Helper methods ------------
   navigate(uri) {
     this.props.navigator.push({
-      title: 'News',
+      title: 'Tools',
       component: WebBrowser,
       passProps: { uri },
       index: 2,
@@ -39,11 +39,11 @@ export default class NewsItem extends Component {
 
 // ------------ Render methods ------------
   render = () => {
-    const newsItem = this._renderNewsItem();
+    const toolItem = this._renderToolItem();
     const dropDown = this._renderDropDown();
     return (
       <Accordion
-        header={newsItem}
+        header={toolItem}
         content={dropDown}
         duration={300}
         easing="easeOutCubic"
@@ -52,34 +52,25 @@ export default class NewsItem extends Component {
   }
 
   _renderNewsItem = () => {
-    const {
-      category,
-      title,
-      presenterName,
-      presenterAffiliation,
-      presenterUrl,
-      url,
-      date,
-    } = this.props.story;
+    // const { } = this.props.story;
     const color = colorMap[category] || colorMap.default;
-    const formattedDate = formatDate(date);
 
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <View style={AppStyles.spacer_15} />
         <Text style={[styles.mediumFont, AppStyles.latoRegular, { color }]}>
-          {category}
+          "{category}"
         </Text>
         <Text style={[AppStyles.latoRegular, styles.largeFont, styles.title]}>{title}</Text>
         <View style={AppStyles.spacer_5} />
         <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          {presenterName}
+          "{presenterName}"
         </Text>
         <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          ({presenterAffiliation})
+          "({presenterAffiliation})"
         </Text>
         <Text style={[AppStyles.latoSemiBold, styles.smallFont]}>
-          {formattedDate}
+          "{formattedDate}"
         </Text>
         <View style={[AppStyles.hr, { marginTop: 15, marginBottom: 0 }]} />
       </View>
@@ -112,3 +103,52 @@ export default class NewsItem extends Component {
     );
   }
 }
+
+// Format of a Tool Obj
+// {
+//   "id": 1,
+//   "name": "Enrichr",
+//   "description": "An intuitive web-based gene list enrichment analysis tool with 90 libraries",
+//   "url": "http://amp.pharm.mssm.edu/Enrichr",
+//   "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/enrichr.png",
+//   "homeOrder": null,
+//   "order": 80,
+//   "transcriptData": 1,
+//   "proteinData": 1,
+//   "cellStateData": 1,
+//   "morphologyData": 0,
+//   "drugBindingData": 0,
+//   "dataFormatting": 1,
+//   "dataStorage": 1,
+//   "dataVisualization": 1,
+//   "dataAnalysis": 1,
+//   "dataIntegration": 1,
+//   "signatureGeneration": 1,
+//   "networkAnalysis": 1,
+//   "dataDocumentation": 0,
+//   "api": 1,
+//   "commandLine": 0,
+//   "database": 1,
+//   "ontology": 1,
+//   "openSource": 1,
+//   "searchEngine": 1,
+//   "webBased": 1,
+//   "scripting": 0,
+//   "provenance": 0,
+//   "documentation": 1,
+//   "versioning": 0,
+//   "clicks": 24,
+//   "tutorialUrl": "https://www.youtube.com/watch?v=HfUZdNJ9a3A&index=1&list=PL0Bwuj8819U-uN4sIjTfmakWKJAvvMOL3",
+//   "tutorialPreviewUrl": "http://lincsproject.org/LINCS/files/tutorial_thumbnails/enrichr.jpg",
+//   "centers": [
+//     {
+//       "id": 1,
+//       "name": "BD2K-LINCS DCIC",
+//       "description": "The BD2K-LINCS Data Coordination and Integration Center is part of the Big Data to Knowledge (BD2K) NIH initiative, and it is the data coordination center for the NIH Common Fund's Library of Integrated Network-based Cellular Signatures (LINCS) program, which aims to characterize how a variety of human cells, tissues and the entire organism respond to perturbations by drugs and other molecular factors. This Center is co-funded by BD2K and the NIH Common Fund (NI­H grant number: U54HL127624).",
+//       "logoUrl": "http://lincsproject.org/LINCS/files/centers_logos/DCIC.svg",
+//       "website": "http://lincs-dcic.org/",
+//       "createdAt": "2016-05-19T22:33:00.000Z",
+//       "updatedAt": null
+//     }
+//   ]
+// }
