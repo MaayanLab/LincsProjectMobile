@@ -54,4 +54,16 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  categoryContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  categoryCol: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  categoryTitle: {
+    flex: 1,
+    alignSelf: 'center',
+  },
 });

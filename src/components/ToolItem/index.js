@@ -8,7 +8,8 @@ import AppStyles from '../../styles';
 import toolLogoMap from './toolLogoMap';
 import WebBrowser from '../WebBrowser';
 
-const colorMap = {
+// ------------ CONSTANTS ------------
+const COLORMAP = {
   default: '#be5f67', // red
   'LINCS Webinar': '#c25b56',
   // 'Category 1': '#6498a5', // turquoise
@@ -20,10 +21,57 @@ const colorMap = {
   // 'Category 7': '#ff664c', //bright Orange
 };
 
+const dataTypesCat = new Set(['Cell State Data',
+  'Drug Binding Data',
+  'Morphology Data',
+  'Protein Data',
+  'Transcript Data']);
+
+const roleCat = new Set(['Data Analysis',
+  'Data Documentation',
+  'Data Formatting',
+  'Data Integration',
+  'Data Storage',
+  'Data Visualization',
+  'Network Analysis',
+  'Signature Generation']);
+
+const featCat = new Set(['API',
+  'Command Line',
+  'Database',
+  'Documentation',
+  'Ontology',
+  'Open Source',
+  'Provenance',
+  'Scripting',
+  'Search Engine',
+  'Versioning',
+  'Web-based']);
+
+
 export default class ToolItem extends Component {
   static propTypes = {
     navigator: PropTypes.object,
     tool: PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props);
+    const tool = this.props.tool;
+    const dt = [];
+    const role = [];
+    const feat = [];
+    Object.keys(tool).forEach(property => {
+      const titleCaseProp = this.camelCaseToTitleCase(property);
+      if (dataTypesCat.has(titleCaseProp) && !!tool[property]) {
+        dt.push(titleCaseProp);
+      } else if (roleCat.has(titleCaseProp) && !!tool[property]) {
+        role.push(titleCaseProp);
+      } else if (featCat.has(titleCaseProp) && !!tool[property]) {
+        feat.push(titleCaseProp);
+      }
+    });
+    this.state = { 'Data Type': dt, 'Role': role, 'Feature': feat };
   }
 
 // ------------ Helper methods ------------
@@ -34,6 +82,13 @@ export default class ToolItem extends Component {
       passProps: { uri },
       index: 2,
     });
+  }
+
+  camelCaseToTitleCase = (input) => {
+    if (input === 'api') return 'API';
+    if (input === 'webBased') return 'Web-based';
+    const spaced = input.replace(/([A-Z])/g, ' $1').replace(/_/, '-');
+    return spaced.charAt(0).toUpperCase() + spaced.slice(1);
   }
 
 // ------------ Render methods ------------
@@ -53,7 +108,7 @@ export default class ToolItem extends Component {
   _renderToolItem = () => {
     const { name, description, centers } = this.props.tool;
     const centersNames = centers.map(center => center.name).join(', ');
-    const color = colorMap.default;
+    const color = COLORMAP.default;
     const logo = toolLogoMap[name];
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.toolItem]}>
@@ -106,11 +161,21 @@ export default class ToolItem extends Component {
   }
 
   _renderCategories = () => {
+    const state = this.state;
     return (
-      <View>
-        <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          The categories go here
-        </Text>
+      <View style={styles.categoryContainer}>
+        {
+          Object.keys(state).map((cat, idx) => {
+            if (state[cat].length > 0) {
+              return (
+                <View key={idx} style={styles.categoryCol}>
+                  <Text style={[styles.categoryTitle, AppStyles.latoRegular, styles.mediumFont]}>{cat}</Text>
+                </View>
+              );
+            }
+            return null;
+          })
+        }
       </View>
     );
   }
