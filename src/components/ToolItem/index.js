@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import Accordion from 'react-native-accordion';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import logo from '../../static/tools_logo/drug-cell-line-browser.png';
+import logo from '../../static/tools_logo/ImageRail_image_crop.jpg';
 
 import styles from './ToolItemStyleSheet';
 import AppStyles from '../../styles';
