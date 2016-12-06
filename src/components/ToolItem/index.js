@@ -27,9 +27,9 @@ export default class ToolItem extends Component {
   }
 
 // ------------ Helper methods ------------
-  navigate(uri) {
+  navigate(toolName, uri) {
     this.props.navigator.push({
-      title: 'Tools',
+      title: toolName,
       component: WebBrowser,
       passProps: { uri },
       index: 2,
@@ -82,27 +82,35 @@ export default class ToolItem extends Component {
   }
 
   _renderDropDown = () => {
-    // const { presenterUrl, url } = this.props.tool;
+    const { name, url } = this.props.tool;
     return (
       <View
         style={[
           AppStyles.container,
-          AppStyles.paddingHorizontalSml,
+          // AppStyles.paddingHorizontalSml,
           AppStyles.paddingVerticalSml,
           styles.accordion,
         ]}
       >
-        <Text style={[AppStyles.latoLight, styles.smallFont]}>
-          Some description here
-        </Text>
+        {this._renderCategories()}
         <View style={styles.accordionButtonsContainer}>
           <TouchableOpacity style={styles.accordionButton}>
             <Icon name="rotate-left" style={[styles.accordionButtonIcon, styles.button1]} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.accordionButton}>
-            <Icon name="rotate-left" style={[styles.accordionButtonIcon, styles.button2]} />
+          <TouchableOpacity onPress={() => this.navigate(name, url)} style={styles.accordionButton}>
+            <Icon name="forward" style={[styles.accordionButtonIcon, styles.button2]} />
           </TouchableOpacity>
         </View>
+      </View>
+    );
+  }
+
+  _renderCategories = () => {
+    return (
+      <View>
+        <Text style={[AppStyles.latoLight, styles.smallFont]}>
+          The categories go here
+        </Text>
       </View>
     );
   }
