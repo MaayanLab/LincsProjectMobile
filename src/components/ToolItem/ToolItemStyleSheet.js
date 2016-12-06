@@ -36,4 +36,22 @@ export default StyleSheet.create({
   button2: {
     color: '#ff664c',
   },
+  info: {
+    marginLeft: 20,
+    flex: 3,
+    flexDirection: 'column',
+  },
+  logoNameDesc: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  logo: {
+    flex: 1,
+    width: 50,
+    height: 80,
+  },
+  toolItem: {
+    flex: 1,
+    flexDirection: 'column',
+  },
 });
