@@ -63,7 +63,9 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   categoryTitle: {
-    flex: 1,
+    alignSelf: 'center',
+  },
+  categoryItemsContainer: {
     alignSelf: 'center',
   },
 });

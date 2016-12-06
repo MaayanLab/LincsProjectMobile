@@ -12,11 +12,11 @@ import WebBrowser from '../WebBrowser';
 const COLORMAP = {
   default: '#be5f67', // red
   'LINCS Webinar': '#c25b56',
-  // 'Category 1': '#6498a5', // turquoise
-  // 'Category 2': '#ff9028', // purple
-  // 'Category 3': '#c45fff', // orange
+  'Data Type': '#6498a5', // turquoise
+  'Feature': '#c45fff', // purple
+  'Role': '#ff5d9f', // pink
+  // 'Role': '#ff9028', // orange
   // 'Category 4': '#152d44', // dark blue
-  // 'Category 5': '#ff5d9f', // pink
   // 'Category 6': '#68c3d5', // lightBlue
   // 'Category 7': '#ff664c', //bright Orange
 };
@@ -61,7 +61,7 @@ export default class ToolItem extends Component {
     const dt = [];
     const role = [];
     const feat = [];
-    Object.keys(tool).forEach(property => {
+    Object.keys(tool).forEach((property) => {
       const titleCaseProp = this.camelCaseToTitleCase(property);
       if (dataTypesCat.has(titleCaseProp) && !!tool[property]) {
         dt.push(titleCaseProp);
@@ -142,16 +142,13 @@ export default class ToolItem extends Component {
       <View
         style={[
           AppStyles.container,
-          // AppStyles.paddingHorizontalSml,
+          AppStyles.paddingHorizontalSml,
           AppStyles.paddingVerticalSml,
           styles.accordion,
         ]}
       >
         {this._renderCategories()}
         <View style={styles.accordionButtonsContainer}>
-          <TouchableOpacity style={styles.accordionButton}>
-            <Icon name="rotate-left" style={[styles.accordionButtonIcon, styles.button1]} />
-          </TouchableOpacity>
           <TouchableOpacity onPress={() => this.navigate(name, url)} style={styles.accordionButton}>
             <Icon name="forward" style={[styles.accordionButtonIcon, styles.button2]} />
           </TouchableOpacity>
@@ -165,11 +162,35 @@ export default class ToolItem extends Component {
     return (
       <View style={styles.categoryContainer}>
         {
-          Object.keys(state).map((cat, idx) => {
-            if (state[cat].length > 0) {
+          Object.keys(state).map((catTitle, idx) => {
+            const color = COLORMAP[catTitle];
+            if (state[catTitle].length > 0) {
               return (
                 <View key={idx} style={styles.categoryCol}>
-                  <Text style={[styles.categoryTitle, AppStyles.latoRegular, styles.mediumFont]}>{cat}</Text>
+                  <Text
+                    style={[
+                      styles.categoryTitle,
+                      AppStyles.latoRegular,
+                      styles.mediumFont,
+                      { color },
+                    ]}
+                  >
+                    {catTitle}
+                  </Text>
+                  <View style={styles.categoryItemsContainer}>
+                    {
+                      state[catTitle].map((cat, i) => (
+                        <Text
+                          key={i}
+                          style={
+                            [AppStyles.latoLight, styles.smallFont]
+                          }
+                        >
+                          {cat}
+                        </Text>
+                      ))
+                    }
+                  </View>
                 </View>
               );
             }
