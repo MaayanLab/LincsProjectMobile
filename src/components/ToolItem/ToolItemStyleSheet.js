@@ -20,10 +20,8 @@ export default StyleSheet.create({
     backgroundColor: '#f2f2f2',
   },
   accordionButtonsContainer: {
+    marginTop: 10,
     flexDirection: 'row',
-  },
-  accordionButton: {
-    flex: 1,
   },
   accordionButtonIcon: {
     fontSize: 20,

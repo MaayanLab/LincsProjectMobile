@@ -149,7 +149,7 @@ export default class ToolItem extends Component {
       >
         {this._renderCategories()}
         <View style={styles.accordionButtonsContainer}>
-          <TouchableOpacity onPress={() => this.navigate(name, url)} style={styles.accordionButton}>
+          <TouchableOpacity onPress={() => this.navigate(name, url)}>
             <Icon name="forward" style={[styles.accordionButtonIcon, styles.button2]} />
           </TouchableOpacity>
         </View>
