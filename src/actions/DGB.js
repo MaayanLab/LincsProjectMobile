@@ -18,7 +18,8 @@ export function submitDGB() {
   return (dispatch, getState) => {
     // Dispatch a redux action to let the app know that we are requesting res.
     dispatch(dgbSubmitInitialize());
-    return fetch('http://amp.pharm.mssm.edu/DGB/api', {
+    // Test API
+    return fetch('http://reqres.in/api/users', {
       method: 'post',
     })
       // .then(response => handleResponse(response))
