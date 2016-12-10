@@ -3,6 +3,7 @@ import About from '../../views/About';
 import Tools from '../../views/Tools';
 import Publications from '../../views/Publications';
 import News from '../../views/News';
+import DGB from '../../views/DGB';
 
 import dcicMenuLogo from '../../static/centers_menu_logo/dcic.png';
 import Dcic from '../../views/Center/DCIC';
@@ -34,6 +35,9 @@ export default {
     { title: 'News', icon: 'newspaper-o', component: News },
     // { title: 'Community', icon: 'users', component: Unavailable },
     // { title: 'Data', icon: 'bar-chart-o', component: Unavailable },
+  ],
+  apps: [
+    { title: 'Dr. Gene Badger', icon: 'info-circle', component: DGB },
   ],
   centers: [
     // { title: 'Test',

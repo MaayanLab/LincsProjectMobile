@@ -26,6 +26,7 @@ export default class Menu extends Component {
     const { navigate } = this.props;
 
     const mainItems = this._renderMainItems();
+    const apps = this._renderAppItems();
     const centerItems = this._renderCenterItems();
     const settingsItems = this._renderSettingItems();
 
@@ -46,6 +47,12 @@ export default class Menu extends Component {
           </View>
           <View style={[styles.main]}>{mainItems}</View>
 
+          {/* Main Menu Items*/}
+          <View style={styles.menuDivider}>
+            <Text style={[AppStyles.baseText, styles.menuDividerText]}>Apps</Text>
+          </View>
+          <View style={[styles.main]}>{apps}</View>
+
           {/* Center Items*/}
           <View style={styles.menuDivider}>
             <Text style={[AppStyles.baseText, styles.menuDividerText]}>Centers</Text>
@@ -65,6 +72,25 @@ export default class Menu extends Component {
   _renderMainItems = () => {
     const { main } = menu;
     return main.map((item) => {
+      const { title, icon, component, props } = item;
+      return (
+        <TouchableOpacity
+          key={`menu-item-${title}`}
+          onPress={() => this.props.navigate(title, component, props)}
+          style={styles.menuItemTouch}
+        >
+          <View style={[styles.menuItem]}>
+            <Icon style={styles.icon} name={icon} />
+            <Text style={[AppStyles.baseText, styles.menuItemLabel]}>{title}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+  }
+
+  _renderAppItems = () => {
+    const { apps } = menu;
+    return apps.map((item) => {
       const { title, icon, component, props } = item;
       return (
         <TouchableOpacity
