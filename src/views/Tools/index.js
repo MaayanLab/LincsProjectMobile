@@ -33,10 +33,10 @@ class Tools extends Component {
           renderRow={rowData => <ToolItem tool={rowData} navigator={this.props.navigator} />}
         />
         <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor="#1abc9c" title="Most Recent" onPress={() => console.log("Hello")}>
+          <ActionButton.Item buttonColor="#1abc9c" title="Most Recent" onPress={() => {}}>
             <Icon name="rotate-right" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => console.log("Hello")}>
+          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => {}}>
             <Icon name="check" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
