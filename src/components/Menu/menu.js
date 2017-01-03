@@ -32,7 +32,7 @@ export default {
     { title: 'About', icon: 'info-circle', component: About },
     { title: 'Tools', icon: 'wrench', component: Tools },
     { title: 'Publications', icon: 'book', component: Publications },
-    { title: 'News', icon: 'newspaper-o', component: News },
+    // { title: 'News', icon: 'newspaper-o', component: News },
     // { title: 'Community', icon: 'users', component: Unavailable },
     // { title: 'Data', icon: 'bar-chart-o', component: Unavailable },
   ],
