@@ -11,7 +11,7 @@ import WebBrowser from '../../components/WebBrowser';
 import AppStyles from '../../styles';
 import styles from './AboutStyleSheet';
 import lincsLogo from './assets/logo.png';
-import background from './assets/background-blue.png';
+import background from '../../static/background-blue.png';
 
 export default class About extends Component {
   static propTypes = {
