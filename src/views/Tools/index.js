@@ -13,7 +13,6 @@ import styles from './ToolsStyleSheet';
 const mapStateToProps = state => ({
   tools: state.tools,
 });
-const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
 
 class Tools extends Component {
   static propTypes = {
@@ -21,10 +20,61 @@ class Tools extends Component {
     navigator: PropTypes.object.isRequired,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      sort: 'Popularity',
+    };
+  }
+
+  sortByPopularity = tools => (
+    tools.sort((t1, t2) => {
+      const t1Clicks = t1.clicks;
+      const t2Clicks = t2.clicks;
+      if (t1Clicks < t2Clicks) {
+        return 1;
+      } else if (t1Clicks > t2Clicks) {
+        return -1;
+      }
+      return 0;
+    })
+  )
+
+  sortByName = tools => (
+    tools.sort((t1, t2) => {
+      const t1Name = t1.name;
+      const t2Name = t2.name;
+      if (t1Name > t2Name) {
+        return 1;
+      } else if (t1Name < t2Name) {
+        return -1;
+      }
+      return 0;
+    })
+  )
+
+
   render = () => {
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => !isEqual(r1, r2) });
     // Need to take care of error handling
-    const tools = this.props.tools.tools;
-    const dataSource = ds.cloneWithRows(tools)
+    let tools = this.props.tools.tools;
+    let actionButton;
+    if (this.state.sort === 'Popularity') {
+      tools = this.sortByPopularity(tools);
+      actionButton = (
+        <ActionButton.Item buttonColor="#1abc9c" title="Sort Alphabetically" onPress={() => { this.setState({ sort: 'Alphabetically' }); }}>
+          <Icon name="rotate-right" style={styles.actionButtonIcon} />
+        </ActionButton.Item>
+      );
+    } else {
+      tools = this.sortByName(tools);
+      actionButton = (
+        <ActionButton.Item buttonColor="#1abc9c" title="Sort By Popularity" onPress={() => { this.setState({ sort: 'Popularity' }); }}>
+          <Icon name="rotate-right" style={styles.actionButtonIcon} />
+        </ActionButton.Item>
+      );
+    }
+    const dataSource = ds.cloneWithRows(tools);
     const settingsIcon = this._renderSettingsIcon();
     return (
       <View style={AppStyles.container}>
@@ -33,12 +83,7 @@ class Tools extends Component {
           renderRow={rowData => <ToolItem tool={rowData} navigator={this.props.navigator} />}
         />
         <ActionButton icon={settingsIcon} spacing={1} offsetY={0} buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor="#1abc9c" title="Most Recent" onPress={() => {}}>
-            <Icon name="rotate-right" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-          <ActionButton.Item buttonColor="#3498db" title="Reset Filters" onPress={() => {}}>
-            <Icon name="check" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
+          { actionButton }
         </ActionButton>
       </View>
     );
