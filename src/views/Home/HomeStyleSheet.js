@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  actionButtonIcon: {
-    fontSize: 20,
-    height: 22,
+  background: {
+    backgroundColor: '#5a94be',
+  },
+  intro: {
     color: 'white',
+    fontSize: 35,
   },
 });
