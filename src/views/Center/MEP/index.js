@@ -33,7 +33,7 @@ export default class Mep extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The MEP LINCS Center studies how both malignant and non-malignant
+            &nbsp;&nbsp;&nbsp;&nbsp;The MEP LINCS Center studies how both malignant and non-malignant
             cells are controlled by the microenvironments in which they live.
             The researchers will provide measurements of the impacts of thousands
             of different microenvironments on cellular phenotypes, protein make-up

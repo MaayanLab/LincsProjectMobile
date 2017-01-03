@@ -33,7 +33,7 @@ export default class Mep extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The NeuroLINCS Center concentrates on human brain cells, which are
+            &nbsp;&nbsp;&nbsp;&nbsp;The NeuroLINCS Center concentrates on human brain cells, which are
             far less understood than other cells in the body. The researchers
             believe it will be necessary to study these cell types directly
             to understand the causes of neurological disease and to develop

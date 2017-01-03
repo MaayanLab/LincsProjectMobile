@@ -33,7 +33,7 @@ export default class HMS extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The HMS LINCS Center develops new measurement methods and computer
+            &nbsp;&nbsp;&nbsp;&nbsp;The HMS LINCS Center develops new measurement methods and computer
             algorithms to detect and analyze perturbations induced by therapeutic
             drugs in healthy and diseased human cells.
           </Text>

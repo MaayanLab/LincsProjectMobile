@@ -33,7 +33,7 @@ export default class DCIC extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The Center brings together a team of computational experts with
+            &nbsp;&nbsp;&nbsp;&nbsp;The Center brings together a team of computational experts with
             several years of experience with LINCS data and complementary
             expertise: Drs. Ma’ayan, Schürer, and Medvedovic develop and
             deploy a next generation computational infrastructure, develop

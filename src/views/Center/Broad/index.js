@@ -33,7 +33,7 @@ export default class Broad extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The LINCS Center for Transcriptomics is studying up to 50 cell types
+            &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Center for Transcriptomics is studying up to 50 cell types
             perturbed by a large number of chemical compounds and genetic
             reagents that activate or deactivate genes. Each perturbation
             will produce about 1,000 gene-expression readouts. By the project’s

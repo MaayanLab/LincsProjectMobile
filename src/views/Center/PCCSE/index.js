@@ -33,7 +33,7 @@ export default class Mep extends Component {
         <Image style={[styles.centerLogo]} source={logo} />
         <ScrollView>
           <Text style={[AppStyles.baseText]}>
-            The LINCS Proteomic Characterization Center for Signaling and
+            &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Proteomic Characterization Center for Signaling and
             Epigenetics studies cell disruption at the most basic levels:
             phosphorylation-mediated signaling — that is, how cells communicate
             internally; and epigenetics, or how cells perpetuate non-genetic
