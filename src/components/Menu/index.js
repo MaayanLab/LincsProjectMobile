@@ -48,10 +48,10 @@ export default class Menu extends Component {
           <View style={[styles.main]}>{mainItems}</View>
 
           {/* Main Menu Items*/}
-          <View style={styles.menuDivider}>
+          {/*<View style={styles.menuDivider}>
             <Text style={[AppStyles.baseText, styles.menuDividerText]}>Apps</Text>
           </View>
-          <View style={[styles.main]}>{apps}</View>
+          <View style={[styles.main]}>{apps}</View>*/}
 
           {/* Center Items*/}
           <View style={styles.menuDivider}>
@@ -60,10 +60,10 @@ export default class Menu extends Component {
           <View style={[styles.centers]}>{centerItems}</View>
 
           {/* Settings and Preferences Items*/}
-          <View style={styles.menuDivider}>
+          {/*<View style={styles.menuDivider}>
             <Text style={[AppStyles.baseText, styles.menuDividerText]}>Preferences</Text>
           </View>
-          <View style={[styles.settings]}>{settingsItems}</View>
+          <View style={[styles.settings]}>{settingsItems}</View>*/}
         </ScrollView>
       </View>
     );
