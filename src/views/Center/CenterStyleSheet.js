@@ -21,9 +21,11 @@ export default StyleSheet.create({
   title: {
     position: 'relative',
     left: 300,
+    top: 5,
     fontFamily: 'Times',
     backgroundColor: 'transparent',
     fontSize: 35,
+    lineHeight: 35,
   },
   nih: {
     color: '#3a5278',
