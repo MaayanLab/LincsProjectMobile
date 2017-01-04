@@ -75,7 +75,7 @@ export default class Home extends Component {
     }
     // default is portrait mode
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
+      <View style={[AppStyles.container, AppStyles.containerCentered, styles.centerContainer]} onLayout={this._onLayout}>
         <Image style={styles.background} source={vertBackground}>
           <View style={styles.half}>
             <Image style={styles.logo} source={logoWithLines} />

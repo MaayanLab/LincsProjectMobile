@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  centerContainer: {
+    flex: 1,
+    flexDirection: 'column',
+  },
   logo: {
     marginTop: 60,
     height: 200,
@@ -12,17 +16,18 @@ export default StyleSheet.create({
     resizeMode: 'stretch',
   },
   half: {
-    flex: 1,
+    flex: 4,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   intro: {
+    fontFamily: 'Lato-Light',
     alignSelf: 'center',
     backgroundColor: 'transparent',
     color: 'white',
     fontSize: 35,
-    fontWeight: '800',
+    fontWeight: '300',
   },
   intro2: {
     marginTop: 30,
@@ -32,6 +37,7 @@ export default StyleSheet.create({
     color: '#5a94be',
   },
   footer: {
+    flex: 1,
     alignSelf: 'center',
   },
 });
