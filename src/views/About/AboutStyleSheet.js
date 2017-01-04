@@ -22,8 +22,9 @@ export default StyleSheet.create({
     fontSize: 35,
   },
   subtitle: {
+    color: '#555',
     fontSize: 30,
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Lato-Light',
     fontWeight: '300',
   },
   nih: {
@@ -36,6 +37,8 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+    fontFamily: 'Lato-Regular',
+    fontWeight: '400',
   },
   button: {
     backgroundColor: '#3ca2e0',

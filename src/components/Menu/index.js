@@ -37,7 +37,7 @@ export default class Menu extends Component {
           style={styles.menuHead}
         >
           <Image style={styles.menuHeadLogo} source={lincsLogo} />
-          <Text style={[AppStyles.baseText, styles.menuHeadText]}>LINCS Program</Text>
+          <Text style={[styles.menuHeadText]}>LINCS Program</Text>
         </TouchableOpacity>
 
         <ScrollView>

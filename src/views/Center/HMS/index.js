@@ -42,7 +42,7 @@ export default class HMS extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;The HMS LINCS Center develops new measurement methods and computer
             algorithms to detect and analyze perturbations induced by therapeutic
             drugs in healthy and diseased human cells.

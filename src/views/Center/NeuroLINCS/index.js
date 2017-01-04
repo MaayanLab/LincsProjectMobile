@@ -42,7 +42,7 @@ export default class Mep extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The NeuroLINCS Center concentrates on human brain cells, which are
             far less understood than other cells in the body. The researchers
             believe it will be necessary to study these cell types directly

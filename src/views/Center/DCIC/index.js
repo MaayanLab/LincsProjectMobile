@@ -43,7 +43,7 @@ export default class DCIC extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The Center brings together a team of computational experts with
             several years of experience with LINCS data and complementary
             expertise: Drs. Ma’ayan, Schürer, and Medvedovic develop and

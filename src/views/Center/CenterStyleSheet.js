@@ -38,6 +38,10 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     alignSelf: 'center',
   },
+  body: {
+    fontFamily: 'Lato-Regular',
+    fontWeight: '400',
+  },
   containerCentered: {
     alignItems: 'center',
   },

@@ -42,7 +42,7 @@ export default class Mep extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The MEP LINCS Center studies how both malignant and non-malignant
             cells are controlled by the microenvironments in which they live.
             The researchers will provide measurements of the impacts of thousands

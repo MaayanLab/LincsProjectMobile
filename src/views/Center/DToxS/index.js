@@ -42,7 +42,7 @@ export default class DToxS extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The Drug Toxicity Signature Generation Center aims to develop cell
             signatures that will predict adverse events that might be caused by
             drugs and will identify other drugs that might lessen these side

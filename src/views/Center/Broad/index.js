@@ -43,7 +43,7 @@ export default class Broad extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Center for Transcriptomics is
             studying up to 50 cell types perturbed by a large number of chemical
             compounds and genetic reagents that activate or deactivate genes.

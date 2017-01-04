@@ -42,7 +42,7 @@ export default class Mep extends Component {
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
-          <Text style={[AppStyles.baseText]}>
+          <Text style={[AppStyles.baseText, styles.body]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Proteomic Characterization Center for Signaling and
             Epigenetics studies cell disruption at the most basic levels:
             phosphorylation-mediated signaling — that is, how cells communicate

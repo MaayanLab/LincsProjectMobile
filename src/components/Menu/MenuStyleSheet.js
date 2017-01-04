@@ -25,6 +25,8 @@ export default StyleSheet.create({
     width: 30,
   },
   menuHeadText: {
+    fontFamily: 'Lato-Regular',
+    fontWeight: '400',
     marginLeft: 10,
     fontSize: 15,
     color: '#EEE',
@@ -51,6 +53,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   menuDividerText: {
+    fontFamily: 'Lato-Regular',
+    fontWeight: '400',
     marginLeft: 10,
     fontSize: 12,
     color: '#EEE',
