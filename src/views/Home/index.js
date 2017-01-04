@@ -11,6 +11,8 @@ import styles from './HomeStyleSheet';
 import logoWithLines from '../../static/logoWithLines.png';
 import vertBackground from './static/lpm_background_vert2.png';
 
+const { width, height } = Dimensions.get('window');
+
 export default class Home extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
@@ -22,6 +24,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       splashScreenVisible: this.props.showSplashScreen || false,
+      layout: { height, width }
     };
   }
 
@@ -33,9 +36,45 @@ export default class Home extends Component {
     });
   }
 
+  _onLayout = (event) => {
+    this.setState({
+      layout: {
+        height: event.nativeEvent.layout.height,
+        width: event.nativeEvent.layout.width,
+      },
+    });
+  }
+
   render = () => {
+    const currHeight = this.state.layout.height;
+    const currWidth = this.state.layout.width;
+    if (currWidth > currHeight) {
+      // if landscape mode
+      return (
+        <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
+          <Image style={styles.background} source={vertBackground}>
+            <View style={styles.half}>
+              <Image style={styles.logo} source={logoWithLines} />
+            </View>
+
+            <View style={styles.half}>
+              <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
+                LINCS Project
+              </Text>
+              <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
+                Mobile App (Landscape)
+              </Text>
+            </View>
+            <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
+              Designed by the BD2K-LINCS DCIC
+            </Text>
+          </Image>
+        </View>
+      );
+    }
+    // default is portrait mode
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered]}>
+      <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
         <Image style={styles.background} source={vertBackground}>
           <View style={styles.half}>
             <Image style={styles.logo} source={logoWithLines} />
@@ -49,7 +88,7 @@ export default class Home extends Component {
               LINCS Project
             </Text>
             <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
-              Mobile App
+              Mobile App (Portrait)
             </Text>
           </View>
           <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
