@@ -25,6 +25,7 @@ export default StyleSheet.create({
     fontWeight: '800',
   },
   intro2: {
+    marginTop: 30,
     color: '#5a94be',
   },
   intro3: {

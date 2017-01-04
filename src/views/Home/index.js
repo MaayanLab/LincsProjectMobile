@@ -10,6 +10,7 @@ import AppStyles from '../../styles';
 import styles from './HomeStyleSheet';
 import logoWithLines from '../../static/logoWithLines.png';
 import vertBackground from './static/lpm_background_vert2.png';
+import landscapeBackground from './static/lpm_background_landscape.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -52,7 +53,7 @@ export default class Home extends Component {
       // if landscape mode
       return (
         <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
-          <Image style={styles.background} source={vertBackground}>
+          <Image style={styles.background} source={landscapeBackground}>
             <View style={styles.half}>
               <Image style={styles.logo} source={logoWithLines} />
             </View>
@@ -62,7 +63,7 @@ export default class Home extends Component {
                 LINCS Project
               </Text>
               <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
-                Mobile App (Landscape)
+                Mobile App
               </Text>
             </View>
             <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
@@ -88,7 +89,7 @@ export default class Home extends Component {
               LINCS Project
             </Text>
             <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
-              Mobile App (Portrait)
+              Mobile App
             </Text>
           </View>
           <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
