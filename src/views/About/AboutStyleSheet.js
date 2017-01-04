@@ -21,6 +21,11 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
     fontSize: 35,
   },
+  subtitle: {
+    fontSize: 30,
+    fontFamily: 'Lato-Regular',
+    fontWeight: '300',
+  },
   nih: {
     color: '#3a5278',
   },

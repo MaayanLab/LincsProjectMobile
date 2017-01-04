@@ -39,7 +39,7 @@ export default class About extends Component {
       </Image>
       <View style={AppStyles.spacer_10} />
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
-        <Text style={[AppStyles.h3, AppStyles.centered]}> Overview </Text>
+        <Text style={[AppStyles.centered, styles.subtitle]}> Overview </Text>
         <View style={AppStyles.spacer_10} />
         <Text style={[AppStyles.baseText, AppStyles.p, styles.intro]}>
           &nbsp;&nbsp;&nbsp;&nbsp;By generating and making public data that
