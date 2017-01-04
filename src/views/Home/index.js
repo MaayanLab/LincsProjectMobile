@@ -53,7 +53,7 @@ export default class Home extends Component {
             </Text>
           </View>
           <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
-            Designed by the LINCS-DCIC
+            Designed by the BD2K-LINCS DCIC
           </Text>
         </Image>
       </View>
