@@ -79,6 +79,7 @@ export default StyleSheet.create({
   centerLogo: {
     height: 20,
     width: 20,
+    resizeMode: 'contain',
   },
   icon: {
     alignSelf: 'center',
