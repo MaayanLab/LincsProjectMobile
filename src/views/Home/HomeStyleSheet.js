@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   logo: {
-    marginTop: 40,
+    marginTop: 60,
     height: 200,
     resizeMode: 'contain',
     alignSelf: 'center',
@@ -10,7 +10,12 @@ export default StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: 'stretch',
-    // backgroundColor: '#73a2d0',
+  },
+  half: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   intro: {
     alignSelf: 'center',

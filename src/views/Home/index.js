@@ -37,21 +37,21 @@ export default class Home extends Component {
     return (
       <View style={[AppStyles.container, AppStyles.containerCentered]}>
         <Image style={styles.background} source={vertBackground}>
-          <Image style={styles.logo} source={logoWithLines} />
-          <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro1]}>
-            Welcome to the
-          </Text>
-          <View style={AppStyles.spacer_40} />
-          <View style={AppStyles.spacer_40} />
-          <View style={AppStyles.spacer_20} />
-          <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
-            LINCS Project
-          </Text>
-          <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
-            Mobile App
-          </Text>
-          <View style={AppStyles.spacer_40} />
-          <View style={AppStyles.spacer_20} />
+          <View style={styles.half}>
+            <Image style={styles.logo} source={logoWithLines} />
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro1]}>
+              Welcome to the
+            </Text>
+          </View>
+
+          <View style={styles.half}>
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
+              LINCS Project
+            </Text>
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
+              Mobile App
+            </Text>
+          </View>
           <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
             Designed by the LINCS-DCIC
           </Text>
