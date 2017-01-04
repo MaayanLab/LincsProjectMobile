@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
+import Orientation from 'react-native-orientation';
 
 import * as SideMenuActions from '../actions/sidemenu';
 

@@ -10,7 +10,7 @@ import WebBrowser from '../../components/WebBrowser';
 
 import AppStyles from '../../styles';
 import styles from './AboutStyleSheet';
-import lincsLogo from './assets/logo.png';
+import lincsLogo from '../../static/logo.png';
 import background from '../../static/background-blue.png';
 
 export default class About extends Component {
