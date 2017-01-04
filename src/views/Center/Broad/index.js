@@ -7,11 +7,14 @@ import {
 } from 'react-native';
 import Button from 'apsl-react-native-button';
 
+
 import WebBrowser from '../../../components/WebBrowser';
 
 import AppStyles from '../../../styles';
 import styles from '../CenterStyleSheet';
 import logo from '../../../static/centers_full_logo/cmap.png';
+import lincsLogo from '../../../static/logo.png';
+import background from '../../../static/background-blue.png';
 
 export default class Broad extends Component {
   static propTypes = {
@@ -29,25 +32,32 @@ export default class Broad extends Component {
 
   render() {
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
-        <Image style={[styles.centerLogo]} source={logo} />
-        <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image source={background} resizeMode="cover" style={styles.background}>
+          <Image source={lincsLogo} style={styles.logo}>
+            <View style={styles.titleContainer}>
+              <Text style={[styles.title, styles.nih]}>NIH</Text>
+              <Text style={[styles.title, styles.lincs]}>LINCS</Text>
+            </View>
+          </Image>
+        </Image>
+        <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+          <Image style={[styles.centerLogo]} source={logo} />
           <Text style={[AppStyles.baseText]}>
-            &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Center for Transcriptomics is studying up to 50 cell types
-            perturbed by a large number of chemical compounds and genetic
-            reagents that activate or deactivate genes. Each perturbation
-            will produce about 1,000 gene-expression readouts. By the project’s
-            end, the center expects to have generated more than 1 million
-            profiles of how genes are expressed in different cells.
+            &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Center for Transcriptomics is
+            studying up to 50 cell types perturbed by a large number of chemical
+            compounds and genetic reagents that activate or deactivate genes.
+            Each perturbation will produce about 1,000 gene-expression readouts.
+            By the project’s end, the center expects to have generated more than
+            1 million profiles of how genes are expressed in different cells.
           </Text>
-        </ScrollView>
+          <View style={[AppStyles.spacer_10]} />
+          <Button style={styles.button} onPress={() => this.navigate('Center for Transcriptomics')}>
+            <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+          </Button>
+        </View>
         <View style={[AppStyles.spacer_10]} />
-
-        <Button style={styles.button} onPress={() => this.navigate('Center for Transcriptomics')}>
-          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
-        </Button>
-        <View style={[AppStyles.spacer_10]} />
-      </View>
+      </ScrollView>
     );
   }
 }

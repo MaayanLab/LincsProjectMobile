@@ -12,6 +12,8 @@ import WebBrowser from '../../../components/WebBrowser';
 import AppStyles from '../../../styles';
 import styles from '../CenterStyleSheet';
 import logo from '../../../static/centers_full_logo/pccse.png';
+import lincsLogo from '../../../static/logo.png';
+import background from '../../../static/background-blue.png';
 
 export default class Mep extends Component {
   static propTypes = {
@@ -29,9 +31,17 @@ export default class Mep extends Component {
 
   render() {
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
-        <Image style={[styles.centerLogo]} source={logo} />
-        <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image source={background} resizeMode="cover" style={styles.background}>
+          <Image source={lincsLogo} style={styles.logo}>
+            <View style={styles.titleContainer}>
+              <Text style={[styles.title, styles.nih]}>NIH</Text>
+              <Text style={[styles.title, styles.lincs]}>LINCS</Text>
+            </View>
+          </Image>
+        </Image>
+        <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+          <Image style={[styles.centerLogo]} source={logo} />
           <Text style={[AppStyles.baseText]}>
             &nbsp;&nbsp;&nbsp;&nbsp;The LINCS Proteomic Characterization Center for Signaling and
             Epigenetics studies cell disruption at the most basic levels:
@@ -39,14 +49,13 @@ export default class Mep extends Component {
             internally; and epigenetics, or how cells perpetuate non-genetic
             information as they grow.
           </Text>
-        </ScrollView>
+          <View style={[AppStyles.spacer_10]} />
+          <Button style={styles.button} onPress={() => this.navigate('PCCSE')}>
+            <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+          </Button>
+        </View>
         <View style={[AppStyles.spacer_10]} />
-
-        <Button style={styles.button} onPress={() => this.navigate('PCCSE')}>
-          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
-        </Button>
-        <View style={[AppStyles.spacer_10]} />
-      </View>
+      </ScrollView>
     );
   }
 }

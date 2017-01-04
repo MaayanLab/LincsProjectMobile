@@ -12,6 +12,8 @@ import WebBrowser from '../../../components/WebBrowser';
 import AppStyles from '../../../styles';
 import styles from '../CenterStyleSheet';
 import logo from '../../../static/centers_full_logo/hms_lincs.png';
+import lincsLogo from '../../../static/logo.png';
+import background from '../../../static/background-blue.png';
 
 export default class HMS extends Component {
   static propTypes = {
@@ -29,22 +31,29 @@ export default class HMS extends Component {
 
   render() {
     return (
-      <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.containerCentered]}>
-        <Image style={[styles.centerLogo]} source={logo} />
-        <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image source={background} resizeMode="cover" style={styles.background}>
+          <Image source={lincsLogo} style={styles.logo}>
+            <View style={styles.titleContainer}>
+              <Text style={[styles.title, styles.nih]}>NIH</Text>
+              <Text style={[styles.title, styles.lincs]}>LINCS</Text>
+            </View>
+          </Image>
+        </Image>
+        <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
+          <Image style={[styles.centerLogo]} source={logo} />
           <Text style={[AppStyles.baseText]}>
-            &nbsp;&nbsp;&nbsp;&nbsp;The HMS LINCS Center develops new measurement methods and computer
+            &nbsp;&nbsp;&nbsp;The HMS LINCS Center develops new measurement methods and computer
             algorithms to detect and analyze perturbations induced by therapeutic
             drugs in healthy and diseased human cells.
           </Text>
-        </ScrollView>
-        <View style={[AppStyles.spacer_10]} />
-
-        <Button style={styles.button} onPress={() => this.navigate('HMS-LINCS')}>
-          <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
-        </Button>
-        <View style={[AppStyles.spacer_10]} />
-      </View>
+          <View style={[AppStyles.spacer_10]} />
+          <Button style={styles.button} onPress={() => this.navigate('HMS-LINCS')}>
+            <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
+          </Button>
+        </View>
+        <View style={[AppStyles.spacer_20]} />
+      </ScrollView>
     );
   }
 }
