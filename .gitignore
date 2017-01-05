@@ -46,3 +46,4 @@ seed
 *.x
 
 *.keystore
+gradle.properties
