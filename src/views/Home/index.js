@@ -99,13 +99,11 @@ export default class Home extends Component {
               Mobile App
             </Text>
           </View>
-          <Text
-            style={
-              [AppStyles.baseText, AppStyles.p, styles.footer, styles.footerAndroidPortrait]
-            }
-          >
-            Designed by the BD2K-LINCS DCIC
-          </Text>
+          <View style={styles.footerAndroidPortrait}>
+            <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
+              Designed by the BD2K-LINCS DCIC
+            </Text>
+          </View>
         </Image>
       </View>
     );
@@ -163,9 +161,11 @@ export default class Home extends Component {
               Mobile App
             </Text>
           </View>
-          <Text style={[AppStyles.baseText, AppStyles.p, styles.footer, styles.footerIOSPortrait]}>
-            Designed by the BD2K-LINCS DCIC
-          </Text>
+          <View style={styles.footerIOSPortrait}>
+            <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
+              Designed by the BD2K-LINCS DCIC
+            </Text>
+          </View>
         </Image>
       </View>
     );

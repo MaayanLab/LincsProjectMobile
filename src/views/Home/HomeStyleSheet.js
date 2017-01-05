@@ -52,7 +52,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   footerAndroidPortrait: {
-
+    flex: 2,
+    justifyContent: 'flex-end',
   },
   topAndroidLandscape: {
     flex: 3,
@@ -73,21 +74,22 @@ export default StyleSheet.create({
   // ------------------ IOS ------------------
 
   topIOSPortrait: {
-    paddingTop: 100,
+    // paddingTop: 100,
     flex: 3,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
   },
   bottomIOSPortrait: {
-    marginTop: 50,
+    // marginTop: 50,
     flex: 3,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   footerIOSPortrait: {
     flex: 2,
+    justifyContent: 'flex-end',
   },
   topIOSLandscape: {
     flex: 3,
