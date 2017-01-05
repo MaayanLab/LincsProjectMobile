@@ -53,7 +53,7 @@ export default StyleSheet.create({
   },
   footerAndroidPortrait: {
     flex: 2,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   topAndroidLandscape: {
     // flex: 3,
