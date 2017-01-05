@@ -53,19 +53,19 @@ export default StyleSheet.create({
   },
   footerAndroidPortrait: {
     flex: 2,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   topAndroidLandscape: {
-    flex: 3,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // flex: 3,
+    // flexDirection: 'column',
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
   },
   bottomAndroidLandscape: {
-    flex: 3,
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    // flex: 3,
+    // flexDirection: 'column',
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
   },
   footerAndroidLandscape: {
 
