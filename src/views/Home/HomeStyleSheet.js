@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+
+  // ------------------ COMMON ------------------
+
   centerContainer: {
     flex: 1,
     flexDirection: 'column',
@@ -14,12 +17,6 @@ export default StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: 'stretch',
-  },
-  half: {
-    flex: 4,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   intro: {
     fontFamily: 'Lato-Light',
@@ -37,7 +34,74 @@ export default StyleSheet.create({
     color: '#5a94be',
   },
   footer: {
-    flex: 1,
     alignSelf: 'center',
+  },
+
+  // ------------------ ANDROID ------------------
+
+  topAndroidPortrait: {
+    paddingTop: 100,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottomAndroidPortrait: {
+    marginTop: 50,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerAndroidPortrait: {
+
+  },
+  topAndroidLandscape: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottomAndroidLandscape: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  footerAndroidLandscape: {
+
+  },
+
+  // ------------------ IOS ------------------
+
+  topIOSPortrait: {
+    paddingTop: 100,
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottomIOSPortrait: {
+    marginTop: 50,
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerIOSPortrait: {
+    flex: 2,
+  },
+  topIOSLandscape: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottomIOSLandscape: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  footerIOSLandscape: {
+
   },
 });

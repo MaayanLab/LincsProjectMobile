@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Dimensions,
+  Platform,
 } from 'react-native';
 
 import AppStyles from '../../styles';
@@ -46,7 +47,7 @@ export default class Home extends Component {
     });
   }
 
-  render = () => {
+  _renderAndroid = () => {
     const currHeight = this.state.layout.height;
     const currWidth = this.state.layout.width;
     if (currWidth > currHeight) {
@@ -54,11 +55,11 @@ export default class Home extends Component {
       return (
         <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
           <Image style={styles.background} source={landscapeBackground}>
-            <View style={styles.half}>
+            <View style={styles.topAndroidLandscape}>
               <Image style={styles.logo} source={logoWithLines} />
             </View>
 
-            <View style={styles.half}>
+            <View style={styles.bottomAndroidLandscape}>
               <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
                 LINCS Project
               </Text>
@@ -66,7 +67,11 @@ export default class Home extends Component {
                 Mobile App
               </Text>
             </View>
-            <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
+            <Text
+              style={
+                [AppStyles.baseText, AppStyles.p, styles.footer, styles.footerAndroidLandscape]
+              }
+            >
               Designed by the BD2K-LINCS DCIC
             </Text>
           </Image>
@@ -75,16 +80,18 @@ export default class Home extends Component {
     }
     // default is portrait mode
     return (
-      <View style={[AppStyles.container, AppStyles.containerCentered, styles.centerContainer]} onLayout={this._onLayout}>
+      <View
+        style={[AppStyles.container, AppStyles.containerCentered, styles.centerContainer]}
+        onLayout={this._onLayout}
+      >
         <Image style={styles.background} source={vertBackground}>
-          <View style={styles.half}>
+          <View style={styles.topAndroidPortrait}>
             <Image style={styles.logo} source={logoWithLines} />
             <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro1]}>
               Welcome to the
             </Text>
           </View>
-
-          <View style={styles.half}>
+          <View style={styles.bottomAndroidPortrait}>
             <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
               LINCS Project
             </Text>
@@ -92,11 +99,77 @@ export default class Home extends Component {
               Mobile App
             </Text>
           </View>
-          <Text style={[AppStyles.baseText, AppStyles.p, styles.footer]}>
+          <Text
+            style={
+              [AppStyles.baseText, AppStyles.p, styles.footer, styles.footerAndroidPortrait]
+            }
+          >
             Designed by the BD2K-LINCS DCIC
           </Text>
         </Image>
       </View>
     );
   }
+
+  _renderIOS = () => {
+    const currHeight = this.state.layout.height;
+    const currWidth = this.state.layout.width;
+    if (currWidth > currHeight) {
+      // if landscape mode
+      return (
+        <View style={[AppStyles.container, AppStyles.containerCentered]} onLayout={this._onLayout}>
+          <Image style={styles.background} source={landscapeBackground}>
+            <View style={styles.topIOSLandscape}>
+              <Image style={styles.logo} source={logoWithLines} />
+            </View>
+
+            <View style={styles.bottomIOSLandscape}>
+              <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
+                LINCS Project
+              </Text>
+              <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
+                Mobile App
+              </Text>
+            </View>
+            <Text
+              style={
+                [AppStyles.baseText, AppStyles.p, styles.footer, styles.footerIOSLandscape]
+              }
+            >
+              Designed by the BD2K-LINCS DCIC
+            </Text>
+          </Image>
+        </View>
+      );
+    }
+    // default is portrait mode
+    return (
+      <View
+        style={[AppStyles.container, AppStyles.containerCentered, styles.centerContainer]}
+        onLayout={this._onLayout}
+      >
+        <Image style={styles.background} source={vertBackground}>
+          <View style={styles.topIOSPortrait}>
+            <Image style={styles.logo} source={logoWithLines} />
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro1]}>
+              Welcome to the
+            </Text>
+          </View>
+          <View style={styles.bottomIOSPortrait}>
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro2]}>
+              LINCS Project
+            </Text>
+            <Text style={[AppStyles.baseText, AppStyles.h1, styles.intro, styles.intro3]}>
+              Mobile App
+            </Text>
+          </View>
+          <Text style={[AppStyles.baseText, AppStyles.p, styles.footer, styles.footerIOSPortrait]}>
+            Designed by the BD2K-LINCS DCIC
+          </Text>
+        </Image>
+      </View>
+    );
+  }
+
+  render = () => (Platform.OS === 'ios' ? this._renderIOS() : this._renderAndroid());
 }
