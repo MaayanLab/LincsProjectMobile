@@ -35,7 +35,7 @@ export default StyleSheet.create({
   },
   centerLogo: {
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 15,
     height: 100,
     resizeMode: 'contain',
     alignSelf: 'center',

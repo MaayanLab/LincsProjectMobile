@@ -52,7 +52,7 @@ export default class Broad extends Component {
             1 million profiles of how genes are expressed in different cells.
           </Text>
           <View style={[AppStyles.spacer_10]} />
-          <Button style={styles.button} onPress={() => this.navigate('Center for Transcriptomics')}>
+          <Button style={styles.button} onPress={() => this.navigate('Broad Transcriptomics')}>
             <Text style={[AppStyles.baseText, styles.white]}> Visit Center's page </Text>
           </Button>
         </View>
