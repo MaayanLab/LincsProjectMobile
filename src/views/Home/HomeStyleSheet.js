@@ -23,14 +23,16 @@ export default StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
     color: 'white',
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: '300',
   },
   intro2: {
     marginTop: 30,
+    lineHeight: 40,
     color: '#5a94be',
   },
   intro3: {
+    lineHeight: 40,
     color: '#5a94be',
   },
   footer: {
@@ -52,8 +54,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   footerAndroidPortrait: {
-    flex: 2,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
   topAndroidLandscape: {
     // flex: 3,
