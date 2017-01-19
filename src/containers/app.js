@@ -3,10 +3,12 @@ import {
   Navigator,
   View,
   StatusBar,
+  BackAndroid,
 } from 'react-native';
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
 import SideMenu from 'react-native-side-menu';
+import buildStyleInterpolator from 'buildStyleInterpolator';
 
 import * as SideMenuActions from '../actions/sidemenu';
 
@@ -46,6 +48,13 @@ class AppContainer extends Component {
     this.props.loadPublications();
     this.props.loadNews();
     this.props.loadTools();
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (this.refs.rootNavigator.getCurrentRoutes().length > 1) {
+        this.refs.rootNavigator.pop();
+        return true;
+      }
+      return false;
+    });
   }
 
   componentDidMount = () => {
@@ -55,10 +64,9 @@ class AppContainer extends Component {
 
   onSideMenuPress = (title, component, extraProps = {}) => {
     this.props.closeSideMenu();
-    this.refs.rootNavigator.replace({
+    this.refs.rootNavigator.push({
       title,
       component,
-      index: 0,
       ...extraProps,
     });
   }
@@ -74,10 +82,22 @@ class AppContainer extends Component {
   }
 
   configureScene = (route, routeStack) => {
-    if (route.transition === 'FloatFromBottom') {
-      return Navigator.SceneConfigs.FloatFromBottom;
-    }
-    return Navigator.SceneConfigs.PushFromRight;
+    // Usual scene config
+    // return Navigator.SceneConfigs.FloatFromRight;
+    // Below is a hacky way of removing transition animations for push.
+    // We navigate with navigator.push instead of navigator.replace.
+    // navigator.push by default has animations.
+    // We're doing this because of BackAndroid module.
+    return {
+        gestures: null,
+        defaultTransitionVelocity: null,
+        springFriction: null,
+        springTension: 1000,
+        animationInterpolators: {
+            into: r => r.opacity = 1,
+            out: r => r.opacity = 1,
+        },
+    };
   }
 
   /**
