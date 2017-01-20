@@ -49,7 +49,8 @@ class AppContainer extends Component {
     this.props.loadNews();
     this.props.loadTools();
     BackAndroid.addEventListener('hardwareBackPress', () => {
-      if (this.refs.rootNavigator.getCurrentRoutes().length > 1) {
+
+      if (this.refs.rootNavigator && this.refs.rootNavigator.getCurrentRoutes().length > 1) {
         this.refs.rootNavigator.pop();
         return true;
       }
