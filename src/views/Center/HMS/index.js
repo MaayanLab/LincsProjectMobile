@@ -43,9 +43,10 @@ export default class HMS extends Component {
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />
           <Text style={[AppStyles.baseText, styles.body]}>
-            &nbsp;&nbsp;&nbsp;The HMS LINCS Center develops new measurement methods and computer
-            algorithms to detect and analyze perturbations induced by therapeutic
-            drugs in healthy and diseased human cells.
+            &nbsp;&nbsp;&nbsp;The HMS LINCS Center studies how normal and diseased
+            human cells respond at the molecular level to perturbation by drugs,
+            mutations, and the local environment as a means to develop improved
+            predictive models of drug toxicity and response.
           </Text>
           <View style={[AppStyles.spacer_10]} />
           <Button style={styles.button} onPress={() => this.navigate('HMS-LINCS')}>
