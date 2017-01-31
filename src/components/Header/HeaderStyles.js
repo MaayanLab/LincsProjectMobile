@@ -27,12 +27,12 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
     fontSize: 35,
     lineHeight: 35,
+    color: 'white',
   },
   nih: {
-    color: '#3a5278',
+    // color: '#3a5278',
   },
   lincs: {
-    color: 'white',
   },
   program: {
     fontSize: 15,
