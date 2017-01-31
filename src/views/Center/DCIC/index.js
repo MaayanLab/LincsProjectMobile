@@ -6,6 +6,7 @@ import {
   Image,
 } from 'react-native';
 import Button from 'apsl-react-native-button';
+import Header from '../../../components/Header';
 
 import WebBrowser from '../../../components/WebBrowser';
 
@@ -34,12 +35,7 @@ export default class DCIC extends Component {
     return (
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Image source={background} resizeMode="cover" style={styles.background}>
-          <Image source={lincsLogo} style={styles.logo}>
-            <View style={styles.titleContainer}>
-              <Text style={[styles.title, styles.nih]}>NIH</Text>
-              <Text style={[styles.title, styles.lincs]}>LINCS</Text>
-            </View>
-          </Image>
+          <Header />
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />

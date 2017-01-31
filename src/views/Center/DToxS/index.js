@@ -8,6 +8,7 @@ import {
 import Button from 'apsl-react-native-button';
 
 import WebBrowser from '../../../components/WebBrowser';
+import Header from '../../../components/Header';
 
 import AppStyles from '../../../styles';
 import styles from '../CenterStyleSheet';
@@ -33,12 +34,7 @@ export default class DToxS extends Component {
     return (
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Image source={background} resizeMode="cover" style={styles.background}>
-          <Image source={lincsLogo} style={styles.logo}>
-            <View style={styles.titleContainer}>
-              <Text style={[styles.title, styles.nih]}>NIH</Text>
-              <Text style={[styles.title, styles.lincs]}>LINCS</Text>
-            </View>
-          </Image>
+          <Header />
         </Image>
         <View style={[AppStyles.paddingHorizontal, AppStyles.containerCentered]}>
           <Image style={[styles.centerLogo]} source={logo} />

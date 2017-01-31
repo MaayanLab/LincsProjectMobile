@@ -1,17 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import {
   ScrollView,
-  Image,
   View,
   Text,
 } from 'react-native';
 import Button from 'apsl-react-native-button';
 import WebBrowser from '../../components/WebBrowser';
+import Header from '../../components/Header';
 
 import AppStyles from '../../styles';
 import styles from './AboutStyleSheet';
-import lincsLogo from '../../static/logo.png';
-import background from '../../static/background-blue.png';
 
 export default class About extends Component {
   static propTypes = {
@@ -29,14 +27,7 @@ export default class About extends Component {
 
   render = () => (
     <ScrollView contentContainerStyle={AppStyles.containerCentered}>
-      <Image source={background} resizeMode="cover" style={styles.background}>
-        <Image source={lincsLogo} style={styles.logo}>
-          <View style={styles.titleContainer}>
-            <Text style={[styles.title, styles.nih]}>NIH</Text>
-            <Text style={[styles.title, styles.lincs]}>LINCS</Text>
-          </View>
-        </Image>
-      </Image>
+      <Header />
       <View style={AppStyles.spacer_10} />
       <View style={[AppStyles.container, AppStyles.paddingHorizontal]}>
         <Text style={[AppStyles.centered, styles.subtitle]}> Overview </Text>
