@@ -23,12 +23,12 @@ export default StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
     color: 'white',
-    fontSize: 30,
+    fontSize: 38,
     fontWeight: '300',
   },
   intro1: {
-    fontSize: 38,
-    fontWeight: '300',
+    // fontSize: 40,
+    // fontWeight: '300',
   },
   intro2: {
     marginTop: 30,
@@ -79,7 +79,7 @@ export default StyleSheet.create({
   // ------------------ IOS ------------------
 
   topIOSPortrait: {
-    // paddingTop: 100,
+    paddingTop: 50,
     flex: 3,
     flexDirection: 'column',
     justifyContent: 'center',
