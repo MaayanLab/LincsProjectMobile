@@ -8,11 +8,16 @@ export default StyleSheet.create({
     height: 100,
     width: 400,
     position: 'absolute',
-    left: 250,
+    left: 220,
   },
   titleContainer: {
+    flexDirection: 'column',
     position: 'absolute',
     top: 10,
+    left: 200,
+  },
+  nihLincsContainer: {
+    flexDirection: 'row',
   },
   title: {
     position: 'relative',
@@ -28,5 +33,14 @@ export default StyleSheet.create({
   },
   lincs: {
     color: 'white',
+  },
+  program: {
+    fontSize: 15,
+    color: 'white',
+    fontFamily: 'Lato-Regular',
+    fontWeight: '900',
+    position: 'absolute',
+    top: 35,
+    // left: 200,
   },
 });
