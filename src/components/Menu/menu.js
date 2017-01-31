@@ -40,7 +40,7 @@ export default {
     { title: 'Dr. Gene Badger', icon: 'info-circle', component: DGB },
   ],
   centers: [
-    // { title: 'Test',
+    // { title: 'Example',
     //   centerLogo: dcicMenuLogo,
     //   component: WebBrowser,
     //   props: { passProps: { uri: 'https://www.yahoo.com' } },
@@ -65,7 +65,7 @@ export default {
       centerLogo: cmapMenuLogo,
       component: Broad,
     },
-    { title: 'MEP-LINCS',
+    { title: 'MEP LINCS',
       centerLogo: mepLincsMenuLogo,
       component: Mep,
     },
