@@ -26,6 +26,10 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: '300',
   },
+  intro1: {
+    fontSize: 38,
+    fontWeight: '300',
+  },
   intro2: {
     marginTop: 30,
     lineHeight: 40,
