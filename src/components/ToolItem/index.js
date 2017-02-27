@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './ToolItemStyleSheet';
 import AppStyles from '../../styles';
-// import toolLogoMap from './toolLogoMap';
+import toolLogoMap from './toolLogoMap';
 import WebBrowser from '../WebBrowser';
 
 // ------------ CONSTANTS ------------
@@ -109,13 +109,13 @@ export default class ToolItem extends Component {
     const { name, description, centers, iconUrl } = this.props.tool;
     const centersNames = centers.map(center => center.name).join(', ');
     const color = COLORMAP.default;
-    // const logo = toolLogoMap[name];
+    const logo = toolLogoMap[name] ? toolLogoMap[name] : {uri: iconUrl };
     return (
       <View style={[AppStyles.container, AppStyles.paddingHorizontal, styles.toolItem]}>
         <View style={AppStyles.spacer_15} />
 
         <View style={styles.logoNameDesc}>
-          <Image source={{uri: iconUrl}} style={styles.logo} />
+          <Image source={logo} style={styles.logo} />
 
           <View style={styles.info}>
             <Text style={[AppStyles.latoRegular, styles.largeFont, styles.title]}>

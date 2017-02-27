@@ -23,7 +23,7 @@ export default {
   'LINCS Canvas Browser': require('./../../static/tools_logo/lincscanvasbrowser.png'),
   'LINCS Data Explorer': require('./../../static/tools_logo/lincsdataexplorer.png'),
   'LINCS Data Portal': require('./../../static/tools_logo/lincsdataportal.png'),
-  'Lincscloud Apps': require('./../../static/tools_logo/lincscloudapps.jpg'),
+  'CLUE Platform': require('./../../static/tools_logo/lincscloudapps.jpg'),
   'MEPmosaic': require('./../../static/tools_logo/mepmosaic.png'),
   'Network2Canvas': require('./../../static/tools_logo/network2canvas.png'),
   'OMERO': require('./../../static/tools_logo/omero.jpg'),
@@ -38,4 +38,9 @@ export default {
   'Slicr': require('./../../static/tools_logo/slicr.png'),
   'TieDIE': require('./../../static/tools_logo/tiedie.jpg'),
   'Touchstone': require('./../../static/tools_logo/touchstone.png'),
+  'LINCS Project Mobile': require('./../../static/tools_logo/iphone_tools_mockup.png'),
+  'Touchstone': require('./../../static/tools_logo/touchstone.png'),
+  'Morpheus': require('./../../static/tools_logo/morpheus.png'),
+  'Repurposing App': require('./../../static/tools_logo/repurposing.png'),
+  'ICV App': require('./../../static/tools_logo/icv.png'),
 };
