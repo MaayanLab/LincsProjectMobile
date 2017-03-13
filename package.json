@@ -16,6 +16,7 @@
     "react-native-accordion": "https://github.com/NedYork/react-native-accordion/tarball/master",
     "react-native-action-button": "^2.0.16",
     "react-native-circular-progress": "0.0.7",
+    "react-native-code-push": "^1.17.2-beta",
     "react-native-icon-checkbox": "^1.2.0",
     "react-native-navbar": "^1.5.4",
     "react-native-side-menu": "^0.20.1",
