@@ -16,7 +16,7 @@ Android -
 3) Run `react-native run-android`
 
 ## Learning the Codebase
-There are a number of technologies you need to learn in order to manage this website. We **strongly** recommend you go through the React and MobX tutorials before proceeding any further. Some cursory knowledge of [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript) is useful for mentally parsing the code, but you can probably pick this up along the way.
+There are a number of technologies you need to learn in order to manage this website. We **strongly** recommend you go through the React and Redux tutorials before proceeding any further. Some cursory knowledge of [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript) is useful for mentally parsing the code, but you can probably pick this up along the way.
 
 ### Client side
 
@@ -27,8 +27,8 @@ There are a number of technologies you need to learn in order to manage this web
 - React Native
   - React/React Native are JavaScript libraries for modularizing user interfaces into easy-to-manage components. Each component is a combination of JavaScript and HTML, which makes it easy to see the data, behavior, and view all in a single file. React handles rendering the component through the lifecycle of the application.
   - [Facebook's React tutorial](https://facebook.github.io/react/docs/tutorial.html) is a good place to start.
-- MobX
-  - MobX is a JavaScript library for making the state of an application easier to reason about. Using MobX, the state of an application is represented by a "store". Each time part of the application changes, MobX recomputes the store and React rerenders the application.
+- Redux
+  - Redux is a JavaScript library for making the state of an application easier to reason about. Using Redux, the state of an application is represented by a "store". Each time part of the application changes, Redux recomputes the store and React rerenders the application.
 
 ### Server side
   - Node
