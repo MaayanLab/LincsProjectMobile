@@ -33,9 +33,6 @@ There are a number of technologies you need to learn in order to manage this web
 ### Server side
   - Node
 
-### Deployment
-  - [Docker](https://www.docker.com/).
-
 ### Deployment:
 iOS -
 Once your version of app is ready for deployment (after testing including on physical device)
